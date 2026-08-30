@@ -1,0 +1,49 @@
+const { GoogleGenerativeAI } = require('@google/generative-ai');
+
+// Initialize the Gemini client using the key from your .env file
+const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
+
+const generateQuests = async (missingSkills) => {
+  try {
+    // We use gemini-1.5-flash and force it to return raw JSON
+    const model = genAI.getGenerativeModel({
+      model: "gemini-1.5-flash",
+      generationConfig: {
+        responseMimeType: "application/json",
+      }
+    });
+
+    const prompt = `
+      Act as an expert engineering mentor. You are guiding a student building an MVP.
+      The student needs to learn the following missing skills: ${missingSkills.join(', ')}.
+      
+      Generate exactly 3 learning projects (quests) to help them master these specific skills.
+      
+      You must return ONLY a raw JSON array containing exactly 3 objects. Do not include markdown formatting, backticks, or conversational text.
+      Each object must strictly adhere to this schema:
+      {
+        "id": "A unique string (e.g., quest-123)",
+        "title": "A concise, action-oriented title (e.g., Build a GPIO LED Controller)",
+        "objective": "1-2 sentences describing exactly what the student will build and learn.",
+        "skillsCovered": ["An array containing only skills from the provided missingSkills list"],
+        "difficulty": "Beginner or Intermediate",
+        "estimatedHours": "A number representing the estimated hours to complete"
+      }
+    `;
+
+    const result = await model.generateContent(prompt);
+    const responseText = result.response.text();
+    
+    // Convert the raw JSON string back into a usable JavaScript array
+    const quests = JSON.parse(responseText);
+    
+    return quests;
+  } catch (error) {
+    console.error("Error generating quests with Gemini:", error);
+    throw new Error("Failed to generate AI quests.");
+  }
+};
+
+module.exports = {
+  generateQuests
+};
