@@ -21,7 +21,7 @@
 
         <form id="careerForm" class="space-y-4 mb-8">
             
-            <!-- Track 1 -->
+            <!-- Track 1 (Default checked to prevent script errors) -->
             <label class="flex items-center p-4 bg-[#1f2937] border border-gray-700 rounded-2xl cursor-pointer hover:border-blue-500 transition-all duration-300 group">
                 <input type="radio" name="career_track" value="Frontend Developer" checked class="w-4 h-4 text-blue-600 bg-gray-900 border-gray-600 focus:ring-blue-500">
                 <div class="ml-4">
@@ -48,8 +48,8 @@
                 </div>
             </label>
 
-            <!-- Final Launch Button -->
-            <button type="submit" class="w-full mt-6 bg-blue-600 hover:bg-blue-500 text-white font-medium py-4 rounded-xl shadow-[0_0_20px_rgba(37,99,235,0.4)] transition-all duration-300">
+            <!-- Submit Button -->
+            <button type="submit" id="submitBtn" class="w-full mt-6 bg-blue-600 hover:bg-blue-500 text-white font-medium py-4 rounded-xl shadow-[0_0_20px_rgba(37,99,235,0.4)] transition-all duration-300 cursor-pointer">
                 Launch My Roadmap
             </button>
 
@@ -57,51 +57,32 @@
 
     </div>
 
-  <script>
-        // 1. Read the user data passed from the onboarding page
-        const userData = JSON.parse(localStorage.getItem('aroha_user_profile'));
-        if (userData) {
-            console.log("Welcome back, " + userData.fullname);
-            console.log("Current Skills: " + userData.skills);
-            console.log("Experience Level: " + userData.experience);
-        } else {
-            console.warn("No onboarding profile found. User might have skipped steps.");
-        }
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const form = document.getElementById('careerForm');
 
-        // 2. Handle the career selection form submission
-        document.getElementById('careerForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-<<<<<<< HEAD
-            const selectedCareer = document.querySelector('input[name="career"]:checked').value;
-            
-            // Combine onboarding data and the selected career into one complete profile object
-            const completeProfile = {
-                ...(userData || {}),
-                careerGoal: selectedCareer
-            };
-            
-            // Save the combined data back to localStorage for the next page or backend
-            localStorage.setItem('aroha_complete_profile', JSON.stringify(completeProfile));
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
 
-            console.log("Complete User Profile:", completeProfile);
-            alert(`Career selected: ${selectedCareer}! Ready for the next step.`);
-=======
+                // Safely read user skills saved from onboarding.html
+                let rawSkills = localStorage.getItem('user_skills');
+                let skillsArray = rawSkills ? JSON.parse(rawSkills) : ["C", "HTML", "CSS"];
 
-            // Retrieve data from Step 1
-            const name = localStorage.getItem('user_name') || 'Student';
-            const skills = JSON.parse(localStorage.getItem('user_skills') || '[]');
-            const targetRole = document.querySelector('input[name="career_track"]:checked').value;
+                // Read selected radio button
+                const selectedRadio = document.querySelector('input[name="career_track"]:checked');
+                const targetRole = selectedRadio ? selectedRadio.value : "Frontend Developer";
 
-            // Construct exact backend JSON structure
-            const payload = {
-                name: name,
-                skills: skills,
-                targetRole: targetRole
-            };
+                // Construct backend JSON payload
+                const payload = {
+                    skills: skillsArray,
+                    targetRole: targetRole
+                };
 
-            console.log("Final Backend Payload:", payload);
-            alert(`Roadmap Initialized!\n\nPayload:\n${JSON.stringify(payload, null, 2)}`);
->>>>>>> afc53d426432e0aef5bc0806f562a12a1c0ed475
+                console.log("Constructed Backend Payload:", payload);
+
+                // Alert popup to confirm it's working
+                alert(`Success! Roadmap Initialized.\n\nBackend Payload:\n${JSON.stringify(payload, null, 2)}`);
+            });
         });
     </script>
 
