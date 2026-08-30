@@ -115,53 +115,7 @@ const extractSkillsFromResume = async (pdfText) => {
   }
 };
 
- backend-dev-2
-// Function 4: Ask Aroha (chatbot mentor Q&A, grounded in the student's profile)
-const askAroha = async (question, userProfile) => {
-  try {
-    // No responseMimeType here on purpose — this endpoint must return
-    // plain conversational text, not JSON, unlike the functions above.
-    const model = genAI.getGenerativeModel({
-      model: "gemini-1.5-flash"
-    });
-
-    const {
-      readinessScore = 0,
-      matchedSkills = [],
-      missingSkills = []
-    } = userProfile || {};
-
-    const prompt = `
-      Act as Aroha, a supportive and knowledgeable engineering mentor helping a student
-      navigate their learning path. Be warm, direct, and encouraging — never generic.
-
-      STUDENT PROFILE:
-      - Readiness Score: ${readinessScore}/100
-      - Skills already matched: ${matchedSkills.length ? matchedSkills.join(', ') : 'None recorded yet'}
-      - Missing / gap skills: ${missingSkills.length ? missingSkills.join(', ') : 'None recorded'}
-
-      STUDENT'S QUESTION:
-      "${question}"
-
-      INSTRUCTIONS:
-      - Answer the student's question directly and specifically. Do not deflect or give a generic answer.
-      - Explicitly reference their current skill gaps or progress (mention at least one matched skill or missing skill by name) to ground your advice in their real profile.
-      - Keep your entire response under 4 sentences.
-      - Respond in plain text only. Do NOT return JSON, markdown formatting, or bullet lists.
-    `;
-
-    const result = await model.generateContent(prompt);
-    const rawText = result.response.text();
-
-    return rawText.trim();
-  } catch (error) {
-    console.error("Error getting response from Aroha:", error);
-    throw new Error("Failed to get a response from Aroha.");
-  }
-};
-
-// Export all four functions
-
+// Function 4: Ask Aroha (chatbot mentor Q&A)
 const askAroha = async (question, userProfile) => {
   try {
     const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
@@ -188,14 +142,9 @@ const askAroha = async (question, userProfile) => {
   }
 };
 
- main
 module.exports = {
   generateRoadmap,
   generateQuests,
   extractSkillsFromResume,
   askAroha
- backend-dev-2
 };
-
-};
- main
