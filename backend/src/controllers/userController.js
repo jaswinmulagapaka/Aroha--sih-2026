@@ -6,22 +6,9 @@
 //   2. mutate it in memory   -> same as before
 //   3. await saveUsers(...)  -> write the whole array back to disk
 
-const careers = require('../data/careers');
 const { matchSkills } = require('../services/skillService');
 const { getUsers, saveUsers } = require('../data/users');
-
-function findCareerByTitle(targetRole) {
-  if (typeof targetRole !== 'string' || targetRole.trim().length === 0) return undefined;
-  const normalized = targetRole.trim().toLowerCase();
-
-  if (Array.isArray(careers)) {
-    return careers.find((c) => c.title && c.title.trim().toLowerCase() === normalized);
-  }
-
-  const matchedKey = Object.keys(careers).find((k) => k.trim().toLowerCase() === normalized);
-  if (!matchedKey) return undefined;
-  return { title: matchedKey, requiredSkills: careers[matchedKey] };
-}
+const { findCareerByTitle } = require('../services/careerService');
 
 function calculateReadinessScore(matchedCount, requiredCount) {
   if (requiredCount === 0) return 0;
