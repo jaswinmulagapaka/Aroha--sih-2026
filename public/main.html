@@ -25,10 +25,13 @@
                 </h1>
                 <p class="text-gray-400 text-sm mt-1">Welcome back, <span id="studentName" class="text-white font-medium">Student</span>!</p>
             </div>
-            <div class="flex items-center gap-4">
-                <div class="bg-[#1f2937] border border-gray-700 px-4 py-2 rounded-xl text-sm hidden sm:block">
-                    Target Role: <span id="targetRoleDisplay" class="text-blue-400 font-semibold">Frontend Developer</span>
-                </div>
+            <div class="flex items-center gap-3">
+                <!-- 👤 Profile Icon & Portfolio Trigger Button -->
+                <button id="profileBtn" class="bg-[#1f2937] border border-gray-700 hover:border-blue-500 px-3 py-2 rounded-xl text-white flex items-center gap-2 transition-all cursor-pointer shadow-md">
+                    <div class="w-7 h-7 rounded-full bg-gradient-to-tr from-blue-500 to-purple-600 flex items-center justify-center font-bold text-xs text-white" id="profileInitial">S</div>
+                    <span class="text-xs font-semibold hidden sm:inline" id="profileNameShort">Profile & Portfolio</span>
+                </button>
+
                 <!-- 🚀 Global Quest Navigation Button -->
                 <a href="quest.html" class="px-4 py-2 bg-blue-600 hover:bg-blue-500 text-white font-semibold text-sm rounded-xl transition-all duration-200 shadow-md shadow-blue-600/20 active:scale-95 flex items-center gap-1.5">
                     <span>🎯</span> View Quests →
@@ -152,7 +155,52 @@
 
     </div>
 
-    <!-- Script Handling calculations, gauge animation, and rendering -->
+    <!-- 💼 Portfolio & Profile Modal Popup -->
+    <div id="portfolioModal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
+        <div class="bg-[#111827] border border-gray-800 rounded-3xl max-w-2xl w-full p-6 md:p-8 shadow-2xl relative max-h-[90vh] overflow-y-auto">
+            <!-- Close Button -->
+            <button id="closeModalBtn" class="absolute top-6 right-6 text-gray-400 hover:text-white bg-gray-800/50 hover:bg-gray-800 p-2 rounded-xl transition-all cursor-pointer">
+                ✕
+            </button>
+
+            <!-- Modal Header -->
+            <div class="flex items-center gap-4 mb-6 pb-6 border-b border-gray-800">
+                <div class="w-16 h-16 rounded-2xl bg-gradient-to-tr from-blue-500 to-purple-600 flex items-center justify-center font-bold text-2xl text-white shadow-lg" id="modalUserInitial">
+                    S
+                </div>
+                <div>
+                    <h2 class="text-2xl font-bold text-white" id="modalUserName">Student Name</h2>
+                    <p class="text-sm text-blue-400 font-medium mt-0.5">Target Role: <span id="modalTargetRole" class="text-white">Frontend Developer</span></p>
+                </div>
+            </div>
+
+            <!-- Onboarding & Career Details Section -->
+            <div class="bg-[#1f2937]/40 border border-gray-800 rounded-2xl p-4 mb-6 space-y-2">
+                <h3 class="text-xs font-bold text-blue-400 uppercase tracking-wider mb-2">👤 Onboarding & Career Data</h3>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm text-gray-300">
+                    <div><strong>Baseline Skills:</strong> <span id="modalBaselineSkills" class="text-gray-400">-</span></div>
+                    <div><strong>Target Goal:</strong> <span id="modalTargetGoal" class="text-gray-400">-</span></div>
+                </div>
+            </div>
+
+            <!-- Portfolio Projects / Proof Section -->
+            <div class="space-y-4">
+                <div class="flex items-center justify-between">
+                    <h3 class="text-lg font-bold text-white flex items-center gap-2">
+                        <span>🏆</span> My Proof & Portfolio
+                    </h3>
+                    <span class="text-xs bg-emerald-950/60 text-emerald-400 border border-emerald-800/50 px-2.5 py-1 rounded-lg">Verified Competencies</span>
+                </div>
+                <p class="text-xs text-gray-400">Projects and verified skills mapped from your Aroha roadmap progress.</p>
+                
+                <div id="portfolioProjectsList" class="space-y-3 pt-2">
+                    <!-- Populated dynamically -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Script Handling calculations, gauge animation, modal functionality, and rendering -->
     <script>
     document.addEventListener('DOMContentLoaded', () => {
 
@@ -161,12 +209,19 @@
         const profile = storedProfile ? JSON.parse(storedProfile) : {
             name: localStorage.getItem('user_name') || 'Jaswin',
             skills: JSON.parse(localStorage.getItem('user_skills') || '["C", "HTML", "CSS"]'),
-            targetRole: "Frontend Developer"
+            targetRole: localStorage.getItem('target_role') || "Frontend Developer"
         };
 
-        // Update Header Text
-        document.getElementById('studentName').textContent = profile.name;
-        document.getElementById('targetRoleDisplay').textContent = profile.targetRole;
+        const userName = profile.name || 'Student';
+        const targetRole = profile.targetRole || "Frontend Developer";
+        const currentSkills = profile.skills || [];
+
+        // Update Header Text & Profile Pill
+        document.getElementById('studentName').textContent = userName;
+        document.getElementById('profileNameShort').textContent = userName;
+        document.getElementById('targetRoleDisplay').textContent = targetRole;
+        const initialChar = userName.charAt(0).toUpperCase();
+        document.getElementById('profileInitial').textContent = initialChar;
 
         // 2. Target Role Skill Requirements Database
         const roleRequirements = {
@@ -175,8 +230,7 @@
             "Data Analyst": ["Python", "SQL", "Pandas", "Tableau", "Git", "Statistics"]
         };
 
-        const requiredSkills = roleRequirements[profile.targetRole] || roleRequirements["Frontend Developer"];
-        const currentSkills = profile.skills || [];
+        const requiredSkills = roleRequirements[targetRole] || roleRequirements["Frontend Developer"];
 
         // 3. Match Calculation Logic
         const matchedSkills = requiredSkills.filter(skill => 
@@ -189,7 +243,7 @@
 
         // 5. Render AI Analysis (Step 5)
         document.getElementById('gapExplanation').textContent = 
-            `Based on your target role as a ${profile.targetRole}, you currently match ${matchedSkills.length} out of ${requiredSkills.length} core competencies. Focus on mastering the ${missingSkills.length} missing skill areas below to achieve full job readiness.`;
+            `Based on your target role as a ${targetRole}, you currently match ${matchedSkills.length} out of ${requiredSkills.length} core competencies. Focus on mastering the ${missingSkills.length} missing skill areas below to achieve full job readiness.`;
 
         document.getElementById('matchedSkillsList').innerHTML = matchedSkills.length > 0 
             ? matchedSkills.map(s => `<li class="flex items-center gap-2 text-emerald-300"><span class="text-emerald-500 font-bold">✓</span> ${s}</li>`).join('')
@@ -209,22 +263,17 @@
             document.getElementById('scoreRatioText').textContent = `${matchedSkills.length} / ${requiredSkills.length} Skills`;
             
             const statusBadge = document.getElementById('readinessStatus');
-            
-            // Remove previous stroke color classes
             gaugeRing.classList.remove('text-blue-500', 'text-red-500', 'text-amber-500', 'text-emerald-500');
 
             if (scorePercentage >= 85) {
-                // 🟢 GREEN — Ready (85%+)
                 gaugeRing.classList.add('text-emerald-500');
                 statusBadge.textContent = '🟢 Ready';
                 statusBadge.className = 'mt-4 text-xs font-semibold px-3 py-1.5 rounded-xl bg-emerald-950/60 text-emerald-400 border border-emerald-800/50';
             } else if (scorePercentage >= 41) {
-                // 🟠 AMBER — Developing (41% - 84%)
                 gaugeRing.classList.add('text-amber-500');
                 statusBadge.textContent = '🟠 Developing';
                 statusBadge.className = 'mt-4 text-xs font-semibold px-3 py-1.5 rounded-xl bg-amber-950/60 text-amber-400 border border-amber-800/50';
             } else {
-                // 🔴 RED — Skill Gap (0% - 40%)
                 gaugeRing.classList.add('text-red-500');
                 statusBadge.textContent = '🔴 Skill Gap';
                 statusBadge.className = 'mt-4 text-xs font-semibold px-3 py-1.5 rounded-xl bg-red-950/60 text-red-400 border border-red-800/50';
@@ -250,7 +299,7 @@
             `;
         }).join('');
 
-        // 8. Render Personalized Sequential Roadmap (with dynamic redirect buttons)
+        // 8. Render Personalized Sequential Roadmap
         const roadmapSteps = missingSkills.length > 0 
             ? [...missingSkills, "Build Comprehensive Full Project"]
             : ["Advanced Mastery & Architecture", "Build Full Project", "Interview Preparation"];
@@ -275,6 +324,50 @@
                 </div>
             `;
         }).join('');
+
+        // 9. Portfolio Modal Interactions & Data Populating
+        const profileBtn = document.getElementById('profileBtn');
+        const portfolioModal = document.getElementById('portfolioModal');
+        const closeModalBtn = document.getElementById('closeModalBtn');
+
+        profileBtn.addEventListener('click', () => {
+            // Populate Modal dynamic fields from storage / profile data
+            document.getElementById('modalUserName').textContent = userName;
+            document.getElementById('modalUserInitial').textContent = initialChar;
+            document.getElementById('modalTargetRole').textContent = targetRole;
+            document.getElementById('modalBaselineSkills').textContent = currentSkills.join(', ') || 'None specified';
+            document.getElementById('modalTargetGoal').textContent = targetRole;
+
+            // Render Portfolio Projects / Proof Based on Matched Skills
+            const portfolioProjectsList = document.getElementById('portfolioProjectsList');
+            const demoProjects = matchedSkills.length > 0 ? matchedSkills.map(skill => ({
+                title: `${skill} Verified Module & Application`,
+                skills: [skill, targetRole.split(' ')[0]]
+            })) : [{ title: "Initial Onboarding Assessment", skills: ["Foundations"] }];
+
+            portfolioProjectsList.innerHTML = demoProjects.map(proj => `
+                <div class="bg-[#1f2937]/60 border border-gray-800 rounded-2xl p-4 flex items-center justify-between">
+                    <div>
+                        <h4 class="font-semibold text-white text-sm">✓ ${proj.title}</h4>
+                        <p class="text-xs text-gray-400 mt-1">Skills Demonstrated: <span class="text-blue-400 font-medium">${proj.skills.join(', ')}</span></p>
+                    </div>
+                    <span class="text-xs bg-blue-950/80 text-blue-300 border border-blue-800/50 px-2.5 py-1 rounded-lg font-medium">Verified</span>
+                </div>
+            `).join('');
+
+            portfolioModal.classList.remove('hidden');
+        });
+
+        closeModalBtn.addEventListener('click', () => {
+            portfolioModal.classList.add('hidden');
+        });
+
+        // Close modal when clicking outside the content box
+        portfolioModal.addEventListener('click', (e) => {
+            if (e.target === portfolioModal) {
+                portfolioModal.classList.add('hidden');
+            }
+        });
 
     });
 </script>
