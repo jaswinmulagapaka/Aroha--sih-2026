@@ -115,33 +115,44 @@ const extractSkillsFromResume = async (pdfText) => {
   }
 };
 
-// Function 4: Ask Aroha (chatbot mentor Q&A)
-const askAroha = async (question, userProfile) => {
+// Function 4: Chat with Aroha (career/coding Q&A grounded in the user's profile)
+//
+// This is the piece chatController.js was already calling as
+// `askAroha(question, user)` — it just didn't exist yet, so every
+// POST /api/chat request was throwing "askAroha is not a function".
+const askAroha = async (question, user) => {
   try {
     const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 
     const prompt = `
-      Act as a supportive engineering mentor named Aroha.
-      Your student has asked the following question: "${question}"
-      
-      Here is their current profile context:
-      - Readiness Score: ${userProfile.readinessScore || 0}%
-      - Matched Skills: ${(userProfile.matchedSkills || []).join(', ') || 'None yet'}
-      - Missing Skills: ${(userProfile.missingSkills || []).join(', ') || 'None yet'}
-      
-      Answer the question directly. Keep your response under 4 sentences. 
-      You must explicitly reference their current skill gaps or progress in your answer based on the profile context provided.
-      Return plain text only without markdown formatting.
+      You are Aroha, a friendly and encouraging career/coding mentor chatbot.
+
+      Here is what you know about the student you're talking to:
+      - Name: ${user.name}
+      - Target role: ${user.targetRole}
+      - Current skills: ${Array.isArray(user.currentSkills) ? user.currentSkills.join(', ') : 'unknown'}
+      - Missing skills: ${Array.isArray(user.missingSkills) ? user.missingSkills.join(', ') : 'unknown'}
+      - Readiness score: ${typeof user.readinessScore === 'number' ? user.readinessScore : 'unknown'}%
+
+      The student asked:
+      "${question}"
+
+      Answer clearly and concisely (a few sentences, plain text — no markdown
+      formatting, no code fences), tailoring your advice to their target role
+      and skill gaps where it's relevant. If the question isn't related to
+      their career/coding journey, answer it briefly and kindly redirect them
+      back to their learning goals.
     `;
 
     const result = await model.generateContent(prompt);
     return result.response.text().trim();
   } catch (error) {
-    console.error("Error in askAroha AI service:", error);
-    throw new Error("Failed to generate mentor response.");
+    console.error("Error getting chat response from Gemini:", error);
+    throw new Error("Failed to get a response from Aroha.");
   }
 };
 
+// Export all four functions
 module.exports = {
   generateRoadmap,
   generateQuests,

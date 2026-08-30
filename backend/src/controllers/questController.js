@@ -9,21 +9,8 @@
 // This file does NOT implement or mock aiService.js.
 
 const { getUsers, saveUsers } = require('../data/users');
-const careers = require('../data/careers');
 const { generateRoadmap, generateQuests } = require('../services/aiService');
-
-function findCareerByTitle(targetRole) {
-  if (typeof targetRole !== 'string' || targetRole.trim().length === 0) return undefined;
-  const normalized = targetRole.trim().toLowerCase();
-
-  if (Array.isArray(careers)) {
-    return careers.find((c) => c.title && c.title.trim().toLowerCase() === normalized);
-  }
-
-  const matchedKey = Object.keys(careers).find((k) => k.trim().toLowerCase() === normalized);
-  if (!matchedKey) return undefined;
-  return { title: matchedKey, requiredSkills: careers[matchedKey] };
-}
+const { findCareerByTitle } = require('../services/careerService');
 
 function normalizeSkill(skill) {
   return String(skill).trim().toLowerCase();
