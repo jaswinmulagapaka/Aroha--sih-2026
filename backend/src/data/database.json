@@ -1,5 +1,6 @@
 [
   {
+<<<<<<< HEAD
     "id": "1788084518182",
     "name": "Jaswin",
     "targetRole": "Embedded Systems Engineer",
@@ -21,6 +22,9 @@
   },
   {
     "id": "1788084536021",
+=======
+    "id": "1788084730529",
+>>>>>>> backend-dev1
     "name": "Jaswin",
     "targetRole": "Embedded Systems Engineer",
     "currentSkills": [
@@ -39,10 +43,17 @@
     ],
     "readinessScore": 0,
     "completedQuests": [],
+<<<<<<< HEAD
     "createdAt": "2026-08-30T10:08:56.021Z"
   },
   {
     "id": "1788085236695",
+=======
+    "createdAt": "2026-08-30T10:12:10.529Z"
+  },
+  {
+    "id": "1788084911128",
+>>>>>>> backend-dev1
     "name": "Jaswin",
     "targetRole": "Embedded Systems Engineer",
     "currentSkills": [],
@@ -59,6 +70,7 @@
     ],
     "readinessScore": 0,
     "completedQuests": [],
+<<<<<<< HEAD
     "createdAt": "2026-08-30T10:20:36.695Z"
   },
   {
@@ -97,13 +109,326 @@
       "C",
       "Pointers",
       "Embedded C",
+=======
+    "createdAt": "2026-08-30T10:15:11.128Z"
+  },
+  {
+    "id": "1788086484863",
+    "name": "Jaswin",
+    "targetRole": "Embedded Systems Engineer",
+    "currentSkills": [
+      "CSS"
+    ],
+    "matchedSkills": [],
+    "missingSkills": [
+      "C",
+      "Pointers",
+      "Embedded C",
+      "Microcontrollers",
       "UART",
       "SPI",
       "I2C",
       "RTOS"
     ],
+    "readinessScore": 0,
+    "completedQuests": [],
+    "createdAt": "2026-08-30T10:41:24.863Z"
+  },
+  {
+    "id": "1788087006902",
+    "name": "Jaswin",
+    "targetRole": "Embedded Systems Engineer",
+    "currentSkills": [
+      "JavaScript"
+    ],
+    "matchedSkills": [],
+    "missingSkills": [
+      "C",
+      "Pointers",
+      "Embedded C",
+      "Microcontrollers",
+      "UART",
+      "SPI",
+      "I2C",
+      "RTOS"
+    ],
+    "readinessScore": 0,
+    "completedQuests": [],
+    "createdAt": "2026-08-30T10:50:06.902Z"
+  },
+  {
+    "id": "1788087175656",
+    "name": "Jaswin",
+    "targetRole": "Embedded Systems Engineer",
+    "currentSkills": [
+      "Embedded C"
+    ],
+    "matchedSkills": [
+      "Embedded C",
+      "C",
+      "Microcontrollers"
+    ],
+    "missingSkills": [
+      "Pointers",
+>>>>>>> backend-dev1
+      "UART",
+      "SPI",
+      "I2C",
+      "RTOS"
+    ],
+<<<<<<< HEAD
     "readinessScore": 13,
     "completedQuests": [],
     "createdAt": "2026-08-30T10:27:31.413Z"
+=======
+    "readinessScore": 38,
+    "completedQuests": [
+      {
+        "id": "quest-001",
+        "title": "Build a LED Blink Program",
+        "objective": "Write a C program to control an LED on a microcontroller using GPIO pins. Learn basic digital output control.",
+        "skillsCovered": [
+          "C",
+          "Embedded C",
+          "Microcontrollers"
+        ],
+        "difficulty": "Beginner",
+        "estimatedHours": 2,
+        "completed": true
+      }
+    ],
+    "createdAt": "2026-08-30T10:52:55.656Z",
+    "analysis": {
+      "matchedSkills": [
+        "Embedded C",
+        "C",
+        "Microcontrollers"
+      ],
+      "missingSkills": [
+        "Pointers",
+        "UART",
+        "SPI",
+        "I2C",
+        "RTOS"
+      ],
+      "readinessScore": 38
+    },
+    "quests": [
+      {
+        "id": "quest-001",
+        "title": "Build a LED Blink Program",
+        "objective": "Write a C program to control an LED on a microcontroller using GPIO pins. Learn basic digital output control.",
+        "skillsCovered": [
+          "C",
+          "Embedded C",
+          "Microcontrollers"
+        ],
+        "difficulty": "Beginner",
+        "estimatedHours": 2,
+        "completed": true
+      },
+      {
+        "id": "quest-002",
+        "title": "Implement a Timer Interrupt Handler",
+        "objective": "Create a timer-based interrupt handler on a microcontroller. Understand interrupts and real-time event handling.",
+        "skillsCovered": [
+          "Embedded C",
+          "Microcontrollers",
+          "RTOS"
+        ],
+        "difficulty": "Intermediate",
+        "estimatedHours": 4,
+        "completed": false
+      },
+      {
+        "id": "quest-003",
+        "title": "Master UART Communication",
+        "objective": "Implement UART protocol to enable serial communication between a microcontroller and a computer. Debug using serial output.",
+        "skillsCovered": [
+          "UART",
+          "SPI",
+          "I2C",
+          "Embedded C"
+        ],
+        "difficulty": "Intermediate",
+        "estimatedHours": 3,
+        "completed": false
+      }
+    ]
+  },
+  {
+    "id": "1788088193451",
+    "name": "Jaswin",
+    "targetRole": "Embedded Systems Engineer",
+    "currentSkills": [
+      "HTML"
+    ],
+    "matchedSkills": [
+      "C",
+      "Embedded C",
+      "Microcontrollers"
+    ],
+    "missingSkills": [
+      "Pointers",
+      "UART",
+      "SPI",
+      "I2C",
+      "RTOS"
+    ],
+    "readinessScore": 38,
+    "completedQuests": [
+      {
+        "id": "quest-001",
+        "title": "Build a LED Blink Program",
+        "objective": "Write a C program to control an LED on a microcontroller using GPIO pins. Learn basic digital output control.",
+        "skillsCovered": [
+          "C",
+          "Embedded C",
+          "Microcontrollers"
+        ],
+        "difficulty": "Beginner",
+        "estimatedHours": 2,
+        "completed": true
+      }
+    ],
+    "createdAt": "2026-08-30T11:09:53.451Z",
+    "analysis": {
+      "matchedSkills": [
+        "C",
+        "Embedded C",
+        "Microcontrollers"
+      ],
+      "missingSkills": [
+        "Pointers",
+        "UART",
+        "SPI",
+        "I2C",
+        "RTOS"
+      ],
+      "readinessScore": 38
+    },
+    "quests": [
+      {
+        "id": "quest-001",
+        "title": "Build a LED Blink Program",
+        "objective": "Write a C program to control an LED on a microcontroller using GPIO pins. Learn basic digital output control.",
+        "skillsCovered": [
+          "C",
+          "Embedded C",
+          "Microcontrollers"
+        ],
+        "difficulty": "Beginner",
+        "estimatedHours": 2,
+        "completed": true
+      },
+      {
+        "id": "quest-002",
+        "title": "Implement a Timer Interrupt Handler",
+        "objective": "Create a timer-based interrupt handler on a microcontroller. Understand interrupts and real-time event handling.",
+        "skillsCovered": [
+          "Embedded C",
+          "Microcontrollers",
+          "RTOS"
+        ],
+        "difficulty": "Intermediate",
+        "estimatedHours": 4,
+        "completed": false
+      },
+      {
+        "id": "quest-003",
+        "title": "Master UART Communication",
+        "objective": "Implement UART protocol to enable serial communication between a microcontroller and a computer. Debug using serial output.",
+        "skillsCovered": [
+          "UART",
+          "SPI",
+          "I2C",
+          "Embedded C"
+        ],
+        "difficulty": "Intermediate",
+        "estimatedHours": 3,
+        "completed": false
+      }
+    ]
+  },
+  {
+    "id": "1788088601062",
+    "name": "Jaswin",
+    "targetRole": "Embedded Systems Engineer",
+    "currentSkills": [
+      "CSS",
+      "JavaScript",
+      "HTML"
+    ],
+    "matchedSkills": [],
+    "missingSkills": [
+      "C",
+      "Pointers",
+      "Embedded C",
+      "Microcontrollers",
+      "UART",
+      "SPI",
+      "I2C",
+      "RTOS"
+    ],
+    "readinessScore": 0,
+    "completedQuests": [],
+    "createdAt": "2026-08-30T11:16:41.062Z",
+    "analysis": {
+      "matchedSkills": [],
+      "missingSkills": [
+        "C",
+        "Pointers",
+        "Embedded C",
+        "Microcontrollers",
+        "UART",
+        "SPI",
+        "I2C",
+        "RTOS"
+      ],
+      "readinessScore": 0
+    },
+    "quests": [
+      {
+        "id": "quest-emb-001",
+        "title": "Build a LED Blink Program",
+        "objective": "Write a C program to control an LED on a microcontroller using GPIO pins. Learn basic digital output control.",
+        "skillsCovered": [
+          "C",
+          "Embedded C",
+          "Microcontrollers"
+        ],
+        "difficulty": "Beginner",
+        "estimatedHours": 2,
+        "completed": false
+      },
+      {
+        "id": "quest-emb-002",
+        "title": "Implement a Timer Interrupt Handler",
+        "objective": "Create a timer-based interrupt handler on a microcontroller. Understand interrupts and real-time event handling.",
+        "skillsCovered": [
+          "Embedded C",
+          "Microcontrollers",
+          "RTOS"
+        ],
+        "difficulty": "Intermediate",
+        "estimatedHours": 4,
+        "completed": false
+      },
+      {
+        "id": "quest-emb-003",
+        "title": "Master UART Communication",
+        "objective": "Implement UART protocol to enable serial communication between a microcontroller and a computer. Debug using serial output.",
+        "skillsCcovered": [
+          "UART",
+          "SPI",
+          "I2C",
+          "Embedded C"
+        ],
+        "difficulty": "Intermediate",
+        "estimatedHours": 3,
+        "completed": false
+      }
+    ]
+>>>>>>> backend-dev1
   }
 ]
