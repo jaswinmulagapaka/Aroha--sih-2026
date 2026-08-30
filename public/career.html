@@ -57,34 +57,37 @@
 
     </div>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const form = document.getElementById('careerForm');
+   <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const form = document.getElementById('careerForm');
 
-            form.addEventListener('submit', function(e) {
-                e.preventDefault();
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
 
-                // Safely read user skills saved from onboarding.html
-                let rawSkills = localStorage.getItem('user_skills');
-                let skillsArray = rawSkills ? JSON.parse(rawSkills) : ["C", "HTML", "CSS"];
+            // 1. Read stored name & skills from onboarding.html
+            const name = localStorage.getItem('user_name') || 'Jaswin';
+            let rawSkills = localStorage.getItem('user_skills');
+            let skillsArray = rawSkills ? JSON.parse(rawSkills) : ["C", "HTML", "CSS"];
 
-                // Read selected radio button
-                const selectedRadio = document.querySelector('input[name="career_track"]:checked');
-                const targetRole = selectedRadio ? selectedRadio.value : "Frontend Developer";
+            // 2. Read selected career track
+            const selectedRadio = document.querySelector('input[name="career_track"]:checked');
+            const targetRole = selectedRadio ? selectedRadio.value : "Frontend Developer";
 
-                // Construct backend JSON payload
-                const payload = {
-                    skills: skillsArray,
-                    targetRole: targetRole
-                };
+            // 3. Construct backend payload object
+            const payload = {
+                name: name,
+                skills: skillsArray,
+                targetRole: targetRole
+            };
 
-                console.log("Constructed Backend Payload:", payload);
+            // 4. Save combined profile to localStorage for main.html to read
+            localStorage.setItem('aroha_complete_profile', JSON.stringify(payload));
 
-                // Alert popup to confirm it's working
-                alert(`Success! Roadmap Initialized.\n\nBackend Payload:\n${JSON.stringify(payload, null, 2)}`);
-            });
+            // 5. REDIRECT DIRECTLY TO MAIN.HTML
+            window.location.href = 'main.html';
         });
-    </script>
+    });
+</script>
 
 </body>
 </html>
