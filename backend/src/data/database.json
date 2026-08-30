@@ -469,5 +469,479 @@
         "completed": false
       }
     ]
+  },
+  {
+    "id": "1788091580578",
+    "name": "Jaswin",
+    "targetRole": "Frontend Developer",
+    "currentSkills": [
+      "HTML",
+      "JavaScript"
+    ],
+    "matchedSkills": [
+      "HTML",
+      "JavaScript"
+    ],
+    "missingSkills": [
+      "CSS",
+      "Git",
+      "React",
+      "REST APIs"
+    ],
+    "readinessScore": 33,
+    "completedQuests": [],
+    "createdAt": "2026-08-30T12:06:20.578Z",
+    "analysis": {
+      "matchedSkills": [
+        "HTML",
+        "JavaScript"
+      ],
+      "missingSkills": [
+        "CSS",
+        "Git",
+        "React",
+        "REST APIs"
+      ],
+      "readinessScore": 33
+    },
+    "quests": [
+      {
+        "id": "quest-web-001",
+        "title": "Build a Responsive Portfolio Website",
+        "objective": "Create a personal portfolio using HTML, CSS, and JavaScript. Include projects section, about me, and contact form. Make it mobile-responsive.",
+        "skillsCovered": [
+          "HTML",
+          "CSS",
+          "JavaScript",
+          "Responsive Design"
+        ],
+        "microSkills": [
+          "Semantic HTML5 structure",
+          "Flexbox & CSS Grid layouts",
+          "CSS media queries",
+          "Mobile-first design",
+          "JavaScript DOM manipulation",
+          "Form validation",
+          "Accessibility (ARIA labels)",
+          "CSS animations"
+        ],
+        "difficulty": "Beginner",
+        "estimatedHours": 5,
+        "completed": false
+      },
+      {
+        "id": "quest-web-002",
+        "title": "Create an Interactive Todo App",
+        "objective": "Build a fully functional todo list with add, delete, edit, and mark-complete features using vanilla JavaScript and localStorage.",
+        "skillsCovered": [
+          "JavaScript",
+          "DOM Manipulation",
+          "Event Handling",
+          "localStorage"
+        ],
+        "microSkills": [
+          "Event listeners (click, input)",
+          "DOM element creation & manipulation",
+          "Array methods (map, filter, splice)",
+          "localStorage API",
+          "JSON stringify/parse",
+          "ES6 template literals",
+          "Function closures",
+          "Error handling",
+          "CSS class toggling"
+        ],
+        "difficulty": "Intermediate",
+        "estimatedHours": 4,
+        "completed": false
+      },
+      {
+        "id": "quest-web-003",
+        "title": "Master CSS Grid & Flexbox Layouts",
+        "objective": "Create a complex dashboard-style UI using CSS Grid and Flexbox. Build multiple responsive card layouts and navigation menus.",
+        "skillsCovered": [
+          "CSS",
+          "Flexbox",
+          "CSS Grid",
+          "Layout Design"
+        ],
+        "microSkills": [
+          "Flexbox properties (justify-content, align-items)",
+          "CSS Grid template areas",
+          "Responsive grid columns",
+          "Gap & margin handling",
+          "CSS custom properties (variables)",
+          "Responsive typography",
+          "Mobile menu toggle",
+          "Nested flexbox/grid",
+          "CSS calc() function"
+        ],
+        "difficulty": "Intermediate",
+        "estimatedHours": 3,
+        "completed": false
+      }
+    ]
+  },
+  {
+    "id": "1788091739938",
+    "name": "Jaswin",
+    "targetRole": "Frontend Developer",
+    "currentSkills": [
+      "JavaScript",
+      "CSS"
+    ],
+    "matchedSkills": [
+      "CSS",
+      "JavaScript",
+      "DOM Manipulation",
+      "Event Handling",
+      "localStorage"
+    ],
+    "missingSkills": [
+      "HTML",
+      "Git",
+      "React",
+      "REST APIs"
+    ],
+    "readinessScore": 83,
+    "completedQuests": [
+      {
+        "id": "quest-web-002",
+        "title": "Create an Interactive Todo App",
+        "objective": "Build a fully functional todo list with add, delete, edit, and mark-complete features using vanilla JavaScript and localStorage.",
+        "skillsCovered": [
+          "JavaScript",
+          "DOM Manipulation",
+          "Event Handling",
+          "localStorage"
+        ],
+        "microSkills": [
+          "Event listeners (click, input)",
+          "DOM element creation & manipulation",
+          "Array methods (map, filter, splice)",
+          "localStorage API",
+          "JSON stringify/parse",
+          "ES6 template literals",
+          "Function closures",
+          "Error handling",
+          "CSS class toggling"
+        ],
+        "difficulty": "Intermediate",
+        "estimatedHours": 4,
+        "completed": true
+      }
+    ],
+    "createdAt": "2026-08-30T12:08:59.938Z",
+    "analysis": {
+      "matchedSkills": [
+        "CSS",
+        "JavaScript",
+        "DOM Manipulation",
+        "Event Handling",
+        "localStorage"
+      ],
+      "missingSkills": [
+        "HTML",
+        "Git",
+        "React",
+        "REST APIs"
+      ],
+      "readinessScore": 83
+    },
+    "quests": [
+      {
+        "id": "quest-web-001",
+        "title": "Build a Responsive Portfolio Website",
+        "objective": "Create a personal portfolio using HTML, CSS, and JavaScript. Include projects section, about me, and contact form. Make it mobile-responsive.",
+        "skillsCovered": [
+          "HTML",
+          "CSS",
+          "JavaScript",
+          "Responsive Design"
+        ],
+        "microSkills": [
+          "Semantic HTML5 structure",
+          "Flexbox & CSS Grid layouts",
+          "CSS media queries",
+          "Mobile-first design",
+          "JavaScript DOM manipulation",
+          "Form validation",
+          "Accessibility (ARIA labels)",
+          "CSS animations"
+        ],
+        "difficulty": "Beginner",
+        "estimatedHours": 5,
+        "completed": false
+      },
+      {
+        "id": "quest-web-002",
+        "title": "Create an Interactive Todo App",
+        "objective": "Build a fully functional todo list with add, delete, edit, and mark-complete features using vanilla JavaScript and localStorage.",
+        "skillsCovered": [
+          "JavaScript",
+          "DOM Manipulation",
+          "Event Handling",
+          "localStorage"
+        ],
+        "microSkills": [
+          "Event listeners (click, input)",
+          "DOM element creation & manipulation",
+          "Array methods (map, filter, splice)",
+          "localStorage API",
+          "JSON stringify/parse",
+          "ES6 template literals",
+          "Function closures",
+          "Error handling",
+          "CSS class toggling"
+        ],
+        "difficulty": "Intermediate",
+        "estimatedHours": 4,
+        "completed": true
+      },
+      {
+        "id": "quest-web-003",
+        "title": "Master CSS Grid & Flexbox Layouts",
+        "objective": "Create a complex dashboard-style UI using CSS Grid and Flexbox. Build multiple responsive card layouts and navigation menus.",
+        "skillsCovered": [
+          "CSS",
+          "Flexbox",
+          "CSS Grid",
+          "Layout Design"
+        ],
+        "microSkills": [
+          "Flexbox properties (justify-content, align-items)",
+          "CSS Grid template areas",
+          "Responsive grid columns",
+          "Gap & margin handling",
+          "CSS custom properties (variables)",
+          "Responsive typography",
+          "Mobile menu toggle",
+          "Nested flexbox/grid",
+          "CSS calc() function"
+        ],
+        "difficulty": "Intermediate",
+        "estimatedHours": 3,
+        "completed": false
+      }
+    ]
+  },
+  {
+    "id": "1788091824867",
+    "name": "Jaswin",
+    "targetRole": "Frontend Developer",
+    "currentSkills": [
+      "CSS"
+    ],
+    "matchedSkills": [
+      "CSS"
+    ],
+    "missingSkills": [
+      "HTML",
+      "JavaScript",
+      "Git",
+      "React",
+      "REST APIs"
+    ],
+    "readinessScore": 17,
+    "completedQuests": [],
+    "createdAt": "2026-08-30T12:10:24.867Z",
+    "analysis": {
+      "matchedSkills": [
+        "CSS"
+      ],
+      "missingSkills": [
+        "HTML",
+        "JavaScript",
+        "Git",
+        "React",
+        "REST APIs"
+      ],
+      "readinessScore": 17
+    },
+    "quests": [
+      {
+        "id": "quest-web-001",
+        "title": "Build a Responsive Portfolio Website",
+        "objective": "Create a personal portfolio using HTML, CSS, and JavaScript. Include projects section, about me, and contact form. Make it mobile-responsive.",
+        "skillsCovered": [
+          "HTML",
+          "CSS",
+          "JavaScript",
+          "Responsive Design"
+        ],
+        "microSkills": [
+          "Semantic HTML5 structure",
+          "Flexbox & CSS Grid layouts",
+          "CSS media queries",
+          "Mobile-first design",
+          "JavaScript DOM manipulation",
+          "Form validation",
+          "Accessibility (ARIA labels)",
+          "CSS animations"
+        ],
+        "difficulty": "Beginner",
+        "estimatedHours": 5,
+        "completed": false
+      },
+      {
+        "id": "quest-web-002",
+        "title": "Create an Interactive Todo App",
+        "objective": "Build a fully functional todo list with add, delete, edit, and mark-complete features using vanilla JavaScript and localStorage.",
+        "skillsCovered": [
+          "JavaScript",
+          "DOM Manipulation",
+          "Event Handling",
+          "localStorage"
+        ],
+        "microSkills": [
+          "Event listeners (click, input)",
+          "DOM element creation & manipulation",
+          "Array methods (map, filter, splice)",
+          "localStorage API",
+          "JSON stringify/parse",
+          "ES6 template literals",
+          "Function closures",
+          "Error handling",
+          "CSS class toggling"
+        ],
+        "difficulty": "Intermediate",
+        "estimatedHours": 4,
+        "completed": false
+      },
+      {
+        "id": "quest-web-003",
+        "title": "Master CSS Grid & Flexbox Layouts",
+        "objective": "Create a complex dashboard-style UI using CSS Grid and Flexbox. Build multiple responsive card layouts and navigation menus.",
+        "skillsCovered": [
+          "CSS",
+          "Flexbox",
+          "CSS Grid",
+          "Layout Design"
+        ],
+        "microSkills": [
+          "Flexbox properties (justify-content, align-items)",
+          "CSS Grid template areas",
+          "Responsive grid columns",
+          "Gap & margin handling",
+          "CSS custom properties (variables)",
+          "Responsive typography",
+          "Mobile menu toggle",
+          "Nested flexbox/grid",
+          "CSS calc() function"
+        ],
+        "difficulty": "Intermediate",
+        "estimatedHours": 3,
+        "completed": false
+      }
+    ]
+  },
+  {
+    "id": "1788092021264",
+    "name": "Jaswin",
+    "targetRole": "Frontend Developer",
+    "currentSkills": [
+      "CSS"
+    ],
+    "matchedSkills": [
+      "CSS"
+    ],
+    "missingSkills": [
+      "HTML",
+      "JavaScript",
+      "Git",
+      "React",
+      "REST APIs"
+    ],
+    "readinessScore": 17,
+    "completedQuests": [],
+    "createdAt": "2026-08-30T12:13:41.264Z",
+    "analysis": {
+      "matchedSkills": [
+        "CSS"
+      ],
+      "missingSkills": [
+        "HTML",
+        "JavaScript",
+        "Git",
+        "React",
+        "REST APIs"
+      ],
+      "readinessScore": 17
+    },
+    "quests": [
+      {
+        "id": "quest-web-001",
+        "title": "Build a Responsive Portfolio Website",
+        "objective": "Create a personal portfolio using HTML, CSS, and JavaScript. Include projects section, about me, and contact form. Make it mobile-responsive.",
+        "skillsCovered": [
+          "HTML",
+          "CSS",
+          "JavaScript",
+          "Responsive Design"
+        ],
+        "microSkills": [
+          "Semantic HTML5 structure",
+          "Flexbox & CSS Grid layouts",
+          "CSS media queries",
+          "Mobile-first design",
+          "JavaScript DOM manipulation",
+          "Form validation",
+          "Accessibility (ARIA labels)",
+          "CSS animations"
+        ],
+        "difficulty": "Beginner",
+        "estimatedHours": 5,
+        "completed": false
+      },
+      {
+        "id": "quest-web-002",
+        "title": "Create an Interactive Todo App",
+        "objective": "Build a fully functional todo list with add, delete, edit, and mark-complete features using vanilla JavaScript and localStorage.",
+        "skillsCovered": [
+          "JavaScript",
+          "DOM Manipulation",
+          "Event Handling",
+          "localStorage"
+        ],
+        "microSkills": [
+          "Event listeners (click, input)",
+          "DOM element creation & manipulation",
+          "Array methods (map, filter, splice)",
+          "localStorage API",
+          "JSON stringify/parse",
+          "ES6 template literals",
+          "Function closures",
+          "Error handling",
+          "CSS class toggling"
+        ],
+        "difficulty": "Intermediate",
+        "estimatedHours": 4,
+        "completed": false
+      },
+      {
+        "id": "quest-web-003",
+        "title": "Master CSS Grid & Flexbox Layouts",
+        "objective": "Create a complex dashboard-style UI using CSS Grid and Flexbox. Build multiple responsive card layouts and navigation menus.",
+        "skillsCovered": [
+          "CSS",
+          "Flexbox",
+          "CSS Grid",
+          "Layout Design"
+        ],
+        "microSkills": [
+          "Flexbox properties (justify-content, align-items)",
+          "CSS Grid template areas",
+          "Responsive grid columns",
+          "Gap & margin handling",
+          "CSS custom properties (variables)",
+          "Responsive typography",
+          "Mobile menu toggle",
+          "Nested flexbox/grid",
+          "CSS calc() function"
+        ],
+        "difficulty": "Intermediate",
+        "estimatedHours": 3,
+        "completed": false
+      }
+    ]
   }
 ]
