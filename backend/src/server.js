@@ -30,7 +30,11 @@ app.get('/api/health', (req, res) => {
 app.use('/api/careers', careerRoutes);
 app.use('/api/users', userRoutes);
 app.use('/api/portfolio', portfolioRoutes);
+ backend-dev-2
+app.use('/api/chat', require('./src/routes/chatRoutes'));
+
 app.use('/api/chat', chatRoutes); // Connected the chat route here
+main
 
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
