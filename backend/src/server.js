@@ -6,14 +6,14 @@ require('dotenv').config();
 const careerRoutes = require('./routes/careerRoutes');
 const userRoutes = require('./routes/userRoutes');
 const questRoutes = require('./routes/questRoutes');
-
+const resumeRoutes = require('./routes/resumeRoutes');
 const app = express();
 const PORT = process.env.PORT || 5000;
 
 app.use(cors());
 app.use(express.json());
 app.use('/api/quests', questRoutes);
-
+app.use('/api/resume', resumeRoutes);
 // Health Check Endpoint
 app.get('/api/health', (req, res) => {
   res.status(200).json({
