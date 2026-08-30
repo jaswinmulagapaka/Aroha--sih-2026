@@ -1685,6 +1685,142 @@
     ],
     "readinessScore": 17,
     "completedQuests": [],
-    "createdAt": "2026-08-30T14:14:41.195Z"
+    "createdAt": "2026-08-30T14:14:41.195Z",
+    "analysis": {
+      "matchedSkills": [
+        "React"
+      ],
+      "missingSkills": [
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "Git",
+        "REST APIs"
+      ],
+      "readinessScore": 17
+    },
+    "quests": [
+      {
+        "id": "quest-web-001",
+        "title": "Build a Responsive Portfolio Website",
+        "objective": "Create a personal portfolio using HTML, CSS, and JavaScript. Include projects section, about me, and contact form. Make it mobile-responsive.",
+        "skillsCovered": [
+          "HTML",
+          "CSS",
+          "JavaScript",
+          "Responsive Design"
+        ],
+        "microSkills": [
+          "Semantic HTML5 structure",
+          "Flexbox & CSS Grid layouts",
+          "CSS media queries",
+          "Mobile-first design",
+          "JavaScript DOM manipulation",
+          "Form validation",
+          "Accessibility (ARIA labels)",
+          "CSS animations"
+        ],
+        "difficulty": "Beginner",
+        "estimatedHours": 5,
+        "completed": false
+      },
+      {
+        "id": "quest-web-002",
+        "title": "Create an Interactive Todo App",
+        "objective": "Build a fully functional todo list with add, delete, edit, and mark-complete features using vanilla JavaScript and localStorage.",
+        "skillsCovered": [
+          "JavaScript",
+          "DOM Manipulation",
+          "Event Handling",
+          "localStorage"
+        ],
+        "microSkills": [
+          "Event listeners (click, input)",
+          "DOM element creation & manipulation",
+          "Array methods (map, filter, splice)",
+          "localStorage API",
+          "JSON stringify/parse",
+          "ES6 template literals",
+          "Function closures",
+          "Error handling",
+          "CSS class toggling"
+        ],
+        "difficulty": "Intermediate",
+        "estimatedHours": 4,
+        "completed": false
+      },
+      {
+        "id": "quest-web-003",
+        "title": "Master CSS Grid & Flexbox Layouts",
+        "objective": "Create a complex dashboard-style UI using CSS Grid and Flexbox. Build multiple responsive card layouts and navigation menus.",
+        "skillsCovered": [
+          "CSS",
+          "Flexbox",
+          "CSS Grid",
+          "Layout Design"
+        ],
+        "microSkills": [
+          "Flexbox properties (justify-content, align-items)",
+          "CSS Grid template areas",
+          "Auto-fit and auto-fill properties",
+          "Gap and spacing control",
+          "Responsive breakpoints",
+          "CSS custom properties (variables)",
+          "Gradient backgrounds",
+          "Shadow and border effects"
+        ],
+        "difficulty": "Intermediate",
+        "estimatedHours": 3,
+        "completed": false
+      },
+      {
+        "id": "quest-web-004",
+        "title": "Build a Weather App with API Integration",
+        "objective": "Create a weather application that fetches real-time data from a public API and displays it dynamically.",
+        "skillsCovered": [
+          "JavaScript",
+          "REST APIs",
+          "Async/Await",
+          "JSON"
+        ],
+        "microSkills": [
+          "Fetch API basics",
+          "Async/await syntax",
+          "Error handling with try-catch",
+          "JSON parsing",
+          "API key management",
+          "Dynamic DOM updates",
+          "Date formatting",
+          "User input handling"
+        ],
+        "difficulty": "Intermediate",
+        "estimatedHours": 4,
+        "completed": false
+      },
+      {
+        "id": "quest-web-005",
+        "title": "Learn React Basics & Build Components",
+        "objective": "Dive into React.js and create reusable components, manage state, and handle user interactions.",
+        "skillsCovered": [
+          "React",
+          "JSX",
+          "State Management",
+          "Props"
+        ],
+        "microSkills": [
+          "JSX syntax and rendering",
+          "Functional components",
+          "useState hook",
+          "Props drilling",
+          "Event handling in React",
+          "Conditional rendering",
+          "List rendering with map()",
+          "Component composition"
+        ],
+        "difficulty": "Intermediate",
+        "estimatedHours": 6,
+        "completed": false
+      }
+    ]
   }
 ]
