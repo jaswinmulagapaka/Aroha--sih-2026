@@ -1,9 +1,9 @@
 const { GoogleGenerativeAI } = require('@google/generative-ai');
 
-// Initialize the Gemini client using your environment variable
+// Initialize the Gemini client
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
 
-// Helper function to strip unexpected markdown formatting
+// Helper function to strip markdown code blocks
 const cleanJsonResponse = (text) => {
   let cleaned = text.trim();
   if (cleaned.startsWith('```json')) {
@@ -17,6 +17,7 @@ const cleanJsonResponse = (text) => {
   return cleaned.trim();
 };
 
+// Function 1: Generate Roadmap
 const generateRoadmap = async (missingSkills) => {
   try {
     const model = genAI.getGenerativeModel({
@@ -49,6 +50,7 @@ const generateRoadmap = async (missingSkills) => {
   }
 };
 
+// Function 2: Generate Quests
 const generateQuests = async (missingSkills) => {
   try {
     const model = genAI.getGenerativeModel({
@@ -84,7 +86,38 @@ const generateQuests = async (missingSkills) => {
   }
 };
 
+// Function 3: Extract Skills from Resume
+const extractSkillsFromResume = async (pdfText) => {
+  try {
+    const model = genAI.getGenerativeModel({
+      model: "gemini-1.5-flash",
+      generationConfig: { responseMimeType: "application/json" }
+    });
+
+    const prompt = `
+      Extract the technical skills (e.g., C, Python, React, Git, Data Analysis) from the following resume text.
+      
+      You must return ONLY a raw JSON array containing strings of the extracted skills. Do not include markdown formatting, backticks, or conversational text.
+      Example format: ["C", "Python", "React", "Git"]
+      
+      Resume Text:
+      ${pdfText}
+    `;
+
+    const result = await model.generateContent(prompt);
+    const rawText = result.response.text();
+    const cleanText = cleanJsonResponse(rawText);
+    
+    return JSON.parse(cleanText);
+  } catch (error) {
+    console.error("Error extracting skills with Gemini:", error);
+    throw new Error("Failed to extract skills from resume.");
+  }
+};
+
+// Export all three functions
 module.exports = {
   generateRoadmap,
-  generateQuests
+  generateQuests,
+  extractSkillsFromResume
 };
