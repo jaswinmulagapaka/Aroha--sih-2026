@@ -34,53 +34,77 @@
                 >
             </div>
 
+            <!-- Target Role Selection -->
+            <div>
+                <label for="targetRole" class="block text-sm font-medium text-gray-300 mb-2">Target Career Role</label>
+                <select 
+                    id="targetRole" 
+                    required 
+                    class="w-full bg-[#1f2937] border border-gray-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-blue-500 transition-colors"
+                >
+                    <option value="" disabled selected>Select your target role...</option>
+                    <option value="Frontend Developer">Frontend Developer</option>
+                    <option value="Embedded Systems Engineer">Embedded Systems Engineer</option>
+                    <option value="Data Analyst">Data Analyst</option>
+                </select>
+            </div>
+
+            <!-- Selected Skills Display -->
+            <div>
+                <label class="block text-sm font-medium text-gray-300 mb-2">Current Skills</label>
+                <div id="selectedSkillsDisplay" class="w-full bg-[#1f2937] border border-gray-700 rounded-xl px-4 py-3 text-gray-400 text-sm min-h-10 flex flex-wrap gap-2 items-center">
+                    <span class="text-gray-500 italic">Select skills below...</span>
+                </div>
+            </div>
+
             <!-- Skill Chips -->
-   <!-- Category: Web Development -->
-<div class="mb-4">
-    <p class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2">Web Development</p>
-    <div class="flex flex-wrap gap-2">
-        <button type="button" class="skill-chip px-3 py-1.5 rounded-full border border-gray-700 bg-[#1f2937] text-gray-300 text-sm font-medium hover:border-blue-500 transition-all duration-200" data-skill="HTML">HTML</button>
-        <button type="button" class="skill-chip px-3 py-1.5 rounded-full border border-gray-700 bg-[#1f2937] text-gray-300 text-sm font-medium hover:border-blue-500 transition-all duration-200" data-skill="CSS">CSS</button>
-        <button type="button" class="skill-chip px-3 py-1.5 rounded-full border border-gray-700 bg-[#1f2937] text-gray-300 text-sm font-medium hover:border-blue-500 transition-all duration-200" data-skill="JavaScript">JavaScript</button>
-        <button type="button" class="skill-chip px-3 py-1.5 rounded-full border border-gray-700 bg-[#1f2937] text-gray-300 text-sm font-medium hover:border-blue-500 transition-all duration-200" data-skill="React">React</button>
-        <button type="button" class="skill-chip px-3 py-1.5 rounded-full border border-gray-700 bg-[#1f2937] text-gray-300 text-sm font-medium hover:border-blue-500 transition-all duration-200" data-skill="REST APIs">REST APIs</button>
-        <button type="button" class="skill-chip px-3 py-1.5 rounded-full border border-gray-700 bg-[#1f2937] text-gray-300 text-sm font-medium hover:border-blue-500 transition-all duration-200" data-skill="Git">Git</button>
-    </div>
-</div>
+            <!-- Category: Web Development -->
+            <div class="mb-4">
+                <p class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2">Web Development</p>
+                <div class="flex flex-wrap gap-2">
+                    <button type="button" class="skill-chip px-3 py-1.5 rounded-full border border-gray-700 bg-[#1f2937] text-gray-300 text-sm font-medium hover:border-blue-500 transition-all duration-200" data-skill="HTML">HTML</button>
+                    <button type="button" class="skill-chip px-3 py-1.5 rounded-full border border-gray-700 bg-[#1f2937] text-gray-300 text-sm font-medium hover:border-blue-500 transition-all duration-200" data-skill="CSS">CSS</button>
+                    <button type="button" class="skill-chip px-3 py-1.5 rounded-full border border-gray-700 bg-[#1f2937] text-gray-300 text-sm font-medium hover:border-blue-500 transition-all duration-200" data-skill="JavaScript">JavaScript</button>
+                    <button type="button" class="skill-chip px-3 py-1.5 rounded-full border border-gray-700 bg-[#1f2937] text-gray-300 text-sm font-medium hover:border-blue-500 transition-all duration-200" data-skill="React">React</button>
+                    <button type="button" class="skill-chip px-3 py-1.5 rounded-full border border-gray-700 bg-[#1f2937] text-gray-300 text-sm font-medium hover:border-blue-500 transition-all duration-200" data-skill="REST APIs">REST APIs</button>
+                    <button type="button" class="skill-chip px-3 py-1.5 rounded-full border border-gray-700 bg-[#1f2937] text-gray-300 text-sm font-medium hover:border-blue-500 transition-all duration-200" data-skill="Git">Git</button>
+                </div>
+            </div>
 
-<!-- Category: Embedded Systems -->
-<div class="mb-4">
-    <p class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2">Embedded Systems</p>
-    <div class="flex flex-wrap gap-2">
-        <button type="button" class="skill-chip px-3 py-1.5 rounded-full border border-gray-700 bg-[#1f2937] text-gray-300 text-sm font-medium hover:border-blue-500 transition-all duration-200" data-skill="C">C</button>
-        <button type="button" class="skill-chip px-3 py-1.5 rounded-full border border-gray-700 bg-[#1f2937] text-gray-300 text-sm font-medium hover:border-blue-500 transition-all duration-200" data-skill="Pointers">Pointers</button>
-        <button type="button" class="skill-chip px-3 py-1.5 rounded-full border border-gray-700 bg-[#1f2937] text-gray-300 text-sm font-medium hover:border-blue-500 transition-all duration-200" data-skill="Embedded C">Embedded C</button>
-        <button type="button" class="skill-chip px-3 py-1.5 rounded-full border border-gray-700 bg-[#1f2937] text-gray-300 text-sm font-medium hover:border-blue-500 transition-all duration-200" data-skill="Microcontrollers">Microcontrollers</button>
-        <button type="button" class="skill-chip px-3 py-1.5 rounded-full border border-gray-700 bg-[#1f2937] text-gray-300 text-sm font-medium hover:border-blue-500 transition-all duration-200" data-skill="UART">UART</button>
-        <button type="button" class="skill-chip px-3 py-1.5 rounded-full border border-gray-700 bg-[#1f2937] text-gray-300 text-sm font-medium hover:border-blue-500 transition-all duration-200" data-skill="SPI">SPI</button>
-        <button type="button" class="skill-chip px-3 py-1.5 rounded-full border border-gray-700 bg-[#1f2937] text-gray-300 text-sm font-medium hover:border-blue-500 transition-all duration-200" data-skill="I2C">I2C</button>
-        <button type="button" class="skill-chip px-3 py-1.5 rounded-full border border-gray-700 bg-[#1f2937] text-gray-300 text-sm font-medium hover:border-blue-500 transition-all duration-200" data-skill="RTOS">RTOS</button>
-    </div>
-</div>
+            <!-- Category: Embedded Systems -->
+            <div class="mb-4">
+                <p class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2">Embedded Systems</p>
+                <div class="flex flex-wrap gap-2">
+                    <button type="button" class="skill-chip px-3 py-1.5 rounded-full border border-gray-700 bg-[#1f2937] text-gray-300 text-sm font-medium hover:border-blue-500 transition-all duration-200" data-skill="C">C</button>
+                    <button type="button" class="skill-chip px-3 py-1.5 rounded-full border border-gray-700 bg-[#1f2937] text-gray-300 text-sm font-medium hover:border-blue-500 transition-all duration-200" data-skill="Pointers">Pointers</button>
+                    <button type="button" class="skill-chip px-3 py-1.5 rounded-full border border-gray-700 bg-[#1f2937] text-gray-300 text-sm font-medium hover:border-blue-500 transition-all duration-200" data-skill="Embedded C">Embedded C</button>
+                    <button type="button" class="skill-chip px-3 py-1.5 rounded-full border border-gray-700 bg-[#1f2937] text-gray-300 text-sm font-medium hover:border-blue-500 transition-all duration-200" data-skill="Microcontrollers">Microcontrollers</button>
+                    <button type="button" class="skill-chip px-3 py-1.5 rounded-full border border-gray-700 bg-[#1f2937] text-gray-300 text-sm font-medium hover:border-blue-500 transition-all duration-200" data-skill="UART">UART</button>
+                    <button type="button" class="skill-chip px-3 py-1.5 rounded-full border border-gray-700 bg-[#1f2937] text-gray-300 text-sm font-medium hover:border-blue-500 transition-all duration-200" data-skill="SPI">SPI</button>
+                    <button type="button" class="skill-chip px-3 py-1.5 rounded-full border border-gray-700 bg-[#1f2937] text-gray-300 text-sm font-medium hover:border-blue-500 transition-all duration-200" data-skill="I2C">I2C</button>
+                    <button type="button" class="skill-chip px-3 py-1.5 rounded-full border border-gray-700 bg-[#1f2937] text-gray-300 text-sm font-medium hover:border-blue-500 transition-all duration-200" data-skill="RTOS">RTOS</button>
+                </div>
+            </div>
 
-<!-- Category: Data Science -->
-<div class="mb-6">
-    <p class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2">Data Science</p>
-    <div class="flex flex-wrap gap-2">
-        <button type="button" class="skill-chip px-3 py-1.5 rounded-full border border-gray-700 bg-[#1f2937] text-gray-300 text-sm font-medium hover:border-blue-500 transition-all duration-200" data-skill="Python">Python</button>
-        <button type="button" class="skill-chip px-3 py-1.5 rounded-full border border-gray-700 bg-[#1f2937] text-gray-300 text-sm font-medium hover:border-blue-500 transition-all duration-200" data-skill="SQL">SQL</button>
-        <button type="button" class="skill-chip px-3 py-1.5 rounded-full border border-gray-700 bg-[#1f2937] text-gray-300 text-sm font-medium hover:border-blue-500 transition-all duration-200" data-skill="Excel">Excel</button>
-        <button type="button" class="skill-chip px-3 py-1.5 rounded-full border border-gray-700 bg-[#1f2937] text-gray-300 text-sm font-medium hover:border-blue-500 transition-all duration-200" data-skill="Statistics">Statistics</button>
-        <button type="button" class="skill-chip px-3 py-1.5 rounded-full border border-gray-700 bg-[#1f2937] text-gray-300 text-sm font-medium hover:border-blue-500 transition-all duration-200" data-skill="Pandas">Pandas</button>
-        <button type="button" class="skill-chip px-3 py-1.5 rounded-full border border-gray-700 bg-[#1f2937] text-gray-300 text-sm font-medium hover:border-blue-500 transition-all duration-200" data-skill="Data Visualization">Data Visualization</button>
-    </div>
-</div>
+            <!-- Category: Data Science -->
+            <div class="mb-6">
+                <p class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2">Data Science</p>
+                <div class="flex flex-wrap gap-2">
+                    <button type="button" class="skill-chip px-3 py-1.5 rounded-full border border-gray-700 bg-[#1f2937] text-gray-300 text-sm font-medium hover:border-blue-500 transition-all duration-200" data-skill="Python">Python</button>
+                    <button type="button" class="skill-chip px-3 py-1.5 rounded-full border border-gray-700 bg-[#1f2937] text-gray-300 text-sm font-medium hover:border-blue-500 transition-all duration-200" data-skill="SQL">SQL</button>
+                    <button type="button" class="skill-chip px-3 py-1.5 rounded-full border border-gray-700 bg-[#1f2937] text-gray-300 text-sm font-medium hover:border-blue-500 transition-all duration-200" data-skill="Excel">Excel</button>
+                    <button type="button" class="skill-chip px-3 py-1.5 rounded-full border border-gray-700 bg-[#1f2937] text-gray-300 text-sm font-medium hover:border-blue-500 transition-all duration-200" data-skill="Statistics">Statistics</button>
+                    <button type="button" class="skill-chip px-3 py-1.5 rounded-full border border-gray-700 bg-[#1f2937] text-gray-300 text-sm font-medium hover:border-blue-500 transition-all duration-200" data-skill="Pandas">Pandas</button>
+                    <button type="button" class="skill-chip px-3 py-1.5 rounded-full border border-gray-700 bg-[#1f2937] text-gray-300 text-sm font-medium hover:border-blue-500 transition-all duration-200" data-skill="Data Visualization">Data Visualization</button>
+                </div>
+            </div>
+
             <!-- Submit Button -->
             <button 
                 type="submit" 
                 class="w-full bg-blue-600 hover:bg-blue-500 text-white font-medium py-3.5 rounded-xl shadow-[0_0_20px_rgba(37,99,235,0.4)] transition-all duration-300"
             >
-                Continue to Career Tracks
+                Continue to Dashboard
             </button>
 
         </form>
@@ -92,10 +116,23 @@
         const selectedSkills = new Set();
         const chips = document.querySelectorAll('.skill-chip');
         const onboardingForm = document.getElementById('onboardingForm');
+        const selectedSkillsDisplay = document.getElementById('selectedSkillsDisplay');
+
+        // Function to update the selected skills display
+        const updateSelectedSkillsDisplay = () => {
+            if (selectedSkills.size === 0) {
+                selectedSkillsDisplay.innerHTML = '<span class="text-gray-500 italic">Select skills below...</span>';
+            } else {
+                selectedSkillsDisplay.innerHTML = Array.from(selectedSkills)
+                    .map(skill => `<span class="bg-blue-600 text-white px-2.5 py-1 rounded-full text-xs font-medium">${skill}</span>`)
+                    .join('');
+            }
+        };
 
         // Click handler for skill chips
         chips.forEach(chip => {
-            chip.addEventListener('click', () => {
+            chip.addEventListener('click', (e) => {
+                e.preventDefault();
                 const skillName = chip.getAttribute('data-skill');
 
                 if (selectedSkills.has(skillName)) {
@@ -107,52 +144,73 @@
                     chip.classList.remove('bg-[#1f2937]', 'text-gray-300', 'border-gray-700');
                     chip.classList.add('bg-blue-600', 'text-white', 'border-blue-400');
                 }
+                
+                updateSelectedSkillsDisplay();
             });
         });
 
-        // Form Submit Handler (Sends data to backend API & creates database.json)
+        // Form Submit Handler
         onboardingForm.addEventListener('submit', async (e) => {
-      e.preventDefault();
+            e.preventDefault();
 
-      const nameInput = document.getElementById('name') || document.getElementById('studentNameInput');
-      const name = nameInput && nameInput.value.trim() ? nameInput.value.trim() : 'Jaswin';
+            // Get form values
+            const nameInput = document.getElementById('name');
+            const targetRoleSelect = document.getElementById('targetRole');
+            
+            const name = nameInput && nameInput.value.trim() ? nameInput.value.trim() : 'User';
+            const targetRole = targetRoleSelect ? targetRoleSelect.value : 'Frontend Developer';
+            const skillsArray = Array.from(selectedSkills);
 
-      const skillsArray = Array.isArray(selectedSkills) 
-        ? selectedSkills 
-        : (selectedSkills instanceof Set ? Array.from(selectedSkills) : []);
+            // Validation
+            if (!name || name.trim() === '') {
+                alert('Please enter your name.');
+                return;
+            }
 
-      try {
-        const response = await fetch('http://127.0.0.1:5000/api/users', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({
-            name: name,
-            currentSkills: skillsArray,
-            requiredSkills: skillsArray,
-            targetRole: 'Embedded Systems Engineer'
-          })
+            if (!targetRole) {
+                alert('Please select a target role.');
+                return;
+            }
+
+            if (skillsArray.length === 0) {
+                alert('Please select at least one skill.');
+                return;
+            }
+
+            try {
+                const response = await fetch('http://localhost:5000/api/users', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        name: name,
+                        currentSkills: skillsArray,
+                        targetRole: targetRole
+                    })
+                });
+
+                if (!response.ok) {
+                    const errData = await response.json();
+                    throw new Error(errData.error || 'Failed to save user profile.');
+                }
+
+                const data = await response.json();
+
+                // Save to localStorage
+                localStorage.setItem('user_id', data.id || data.userId);
+                localStorage.setItem('user_name', data.name || name);
+                localStorage.setItem('user_skills', JSON.stringify(data.currentSkills || skillsArray));
+                localStorage.setItem('user_target_role', data.targetRole || targetRole);
+
+                // Redirect to dashboard
+                window.location.href = 'main.html';
+            } catch (err) {
+                alert(`Error: ${err.message}`);
+                console.error('Submission error:', err);
+            }
         });
-
-        if (!response.ok) {
-          const errData = await response.json();
-          throw new Error(errData.error || 'Failed to save user profile.');
-        }
-
-        const data = await response.json();
-
-        localStorage.setItem('user_id', data.id || data.userId);
-        localStorage.setItem('user_name', name);
-        localStorage.setItem('user_skills', JSON.stringify(skillsArray));
-
-        window.location.href = 'career.html';
-} catch (err) {
-        alert(`Onboarding submission error: ${err.message}`);
-      }
     });
-  });
-</script>
+    </script>
 </body>
 </html>
-
