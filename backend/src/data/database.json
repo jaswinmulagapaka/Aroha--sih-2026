@@ -40,5 +40,70 @@
     "readinessScore": 0,
     "completedQuests": [],
     "createdAt": "2026-08-30T10:08:56.021Z"
+  },
+  {
+    "id": "1788085236695",
+    "name": "Jaswin",
+    "targetRole": "Embedded Systems Engineer",
+    "currentSkills": [],
+    "matchedSkills": [],
+    "missingSkills": [
+      "C",
+      "Pointers",
+      "Embedded C",
+      "Microcontrollers",
+      "UART",
+      "SPI",
+      "I2C",
+      "RTOS"
+    ],
+    "readinessScore": 0,
+    "completedQuests": [],
+    "createdAt": "2026-08-30T10:20:36.695Z"
+  },
+  {
+    "id": "1788085633660",
+    "name": "Jaswin",
+    "targetRole": "Embedded Systems Engineer",
+    "currentSkills": [],
+    "matchedSkills": [],
+    "missingSkills": [
+      "C",
+      "Pointers",
+      "Embedded C",
+      "Microcontrollers",
+      "UART",
+      "SPI",
+      "I2C",
+      "RTOS"
+    ],
+    "readinessScore": 0,
+    "completedQuests": [],
+    "createdAt": "2026-08-30T10:27:13.660Z"
+  },
+  {
+    "id": "1788085651413",
+    "name": "jASSu",
+    "targetRole": "Embedded Systems Engineer",
+    "currentSkills": [
+      "JavaScript",
+      "Microcontrollers",
+      "Excel"
+    ],
+    "matchedSkills": [
+      "Microcontrollers"
+    ],
+    "missingSkills": [
+      "C",
+      "Pointers",
+      "Embedded C",
+      "UART",
+      "SPI",
+      "I2C",
+      "RTOS"
+    ],
+    "readinessScore": 13,
+    "completedQuests": [],
+    "createdAt": "2026-08-30T10:27:31.413Z"
   }
 ]
