@@ -27,6 +27,7 @@ app.get('/api/health', (req, res) => {
 app.use('/api/careers', careerRoutes);
 app.use('/api/users', userRoutes);
 app.use('/api/portfolio', portfolioRoutes);
+app.use('/api/chat', require('./src/routes/chatRoutes'));
 
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
