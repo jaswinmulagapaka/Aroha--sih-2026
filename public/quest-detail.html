@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quest Details - Aroha</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-[#090d16] text-white min-h-screen font-sans p-4 md:p-8">
+
+    <div class="max-w-4xl mx-auto">
+        <!-- Back Button -->
+        <a href="quest.html" class="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 mb-6 transition-all">
+            ← Back to Quests
+        </a>
+
+        <!-- Quest Header -->
+        <div class="bg-[#111827] border border-gray-800 rounded-3xl p-6 md:p-8 shadow-xl mb-6">
+            <div class="flex items-start justify-between gap-4 mb-4">
+                <div>
+                    <span id="difficultyBadge" class="inline-block px-3 py-1 rounded-full text-xs font-semibold border mb-3">Beginner</span>
+                    <h1 id="questTitle" class="text-3xl md:text-4xl font-bold text-white mb-2">Quest Title</h1>
+                    <p id="questObjective" class="text-gray-400 text-lg">Quest objective description...</p>
+                </div>
+                <div class="text-right">
+                    <p class="text-xs text-gray-500 font-semibold mb-1">ESTIMATED TIME</p>
+                    <p id="estimatedHours" class="text-3xl font-bold text-blue-400">5 hrs</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Content Grid -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+
+            <!-- Left Section: Skills & Microskills -->
+            <div class="lg:col-span-2 space-y-6">
+
+                <!-- Skills Covered -->
+                <div class="bg-[#111827] border border-gray-800 rounded-3xl p-6 shadow-xl">
+                    <h2 class="text-xl font-bold text-white mb-4 flex items-center gap-2">
+                        <span>🎯</span> Skills You'll Master
+                    </h2>
+                    <div id="skillsCovered" class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1.5 rounded-full border border-blue-500/50 bg-blue-900/20 text-blue-300 text-sm font-medium">Skill 1</span>
+                    </div>
+                </div>
+
+                <!-- Microskills Breakdown -->
+                <div class="bg-[#111827] border border-gray-800 rounded-3xl p-6 shadow-xl">
+                    <h2 class="text-xl font-bold text-white mb-4 flex items-center gap-2">
+                        <span>📚</span> Detailed Microskills Breakdown
+                    </h2>
+                    <p class="text-gray-400 text-sm mb-4">Master these specific competencies to complete this quest:</p>
+                    
+                    <div id="microskillsList" class="space-y-3">
+                        <!-- Microskills rendered here -->
+                    </div>
+                </div>
+
+                <!-- Learning Path -->
+                <div class="bg-[#111827] border border-gray-800 rounded-3xl p-6 shadow-xl">
+                    <h2 class="text-xl font-bold text-white mb-4 flex items-center gap-2">
+                        <span>🗺️</span> How This Quest Fits Your Roadmap
+                    </h2>
+                    <div class="bg-[#1f2937]/50 border border-gray-700/50 rounded-2xl p-4 space-y-2">
+                        <p class="text-sm text-gray-300"><strong>Part of:</strong> <span id="questRole">Your Career Path</span></p>
+                        <p class="text-sm text-gray-300"><strong>Bridges Gap:</strong> <span id="questBridgesGap">Missing skill → Career requirement</span></p>
+                        <p class="text-sm text-gray-300"><strong>Progress Impact:</strong> <span id="readinessGain">+15%</span> to your readiness score</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Right Section: Progress & CTA -->
+            <div class="space-y-6">
+
+                <!-- Progress Card -->
+                <div class="bg-[#111827] border border-gray-800 rounded-3xl p-6 shadow-xl sticky top-8">
+                    <h3 class="text-lg font-bold text-white mb-4">Your Progress</h3>
+                    
+                    <!-- Progress Ring -->
+                    <div class="relative w-32 h-32 mx-auto mb-6 flex items-center justify-center">
+                        <svg class="w-full h-full transform -rotate-90" viewBox="0 0 36 36">
+                            <path class="text-gray-800" stroke-width="3.5" stroke="currentColor" fill="none" 
+                                d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                            <path id="progressRing" class="text-emerald-500" stroke-dasharray="100, 100" stroke-dashoffset="100"
+                                stroke-width="3.5" stroke-linecap="round" stroke="currentColor" fill="none" 
+                                d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
+                                style="transition: stroke-dashoffset 1.5s ease-in-out;"/>
+                        </svg>
+                        <div class="absolute text-center">
+                            <p id="progressText" class="text-2xl font-bold text-white">0%</p>
+                            <p class="text-xs text-gray-400">Complete</p>
+                        </div>
+                    </div>
+
+                    <!-- Microskills Checklist -->
+                    <div class="mb-6">
+                        <p class="text-xs font-semibold text-gray-400 mb-2">MICROSKILLS LEARNED</p>
+                        <p id="microskillsCount" class="text-sm text-gray-300">0 / 10 completed</p>
+                    </div>
+
+                    <!-- CTA Buttons -->
+                    <div class="space-y-2">
+                        <button id="startQuestBtn" class="w-full bg-blue-600 hover:bg-blue-500 text-white font-semibold py-3 rounded-xl transition-all active:scale-95">
+                            🚀 Start This Quest
+                        </button>
+                        <button id="resumeQuestBtn" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-semibold py-3 rounded-xl transition-all active:scale-95 hidden">
+                            ▶️ Resume Quest
+                        </button>
+                        <button class="w-full bg-gray-800 text-gray-400 font-semibold py-3 rounded-xl cursor-not-allowed opacity-60">
+                            📖 View Resources (Coming Soon)
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Info Card -->
+                <div class="bg-[#111827] border border-gray-800 rounded-3xl p-6 shadow-xl">
+                    <h3 class="text-sm font-bold text-blue-400 uppercase mb-3">💡 Pro Tip</h3>
+                    <p class="text-sm text-gray-300">Completing this quest will boost your readiness by <strong id="boostPercentage">15%</strong> and unlock advanced learning paths!</p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Get quest ID from URL parameter
+        const params = new URLSearchParams(window.location.search);
+        const questId = params.get('id');
+
+        // Sample quest data (in real app, fetch from backend)
+        const questData = {
+            'quest-web-001': {
+                title: 'Build a Responsive Portfolio Website',
+                objective: 'Create a personal portfolio website using HTML, CSS, and JavaScript. Include projects section, about me, and contact form. Make it mobile-responsive.',
+                skillsCovered: ['HTML', 'CSS', 'JavaScript', 'Responsive Design'],
+                microSkills: [
+                    'Semantic HTML5 structure',
+                    'Flexbox & CSS Grid layouts',
+                    'CSS media queries',
+                    'Mobile-first design',
+                    'JavaScript DOM manipulation',
+                    'Form validation',
+                    'Accessibility (ARIA labels)',
+                    'CSS animations'
+                ],
+                difficulty: 'Beginner',
+                estimatedHours: 5,
+                boostPercentage: 15,
+                targetRole: 'Frontend Developer'
+            },
+            'quest-emb-001': {
+                title: 'Build a LED Blink Program',
+                objective: 'Write a C program to control an LED on a microcontroller using GPIO pins. Learn basic digital output control.',
+                skillsCovered: ['C', 'Embedded C', 'Microcontrollers'],
+                microSkills: [
+                    'Register manipulation',
+                    'Bit shifting operations',
+                    'GPIO configuration',
+                    'Output pin control',
+                    'Delay functions',
+                    'Preprocessor directives',
+                    'Header file usage',
+                    'Basic C syntax on embedded',
+                    'Serial debugging setup'
+                ],
+                difficulty: 'Beginner',
+                estimatedHours: 2,
+                boostPercentage: 10,
+                targetRole: 'Embedded Systems Engineer'
+            }
+        };
+
+        // Get quest (use first one as default for demo)
+        const quest = questData[questId] || Object.values(questData)[0];
+
+        // Populate quest details
+        document.getElementById('questTitle').textContent = quest.title;
+        document.getElementById('questObjective').textContent = quest.objective;
+        document.getElementById('estimatedHours').textContent = `${quest.estimatedHours} hrs`;
+        document.getElementById('boostPercentage').textContent = `${quest.boostPercentage}%`;
+        document.getElementById('questBridgesGap').textContent = `${quest.microSkills[0]} → Career requirement`;
+        document.getElementById('questRole').textContent = quest.targetRole;
+        document.getElementById('microskillsCount').textContent = `0 / ${quest.microSkills.length} completed`;
+
+        // Set difficulty badge
+        const diffBadge = document.getElementById('difficultyBadge');
+        const diffLower = quest.difficulty.toLowerCase();
+        diffBadge.textContent = quest.difficulty;
+        if (diffLower === 'beginner') {
+            diffBadge.className = 'inline-block px-3 py-1 rounded-full text-xs font-semibold border border-emerald-500/50 bg-emerald-900/20 text-emerald-300 mb-3';
+        } else if (diffLower === 'intermediate') {
+            diffBadge.className = 'inline-block px-3 py-1 rounded-full text-xs font-semibold border border-amber-500/50 bg-amber-900/20 text-amber-300 mb-3';
+        } else {
+            diffBadge.className = 'inline-block px-3 py-1 rounded-full text-xs font-semibold border border-red-500/50 bg-red-900/20 text-red-300 mb-3';
+        }
+
+        // Render skills
+        const skillsDiv = document.getElementById('skillsCovered');
+        skillsDiv.innerHTML = quest.skillsCovered.map(skill => 
+            `<span class="px-3 py-1.5 rounded-full border border-blue-500/50 bg-blue-900/20 text-blue-300 text-sm font-medium">${skill}</span>`
+        ).join('');
+
+        // Render microskills with checkboxes
+        const microskillsList = document.getElementById('microskillsList');
+        let completedCount = 0;
+        microskillsList.innerHTML = quest.microSkills.map((skill, idx) => {
+            const isCompleted = Math.random() > 0.7; // Random for demo
+            if (isCompleted) completedCount++;
+            return `
+                <label class="flex items-center gap-3 p-3 rounded-lg hover:bg-[#1f2937]/50 cursor-pointer transition-all group">
+                    <input type="checkbox" ${isCompleted ? 'checked' : ''} class="microskill-check w-5 h-5 rounded border-2 border-gray-600 accent-emerald-500 cursor-pointer">
+                    <span class="text-sm text-gray-300 group-hover:text-white transition-colors">${skill}</span>
+                </label>
+            `;
+        }).join('');
+
+        // Update progress
+        const progress = Math.round((completedCount / quest.microSkills.length) * 100);
+        document.getElementById('progressText').textContent = `${progress}%`;
+        document.getElementById('progressRing').style.strokeDashoffset = 100 - progress;
+        document.getElementById('microskillsCount').textContent = `${completedCount} / ${quest.microSkills.length} completed`;
+
+        // Microskill checkbox handlers
+        document.querySelectorAll('.microskill-check').forEach(checkbox => {
+            checkbox.addEventListener('change', () => {
+                const checked = document.querySelectorAll('.microskill-check:checked').length;
+                const newProgress = Math.round((checked / quest.microSkills.length) * 100);
+                document.getElementById('progressText').textContent = `${newProgress}%`;
+                document.getElementById('progressRing').style.strokeDashoffset = 100 - newProgress;
+                document.getElementById('microskillsCount').textContent = `${checked} / ${quest.microSkills.length} completed`;
+            });
+        });
+
+        // Start Quest Button
+        document.getElementById('startQuestBtn').addEventListener('click', () => {
+            alert('🎉 Quest started! Track your progress as you complete each microskill.');
+            document.getElementById('startQuestBtn').classList.add('hidden');
+            document.getElementById('resumeQuestBtn').classList.remove('hidden');
+        });
+
+        // Resume Quest Button (intentionally dead - no action)
+        document.getElementById('resumeQuestBtn').addEventListener('click', () => {
+            // DEAD BUTTON - No functionality
+        });
+    });
+    </script>
+</body>
+</html>

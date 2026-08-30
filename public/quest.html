@@ -140,20 +140,9 @@ console.log("CURRENT USER ID SENT TO BACKEND:", currentUserId); // <-- Add this 
                   ✓ Completed
                 </button>
               ` : `
-                <button 
-                  type="button" 
-                  onclick="completeQuest('${escapeHTML(safeId)}')"
-                  ${isCompleting ? 'disabled' : ''}
-                  class="w-full py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 disabled:bg-emerald-800 disabled:cursor-not-allowed text-white font-semibold text-sm transition-all duration-200 shadow-md shadow-emerald-600/20 active:scale-[0.98] flex items-center justify-center gap-2"
-                >
-                  ${isCompleting ? `
-                    <svg class="animate-spin h-4 w-4 text-white" xmlns="http://www.w3.org/2000/center" fill="none" viewBox="0 0 24 24">
-                      <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-                      <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                    </svg>
-                    Completing...
-                  ` : 'Complete Quest'}
-                </button>
+                <a href="quest-detail.html?id=${escapeHTML(safeId)}" class="w-full py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-sm transition-all duration-200 shadow-md shadow-emerald-600/20 active:scale-[0.98] flex items-center justify-center gap-2 no-underline">
+                  View Details & Complete →
+                </a>
               `}
             </div>
           </div>
