@@ -115,6 +115,7 @@ const extractSkillsFromResume = async (pdfText) => {
   }
 };
 
+ backend-dev-2
 // Function 4: Ask Aroha (chatbot mentor Q&A, grounded in the student's profile)
 const askAroha = async (question, userProfile) => {
   try {
@@ -160,9 +161,41 @@ const askAroha = async (question, userProfile) => {
 };
 
 // Export all four functions
+
+const askAroha = async (question, userProfile) => {
+  try {
+    const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+
+    const prompt = `
+      Act as a supportive engineering mentor named Aroha.
+      Your student has asked the following question: "${question}"
+      
+      Here is their current profile context:
+      - Readiness Score: ${userProfile.readinessScore || 0}%
+      - Matched Skills: ${(userProfile.matchedSkills || []).join(', ') || 'None yet'}
+      - Missing Skills: ${(userProfile.missingSkills || []).join(', ') || 'None yet'}
+      
+      Answer the question directly. Keep your response under 4 sentences. 
+      You must explicitly reference their current skill gaps or progress in your answer based on the profile context provided.
+      Return plain text only without markdown formatting.
+    `;
+
+    const result = await model.generateContent(prompt);
+    return result.response.text().trim();
+  } catch (error) {
+    console.error("Error in askAroha AI service:", error);
+    throw new Error("Failed to generate mentor response.");
+  }
+};
+
+ main
 module.exports = {
   generateRoadmap,
   generateQuests,
   extractSkillsFromResume,
   askAroha
+ backend-dev-2
 };
+
+};
+ main
