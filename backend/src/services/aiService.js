@@ -291,7 +291,7 @@ const mockQuestLibrary = {
       "id": "quest-py-003",
       "title": "Web Scraping & Automation",
       "objective": "Build a web scraper using Beautiful Soup. Extract data from a website and automate periodic scraping tasks.",
-      "skillsCcovered": ["Python", "Web Scraping", "Automation"],
+      "skillsCovered": ["Python", "Web Scraping", "Automation"],
       "microSkills": [
         "HTML parsing with Beautiful Soup",
         "CSS selectors",
@@ -445,7 +445,7 @@ const mockQuestLibrary = {
       "id": "quest-gen-003",
       "title": "Contribute to Open Source",
       "objective": "Find an open-source project and make your first meaningful contribution.",
-      "skillsCcovered": ["Collaboration", "Git", "Open Source"],
+      "skillsCovered": ["Collaboration", "Git", "Open Source"],
       "microSkills": [
         "Repository forking",
         "Git workflow",

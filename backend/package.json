@@ -1,14 +1,21 @@
 {
   "name": "backend",
   "version": "1.0.0",
-  "description": "",
+  "description": "Aroha Backend - Career Mentor AI",
   "main": "src/server.js",
   "scripts": {
     "start": "node src/server.js",
     "dev": "nodemon src/server.js"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "career",
+    "mentoring",
+    "AI",
+    "gemini",
+    "embedded",
+    "web-development"
+  ],
+  "author": "Aroha Team",
   "license": "ISC",
   "dependencies": {
     "@google/generative-ai": "^0.24.1",
