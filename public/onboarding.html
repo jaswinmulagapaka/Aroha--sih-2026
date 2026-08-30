@@ -3,32 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aroha - Student Onboarding</title>
+    <title>Aroha - Onboarding</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-[#090d16] text-white min-h-screen flex items-center justify-center font-sans px-4 py-8">
 
-    <div class="w-full max-w-lg bg-[#111827] border border-gray-800 p-8 rounded-2xl shadow-[0_0_30px_rgba(0,0,0,0.5)]">
+    <div class="w-full max-w-lg bg-[#111827] border border-gray-800 p-8 rounded-3xl shadow-[0_0_30px_rgba(0,0,0,0.6)]">
         
         <!-- Header -->
         <div class="text-center mb-8">
             <h1 class="text-3xl font-bold tracking-wider bg-gradient-to-r from-blue-400 via-indigo-400 to-purple-500 bg-clip-text text-transparent">
                 Student Onboarding
             </h1>
-            <p class="text-gray-400 text-sm mt-2">Tell us about yourself to tailor your journey</p>
+            <p class="text-gray-400 text-sm mt-2">Enter your profile details and current skills.</p>
         </div>
 
-        <!-- Onboarding Form -->
         <form id="onboardingForm" class="space-y-6">
             
             <!-- Name Field -->
             <div>
-                <label for="name" class="block text-sm font-medium text-gray-300 mb-2">Name</label>
+                <label for="name" class="block text-sm font-medium text-gray-300 mb-2">Full Name</label>
                 <input 
                     type="text" 
                     id="name" 
-                    name="name" 
                     required 
                     placeholder="e.g. Jaswin" 
                     value="Jaswin"
@@ -36,31 +34,17 @@
                 >
             </div>
 
-            <!-- Current Skills Field -->
+            <!-- Skill Chips -->
             <div>
-                <label for="skills" class="block text-sm font-medium text-gray-300 mb-2">Current Skills</label>
-                <input 
-                    type="text" 
-                    id="skills" 
-                    name="skills" 
-                    required 
-                    placeholder="e.g. C, C++, HTML, CSS" 
-                    value="C, C++, HTML, CSS"
-                    class="w-full bg-[#1f2937] border border-gray-700 rounded-xl px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-blue-500 transition-colors"
-                >
-            </div>
-
-            <!-- Career Goal Field -->
-            <div>
-                <label for="goal" class="block text-sm font-medium text-gray-300 mb-2">Career Goal</label>
-                <input 
-                    type="text" 
-                    id="goal" 
-                    name="goal" 
-                    required 
-                    placeholder="e.g. Full Stack Developer"
-                    class="w-full bg-[#1f2937] border border-gray-700 rounded-xl px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-blue-500 transition-colors"
-                >
+                <label class="block text-sm font-medium text-gray-300 mb-2">Select Your Skills</label>
+                <div class="flex flex-wrap gap-2.5" id="skillChipsContainer">
+                    <button type="button" data-skill="C" class="skill-chip px-4 py-2 bg-blue-600 border border-blue-500 text-white rounded-xl text-sm font-medium transition-all">C</button>
+                    <button type="button" data-skill="Pointers" class="skill-chip px-4 py-2 bg-[#1f2937] border border-gray-700 text-gray-300 rounded-xl text-sm font-medium hover:border-blue-500 transition-all">Pointers</button>
+                    <button type="button" data-skill="HTML" class="skill-chip px-4 py-2 bg-blue-600 border border-blue-500 text-white rounded-xl text-sm font-medium transition-all">HTML</button>
+                    <button type="button" data-skill="CSS" class="skill-chip px-4 py-2 bg-blue-600 border border-blue-500 text-white rounded-xl text-sm font-medium transition-all">CSS</button>
+                    <button type="button" data-skill="Python" class="skill-chip px-4 py-2 bg-[#1f2937] border border-gray-700 text-gray-300 rounded-xl text-sm font-medium hover:border-blue-500 transition-all">Python</button>
+                    <button type="button" data-skill="Git" class="skill-chip px-4 py-2 bg-[#1f2937] border border-gray-700 text-gray-300 rounded-xl text-sm font-medium hover:border-blue-500 transition-all">Git</button>
+                </div>
             </div>
 
             <!-- Submit Button -->
@@ -68,23 +52,43 @@
                 type="submit" 
                 class="w-full bg-blue-600 hover:bg-blue-500 text-white font-medium py-3.5 rounded-xl shadow-[0_0_20px_rgba(37,99,235,0.4)] transition-all duration-300"
             >
-                Start Journey
+                Continue to Career Tracks
             </button>
 
         </form>
 
     </div>
 
-    <!-- Optional script to handle submission if you want to connect it later -->
     <script>
+        const selectedSkills = new Set(["C", "HTML", "CSS"]);
+
+        // Skill chip toggle
+        document.querySelectorAll('.skill-chip').forEach(button => {
+            button.addEventListener('click', () => {
+                const skill = button.getAttribute('data-skill');
+                if (selectedSkills.has(skill)) {
+                    selectedSkills.delete(skill);
+                    button.classList.remove('bg-blue-600', 'border-blue-500', 'text-white');
+                    button.classList.add('bg-[#1f2937]', 'border-gray-700', 'text-gray-300');
+                } else {
+                    selectedSkills.add(skill);
+                    button.classList.remove('bg-[#1f2937]', 'border-gray-700', 'text-gray-300');
+                    button.classList.add('bg-blue-600', 'border-blue-500', 'text-white');
+                }
+            });
+        });
+
+        // Store data and pass to career.html
         document.getElementById('onboardingForm').addEventListener('submit', function(e) {
             e.preventDefault();
+            
             const name = document.getElementById('name').value;
-            const skills = document.getElementById('skills').value;
-            const goal = document.getElementById('goal').value;
+            const skills = Array.from(selectedSkills);
 
-            console.log({ name, skills, goal });
-            alert('Onboarding data saved! Ready to connect to backend.');
+            localStorage.setItem('user_name', name);
+            localStorage.setItem('user_skills', JSON.stringify(skills));
+
+            window.location.href = 'career.html';
         });
     </script>
 
