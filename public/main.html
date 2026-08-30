@@ -248,14 +248,7 @@
 
     </div>
 
-    <!-- Script updates for badges (add to main.html script) -->
-    <script>
-        // Initialize badges count
-        document.getElementById('questsCompleted').textContent = '1';
-        document.getElementById('skillsMastered').textContent = matchedSkills.length;
-        document.getElementById('badgesEarned').textContent = '1';
-        document.getElementById('streakDays').textContent = '1';
-    </script>
+    <!-- Badge values are initialized after dashboard calculations are ready -->
 
                 <div id="roadmapStepContainer" class="space-y-4 relative">
                     <!-- Vertical line connector behind nodes -->
@@ -365,6 +358,12 @@
         document.getElementById('missingSkillsList').innerHTML = missingSkills.length > 0
             ? missingSkills.map(s => `<li class="flex items-center gap-2 text-amber-300"><span class="text-amber-500 font-bold">⚠️</span> ${s}</li>`).join('')
             : '<li class="text-emerald-400 font-medium">No skill gaps! You meet all core requirements.</li>';
+
+        // Initialize badges count after the skill match data is ready
+        document.getElementById('questsCompleted').textContent = '1';
+        document.getElementById('skillsMastered').textContent = matchedSkills.length;
+        document.getElementById('badgesEarned').textContent = '1';
+        document.getElementById('streakDays').textContent = '1';
 
         // 6. Dynamic Readiness Gauge & Color Thresholds
         setTimeout(() => {
@@ -940,24 +939,35 @@ const renderRoadmapModal = () => {
 
 // Open roadmap modal
 window.openRoadmapModal = () => {
-    document.getElementById('roadmapModal').classList.remove('hidden');
+    const roadmapModal = document.getElementById('roadmapModal');
+    if (!roadmapModal) return;
+    roadmapModal.classList.remove('hidden');
     renderRoadmapModal();
 };
 
-// Close roadmap modal
-document.getElementById('closeRoadmapBtn').addEventListener('click', () => {
-    document.getElementById('roadmapModal').classList.add('hidden');
-});
+const roadmapModal = document.getElementById('roadmapModal');
+const closeRoadmapBtn = document.getElementById('closeRoadmapBtn');
+const closeRoadmapBtnFooter = document.getElementById('closeRoadmapBtnFooter');
 
-document.getElementById('closeRoadmapBtnFooter').addEventListener('click', () => {
-    document.getElementById('roadmapModal').classList.add('hidden');
-});
+if (closeRoadmapBtn) {
+    closeRoadmapBtn.addEventListener('click', () => {
+        if (roadmapModal) roadmapModal.classList.add('hidden');
+    });
+}
 
-document.getElementById('roadmapModal').addEventListener('click', (e) => {
-    if (e.target === document.getElementById('roadmapModal')) {
-        document.getElementById('roadmapModal').classList.add('hidden');
-    }
-});
+if (closeRoadmapBtnFooter) {
+    closeRoadmapBtnFooter.addEventListener('click', () => {
+        if (roadmapModal) roadmapModal.classList.add('hidden');
+    });
+}
+
+if (roadmapModal) {
+    roadmapModal.addEventListener('click', (e) => {
+        if (e.target === roadmapModal) {
+            roadmapModal.classList.add('hidden');
+        }
+    });
+}
 
 // Initialize roadmap on page load
 loadRoadmapProgress();
@@ -970,11 +980,19 @@ const closeChatBtn = document.getElementById('closeChatBtn');
 const suggestedQuestions = document.getElementById('suggestedQuestions');
 
 window.openChat = () => {
+    if (!chatModal) return;
     chatModal.classList.remove('hidden');
+    setTimeout(() => chatInput && chatInput.focus(), 50);
 };
 
 closeChatBtn.addEventListener('click', () => {
     chatModal.classList.add('hidden');
+});
+
+chatModal.addEventListener('click', (e) => {
+    if (e.target === chatModal) {
+        chatModal.classList.add('hidden');
+    }
 });
 
 const sendMessage = async (message) => {

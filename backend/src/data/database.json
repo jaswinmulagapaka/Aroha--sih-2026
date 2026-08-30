@@ -1664,5 +1664,27 @@
         "completed": false
       }
     ]
+  },
+  {
+    "id": "1788099281195",
+    "name": "Jaswin",
+    "targetRole": "Frontend Developer",
+    "currentSkills": [
+      "Microcontrollers",
+      "React"
+    ],
+    "matchedSkills": [
+      "React"
+    ],
+    "missingSkills": [
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "Git",
+      "REST APIs"
+    ],
+    "readinessScore": 17,
+    "completedQuests": [],
+    "createdAt": "2026-08-30T14:14:41.195Z"
   }
 ]
