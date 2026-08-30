@@ -537,6 +537,430 @@
 
 <!-- Chat Script -->
 <script>
+    // ===== FRONTEND DEVELOPER SKILL ROADMAP DATA =====
+const frontendRoadmap = {
+    title: "Frontend Developer",
+    skills: [
+        {
+            id: "web-fundamentals",
+            name: "Web Fundamentals",
+            icon: "🌐",
+            subquests: [
+                { id: "sf-1", name: "Understand how the Internet works", completed: false },
+                { id: "sf-2", name: "Understand client vs server", completed: false },
+                { id: "sf-3", name: "Understand HTTP/HTTPS", completed: false },
+                { id: "sf-4", name: "Understand browsers and rendering", completed: false },
+                { id: "sf-5", name: "Understand DNS and domains", completed: false },
+                { id: "sf-6", name: "Understand basic accessibility concepts", completed: false },
+                { id: "sf-7", name: "Understand Git and version control basics", completed: false }
+            ]
+        },
+        {
+            id: "html",
+            name: "HTML",
+            icon: "📄",
+            subquests: [
+                { id: "html-1", name: "HTML document structure", completed: false },
+                { id: "html-2", name: "Semantic HTML", completed: false },
+                { id: "html-3", name: "Headings, paragraphs, links and images", completed: false },
+                { id: "html-4", name: "Lists and tables", completed: false },
+                { id: "html-5", name: "Forms and form validation", completed: false },
+                { id: "html-6", name: "HTML5 elements", completed: false },
+                { id: "html-7", name: "Accessibility-friendly HTML", completed: false },
+                { id: "html-8", name: "SEO-friendly HTML", completed: false },
+                { id: "html-9", name: "Build a semantic multi-page website", completed: false }
+            ]
+        },
+        {
+            id: "css",
+            name: "CSS",
+            icon: "🎨",
+            subquests: [
+                { id: "css-1", name: "CSS syntax and selectors", completed: false },
+                { id: "css-2", name: "Box model", completed: false },
+                { id: "css-3", name: "Colors, fonts and typography", completed: false },
+                { id: "css-4", name: "Display and positioning", completed: false },
+                { id: "css-5", name: "Flexbox", completed: false },
+                { id: "css-6", name: "CSS Grid", completed: false },
+                { id: "css-7", name: "Responsive design", completed: false },
+                { id: "css-8", name: "Media queries", completed: false },
+                { id: "css-9", name: "CSS animations and transitions", completed: false },
+                { id: "css-10", name: "CSS variables", completed: false },
+                { id: "css-11", name: "Modern CSS architecture", completed: false },
+                { id: "css-12", name: "Build responsive websites from designs", completed: false }
+            ]
+        },
+        {
+            id: "js-fundamentals",
+            name: "JavaScript Fundamentals",
+            icon: "⚡",
+            subquests: [
+                { id: "js-1", name: "Variables and data types", completed: false },
+                { id: "js-2", name: "Operators and conditions", completed: false },
+                { id: "js-3", name: "Loops", completed: false },
+                { id: "js-4", name: "Functions", completed: false },
+                { id: "js-5", name: "Arrays", completed: false },
+                { id: "js-6", name: "Objects", completed: false },
+                { id: "js-7", name: "Scope", completed: false },
+                { id: "js-8", name: "ES6+ features", completed: false },
+                { id: "js-9", name: "Destructuring", completed: false },
+                { id: "js-10", name: "Spread/rest operators", completed: false },
+                { id: "js-11", name: "Modules", completed: false },
+                { id: "js-12", name: "Error handling", completed: false },
+                { id: "js-13", name: "Write clean JavaScript", completed: false }
+            ]
+        },
+        {
+            id: "dom-apis",
+            name: "DOM & Browser APIs",
+            icon: "🖱️",
+            subquests: [
+                { id: "dom-1", name: "DOM selection", completed: false },
+                { id: "dom-2", name: "DOM manipulation", completed: false },
+                { id: "dom-3", name: "Events", completed: false },
+                { id: "dom-4", name: "Event delegation", completed: false },
+                { id: "dom-5", name: "Forms and validation", completed: false },
+                { id: "dom-6", name: "LocalStorage/sessionStorage", completed: false },
+                { id: "dom-7", name: "Fetch API", completed: false },
+                { id: "dom-8", name: "JSON", completed: false },
+                { id: "dom-9", name: "Browser APIs", completed: false },
+                { id: "dom-10", name: "Build interactive browser applications", completed: false }
+            ]
+        },
+        {
+            id: "async-js",
+            name: "Asynchronous JavaScript",
+            icon: "⏳",
+            subquests: [
+                { id: "async-1", name: "Callbacks", completed: false },
+                { id: "async-2", name: "Promises", completed: false },
+                { id: "async-3", name: "async/await", completed: false },
+                { id: "async-4", name: "Promise methods", completed: false },
+                { id: "async-5", name: "API requests", completed: false },
+                { id: "async-6", name: "Error handling", completed: false },
+                { id: "async-7", name: "Loading/error states", completed: false },
+                { id: "async-8", name: "Work with REST APIs", completed: false }
+            ]
+        },
+        {
+            id: "git-github",
+            name: "Git & GitHub",
+            icon: "🔀",
+            subquests: [
+                { id: "git-1", name: "Initialize repositories", completed: false },
+                { id: "git-2", name: "Commits", completed: false },
+                { id: "git-3", name: "Branches", completed: false },
+                { id: "git-4", name: "Merge", completed: false },
+                { id: "git-5", name: "Pull requests", completed: false },
+                { id: "git-6", name: "Resolve merge conflicts", completed: false },
+                { id: "git-7", name: ".gitignore", completed: false },
+                { id: "git-8", name: "GitHub collaboration", completed: false },
+                { id: "git-9", name: "Code review", completed: false },
+                { id: "git-10", name: "Use Git effectively in team projects", completed: false }
+            ]
+        },
+        {
+            id: "typescript",
+            name: "TypeScript",
+            icon: "📘",
+            subquests: [
+                { id: "ts-1", name: "Basic types", completed: false },
+                { id: "ts-2", name: "Interfaces", completed: false },
+                { id: "ts-3", name: "Type aliases", completed: false },
+                { id: "ts-4", name: "Functions with types", completed: false },
+                { id: "ts-5", name: "Generics", completed: false },
+                { id: "ts-6", name: "Unions/intersections", completed: false },
+                { id: "ts-7", name: "Utility types", completed: false },
+                { id: "ts-8", name: "Type-safe React development", completed: false }
+            ]
+        },
+        {
+            id: "react",
+            name: "React",
+            icon: "⚛️",
+            subquests: [
+                { id: "react-1", name: "Components", completed: false },
+                { id: "react-2", name: "JSX", completed: false },
+                { id: "react-3", name: "Props", completed: false },
+                { id: "react-4", name: "State", completed: false },
+                { id: "react-5", name: "Event handling", completed: false },
+                { id: "react-6", name: "Conditional rendering", completed: false },
+                { id: "react-7", name: "Lists and keys", completed: false },
+                { id: "react-8", name: "Forms", completed: false },
+                { id: "react-9", name: "Component composition", completed: false },
+                { id: "react-10", name: "Hooks", completed: false },
+                { id: "react-11", name: "useState", completed: false },
+                { id: "react-12", name: "useEffect", completed: false },
+                { id: "react-13", name: "useRef", completed: false },
+                { id: "react-14", name: "Custom hooks", completed: false },
+                { id: "react-15", name: "Context API", completed: false },
+                { id: "react-16", name: "Performance optimization", completed: false },
+                { id: "react-17", name: "Build reusable component systems", completed: false }
+            ]
+        },
+        {
+            id: "routing-state",
+            name: "Routing & State Management",
+            icon: "🗺️",
+            subquests: [
+                { id: "rs-1", name: "Client-side routing", completed: false },
+                { id: "rs-2", name: "Route parameters", completed: false },
+                { id: "rs-3", name: "Protected routes", completed: false },
+                { id: "rs-4", name: "Global state concepts", completed: false },
+                { id: "rs-5", name: "Context", completed: false },
+                { id: "rs-6", name: "Redux/Zustand or modern state management", completed: false },
+                { id: "rs-7", name: "Server state/data fetching", completed: false },
+                { id: "rs-8", name: "Manage complex application state", completed: false }
+            ]
+        },
+        {
+            id: "apis-backend",
+            name: "APIs & Backend Integration",
+            icon: "🔗",
+            subquests: [
+                { id: "api-1", name: "REST APIs", completed: false },
+                { id: "api-2", name: "Authentication flows", completed: false },
+                { id: "api-3", name: "CRUD operations", completed: false },
+                { id: "api-4", name: "API error handling", completed: false },
+                { id: "api-5", name: "Token/session handling", completed: false },
+                { id: "api-6", name: "Environment variables", completed: false },
+                { id: "api-7", name: "Connect frontend to backend", completed: false },
+                { id: "api-8", name: "Handle real-world API states", completed: false }
+            ]
+        },
+        {
+            id: "ui-ux-design",
+            name: "UI/UX & Design Systems",
+            icon: "🎭",
+            subquests: [
+                { id: "ux-1", name: "UI fundamentals", completed: false },
+                { id: "ux-2", name: "Responsive layouts", completed: false },
+                { id: "ux-3", name: "Accessibility", completed: false },
+                { id: "ux-4", name: "Component consistency", completed: false },
+                { id: "ux-5", name: "Design systems", completed: false },
+                { id: "ux-6", name: "Reusable UI components", completed: false },
+                { id: "ux-7", name: "Forms and validation UX", completed: false },
+                { id: "ux-8", name: "Loading/empty/error states", completed: false },
+                { id: "ux-9", name: "Implement designs accurately from Figma", completed: false }
+            ]
+        },
+        {
+            id: "testing",
+            name: "Testing",
+            icon: "✅",
+            subquests: [
+                { id: "test-1", name: "Unit testing", completed: false },
+                { id: "test-2", name: "Component testing", completed: false },
+                { id: "test-3", name: "Integration testing", completed: false },
+                { id: "test-4", name: "React Testing Library", completed: false },
+                { id: "test-5", name: "End-to-end testing", completed: false },
+                { id: "test-6", name: "Debug failing tests", completed: false }
+            ]
+        },
+        {
+            id: "performance",
+            name: "Performance",
+            icon: "⚡",
+            subquests: [
+                { id: "perf-1", name: "Understand browser performance", completed: false },
+                { id: "perf-2", name: "Optimize rendering", completed: false },
+                { id: "perf-3", name: "Lazy loading", completed: false },
+                { id: "perf-4", name: "Code splitting", completed: false },
+                { id: "perf-5", name: "Image optimization", completed: false },
+                { id: "perf-6", name: "Bundle optimization", completed: false },
+                { id: "perf-7", name: "Caching", completed: false },
+                { id: "perf-8", name: "Performance measurement", completed: false },
+                { id: "perf-9", name: "Core Web Vitals", completed: false }
+            ]
+        },
+        {
+            id: "security",
+            name: "Security",
+            icon: "🔒",
+            subquests: [
+                { id: "sec-1", name: "XSS awareness", completed: false },
+                { id: "sec-2", name: "CSRF awareness", completed: false },
+                { id: "sec-3", name: "Secure authentication handling", completed: false },
+                { id: "sec-4", name: "Input validation", completed: false },
+                { id: "sec-5", name: "Safe API usage", completed: false },
+                { id: "sec-6", name: "Environment/secrets management", completed: false },
+                { id: "sec-7", name: "Basic frontend security best practices", completed: false }
+            ]
+        },
+        {
+            id: "deployment",
+            name: "Deployment & Production",
+            icon: "🚀",
+            subquests: [
+                { id: "deploy-1", name: "Build production applications", completed: false },
+                { id: "deploy-2", name: "Environment configuration", completed: false },
+                { id: "deploy-3", name: "Deploy frontend applications", completed: false },
+                { id: "deploy-4", name: "Connect production APIs", completed: false },
+                { id: "deploy-5", name: "Domain configuration", completed: false },
+                { id: "deploy-6", name: "CI/CD basics", completed: false },
+                { id: "deploy-7", name: "Monitoring and debugging production issues", completed: false }
+            ]
+        },
+        {
+            id: "advanced-pro",
+            name: "Advanced / Professional Frontend",
+            icon: "👑",
+            subquests: [
+                { id: "adv-1", name: "Advanced React patterns", completed: false },
+                { id: "adv-2", name: "Advanced TypeScript", completed: false },
+                { id: "adv-3", name: "Frontend architecture", completed: false },
+                { id: "adv-4", name: "Scalable project structure", completed: false },
+                { id: "adv-5", name: "Micro-frontends awareness", completed: false },
+                { id: "adv-6", name: "SSR/SSG concepts", completed: false },
+                { id: "adv-7", name: "Next.js or equivalent modern framework", completed: false },
+                { id: "adv-8", name: "Advanced performance optimization", completed: false },
+                { id: "adv-9", name: "Advanced accessibility", completed: false },
+                { id: "adv-10", name: "Design systems at scale", completed: false },
+                { id: "adv-11", name: "Production-grade applications", completed: false },
+                { id: "adv-12", name: "Contribute to open-source projects", completed: false },
+                { id: "adv-13", name: "Build and deploy a large-scale portfolio project", completed: false }
+            ]
+        }
+    ]
+};
+
+// Load roadmap progress from localStorage
+const loadRoadmapProgress = () => {
+    const saved = localStorage.getItem('frontend_roadmap_progress');
+    if (saved) {
+        const savedData = JSON.parse(saved);
+        frontendRoadmap.skills.forEach(skill => {
+            skill.subquests.forEach(subquest => {
+                const savedSub = savedData.find(s => s.id === subquest.id);
+                if (savedSub) {
+                    subquest.completed = savedSub.completed;
+                }
+            });
+        });
+    }
+};
+
+// Save roadmap progress to localStorage
+const saveRoadmapProgress = () => {
+    const allSubquests = frontendRoadmap.skills.flatMap(skill =>
+        skill.subquests.map(sub => ({ id: sub.id, completed: sub.completed }))
+    );
+    localStorage.setItem('frontend_roadmap_progress', JSON.stringify(allSubquests));
+};
+
+// Calculate progress
+const calculateRoadmapProgress = () => {
+    const totalSubquests = frontendRoadmap.skills.reduce((sum, skill) => sum + skill.subquests.length, 0);
+    const completedSubquests = frontendRoadmap.skills.reduce((sum, skill) =>
+        sum + skill.subquests.filter(sq => sq.completed).length, 0);
+    
+    return {
+        total: totalSubquests,
+        completed: completedSubquests,
+        percentage: Math.round((completedSubquests / totalSubquests) * 100)
+    };
+};
+
+// Render roadmap modal
+const renderRoadmapModal = () => {
+    loadRoadmapProgress();
+    
+    const skillsContainer = document.getElementById('skillsContainer');
+    const progress = calculateRoadmapProgress();
+
+    skillsContainer.innerHTML = frontendRoadmap.skills.map(skill => {
+        const skillCompleted = skill.subquests.filter(sq => sq.completed).length;
+        const skillProgress = Math.round((skillCompleted / skill.subquests.length) * 100);
+
+        return `
+            <div class="bg-[#1f2937]/40 border border-gray-800 rounded-2xl overflow-hidden">
+                <!-- Skill Header -->
+                <button class="skill-header w-full p-4 flex items-center justify-between hover:bg-[#1f2937]/60 transition-all" data-skill-id="${skill.id}">
+                    <div class="flex items-center gap-3 flex-1 text-left">
+                        <span class="text-2xl">${skill.icon}</span>
+                        <div class="flex-1">
+                            <h3 class="font-bold text-white">${skill.name}</h3>
+                            <div class="flex items-center gap-2 mt-1">
+                                <div class="w-32 h-2 bg-gray-800 rounded-full overflow-hidden">
+                                    <div class="h-full bg-emerald-500 transition-all duration-300" style="width: ${skillProgress}%"></div>
+                                </div>
+                                <span class="text-xs text-gray-400">${skillCompleted}/${skill.subquests.length}</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-2xl transition-transform skill-toggle" style="transform: rotate(0deg)">▼</div>
+                </button>
+
+                <!-- Subquests List -->
+                <div class="skill-subquests hidden bg-[#111827] border-t border-gray-800 p-4 space-y-2">
+                    ${skill.subquests.map(subquest => `
+                        <label class="flex items-center gap-3 p-3 rounded-lg hover:bg-[#1f2937]/50 cursor-pointer transition-all group">
+                            <input type="checkbox" ${subquest.completed ? 'checked' : ''} class="subquest-checkbox w-5 h-5 rounded border-2 border-gray-600 accent-emerald-500 cursor-pointer" data-subquest-id="${subquest.id}" data-skill-id="${skill.id}">
+                            <span class="text-sm text-gray-300 group-hover:text-white transition-colors flex-1">${subquest.name}</span>
+                            ${subquest.completed ? '<span class="text-xs text-emerald-400 font-semibold">✓</span>' : ''}
+                        </label>
+                    `).join('')}
+                </div>
+            </div>
+        `;
+    }).join('');
+
+    // Update progress display
+    document.getElementById('overallProgressBar').style.width = progress.percentage + '%';
+    document.getElementById('overallProgressText').textContent = progress.percentage + '%';
+    document.getElementById('completedCount').textContent = progress.completed;
+    document.getElementById('totalCount').textContent = progress.total;
+
+    // Add event listeners
+    document.querySelectorAll('.skill-header').forEach(header => {
+        header.addEventListener('click', () => {
+            const skillId = header.getAttribute('data-skill-id');
+            const subquestsDiv = header.nextElementSibling;
+            const toggle = header.querySelector('.skill-toggle');
+            
+            subquestsDiv.classList.toggle('hidden');
+            toggle.style.transform = subquestsDiv.classList.contains('hidden') ? 'rotate(0deg)' : 'rotate(180deg)';
+        });
+    });
+
+    document.querySelectorAll('.subquest-checkbox').forEach(checkbox => {
+        checkbox.addEventListener('change', () => {
+            const subquestId = checkbox.getAttribute('data-subquest-id');
+            const skillId = checkbox.getAttribute('data-skill-id');
+            
+            const skill = frontendRoadmap.skills.find(s => s.id === skillId);
+            const subquest = skill.subquests.find(sq => sq.id === subquestId);
+            subquest.completed = checkbox.checked;
+            
+            saveRoadmapProgress();
+            renderRoadmapModal();
+        });
+    });
+};
+
+// Open roadmap modal
+window.openRoadmapModal = () => {
+    document.getElementById('roadmapModal').classList.remove('hidden');
+    renderRoadmapModal();
+};
+
+// Close roadmap modal
+document.getElementById('closeRoadmapBtn').addEventListener('click', () => {
+    document.getElementById('roadmapModal').classList.add('hidden');
+});
+
+document.getElementById('closeRoadmapBtnFooter').addEventListener('click', () => {
+    document.getElementById('roadmapModal').classList.add('hidden');
+});
+
+document.getElementById('roadmapModal').addEventListener('click', (e) => {
+    if (e.target === document.getElementById('roadmapModal')) {
+        document.getElementById('roadmapModal').classList.add('hidden');
+    }
+});
+
+// Initialize roadmap on page load
+loadRoadmapProgress();
 // Chat functionality
 const chatModal = document.getElementById('chatModal');
 const chatMessages = document.getElementById('chatMessages');
