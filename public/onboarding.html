@@ -91,7 +91,7 @@
     document.addEventListener('DOMContentLoaded', () => {
         const selectedSkills = new Set();
         const chips = document.querySelectorAll('.skill-chip');
-        const onboardingForm = document.getElementById('onboardingForm'); // Ensure your form tag has this ID
+        const onboardingForm = document.getElementById('onboardingForm');
 
         // Click handler for skill chips
         chips.forEach(chip => {
@@ -99,12 +99,10 @@
                 const skillName = chip.getAttribute('data-skill');
 
                 if (selectedSkills.has(skillName)) {
-                    // Deselect Chip
                     selectedSkills.delete(skillName);
                     chip.classList.remove('bg-blue-600', 'text-white', 'border-blue-400');
                     chip.classList.add('bg-[#1f2937]', 'text-gray-300', 'border-gray-700');
                 } else {
-                    // Select Chip
                     selectedSkills.add(skillName);
                     chip.classList.remove('bg-[#1f2937]', 'text-gray-300', 'border-gray-700');
                     chip.classList.add('bg-blue-600', 'text-white', 'border-blue-400');
@@ -112,25 +110,47 @@
             });
         });
 
-        // Form Submit Handler
-        onboardingForm.addEventListener('submit', (e) => {
+        // Form Submit Handler (Sends data to backend API & creates database.json)
+        onboardingForm.addEventListener('submit', async (e) => {
             e.preventDefault();
 
-            const nameInput = document.getElementById('studentNameInput');
+            const nameInput = document.getElementById('name');
             const name = nameInput ? nameInput.value.trim() : 'Jaswin';
-
-            // Convert Set to Array
             const skillsArray = Array.from(selectedSkills);
 
-            // Save to browser storage for downstream pages
-            localStorage.setItem('user_name', name);
-            localStorage.setItem('user_skills', JSON.stringify(skillsArray));
+            try {
+                // Send POST request to your running backend server
+                const response = await fetch('http://localhost:5000/api/users', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        name: name,
+                        currentSkills: skillsArray,
+                        targetRole: 'Embedded Systems Engineer' // Default target role for your track
+                    })
+                });
 
-            // Redirect to career.html
-            window.location.href = 'career.html';
+                if (!response.ok) {
+                    throw new Error('Failed to save user profile to backend.');
+                }
+
+                const data = await response.json();
+
+                // Save generated backend ID and details to localStorage for downstream pages
+                localStorage.setItem('user_id', data.id);
+                localStorage.setItem('user_name', name);
+                localStorage.setItem('user_skills', JSON.stringify(skillsArray));
+
+                // Redirect to career selection or quest board
+                window.location.href = 'career.html';
+
+            } catch (err) {
+                console.error('Onboarding submission error:', err);
+                alert('Could not connect to the backend server. Make sure "npm run dev" is running in your backend terminal.');
+            }
         });
     });
-</script>
+    </script>
 
 </body>
 </html>
