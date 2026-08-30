@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aroha - Student Onboarding</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-[#090d16] text-white min-h-screen flex items-center justify-center font-sans px-4 py-8">
+
+    <div class="w-full max-w-lg bg-[#111827] border border-gray-800 p-8 rounded-2xl shadow-[0_0_30px_rgba(0,0,0,0.5)]">
+        
+        <!-- Header -->
+        <div class="text-center mb-8">
+            <h1 class="text-3xl font-bold tracking-wider bg-gradient-to-r from-blue-400 via-indigo-400 to-purple-500 bg-clip-text text-transparent">
+                Student Onboarding
+            </h1>
+            <p class="text-gray-400 text-sm mt-2">Tell us about yourself to tailor your journey</p>
+        </div>
+
+        <!-- Onboarding Form -->
+        <form id="onboardingForm" class="space-y-6">
+            
+            <!-- Name Field -->
+            <div>
+                <label for="name" class="block text-sm font-medium text-gray-300 mb-2">Name</label>
+                <input 
+                    type="text" 
+                    id="name" 
+                    name="name" 
+                    required 
+                    placeholder="e.g. Jaswin" 
+                    value="Jaswin"
+                    class="w-full bg-[#1f2937] border border-gray-700 rounded-xl px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-blue-500 transition-colors"
+                >
+            </div>
+
+            <!-- Current Skills Field -->
+            <div>
+                <label for="skills" class="block text-sm font-medium text-gray-300 mb-2">Current Skills</label>
+                <input 
+                    type="text" 
+                    id="skills" 
+                    name="skills" 
+                    required 
+                    placeholder="e.g. C, C++, HTML, CSS" 
+                    value="C, C++, HTML, CSS"
+                    class="w-full bg-[#1f2937] border border-gray-700 rounded-xl px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-blue-500 transition-colors"
+                >
+            </div>
+
+            <!-- Career Goal Field -->
+            <div>
+                <label for="goal" class="block text-sm font-medium text-gray-300 mb-2">Career Goal</label>
+                <input 
+                    type="text" 
+                    id="goal" 
+                    name="goal" 
+                    required 
+                    placeholder="e.g. Full Stack Developer"
+                    class="w-full bg-[#1f2937] border border-gray-700 rounded-xl px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-blue-500 transition-colors"
+                >
+            </div>
+
+            <!-- Submit Button -->
+            <button 
+                type="submit" 
+                class="w-full bg-blue-600 hover:bg-blue-500 text-white font-medium py-3.5 rounded-xl shadow-[0_0_20px_rgba(37,99,235,0.4)] transition-all duration-300"
+            >
+                Start Journey
+            </button>
+
+        </form>
+
+    </div>
+
+    <!-- Optional script to handle submission if you want to connect it later -->
+    <script>
+        document.getElementById('onboardingForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const name = document.getElementById('name').value;
+            const skills = document.getElementById('skills').value;
+            const goal = document.getElementById('goal').value;
+
+            console.log({ name, skills, goal });
+            alert('Onboarding data saved! Ready to connect to backend.');
+        });
+    </script>
+
+</body>
+</html>

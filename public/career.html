@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aroha - Career Selection</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-[#090d16] text-white min-h-screen flex items-center justify-center font-sans px-4 py-8">
+
+    <div class="w-full max-w-xl bg-[#111827] border border-gray-800 p-8 rounded-2xl shadow-[0_0_30px_rgba(0,0,0,0.5)]">
+        
+        <!-- Header -->
+        <div class="text-center mb-8">
+            <h1 class="text-3xl font-bold tracking-wider bg-gradient-to-r from-blue-400 via-indigo-400 to-purple-500 bg-clip-text text-transparent">
+                Choose Your Path
+            </h1>
+            <p class="text-gray-400 text-sm mt-2">Select your target career goal to customize your roadmap</p>
+        </div>
+
+        <!-- Career Selection Form -->
+        <form id="careerForm" class="space-y-4">
+            
+            <!-- Option 1: Frontend Developer -->
+            <label class="block cursor-pointer">
+                <input type="radio" name="career" value="Frontend Developer" class="peer hidden" required>
+                <div class="p-5 bg-[#1f2937] border border-gray-700 rounded-xl peer-checked:border-blue-500 peer-checked:bg-[#1e293b] peer-checked:shadow-[0_0_15px_rgba(59,130,246,0.3)] transition-all flex items-center justify-between">
+                    <div>
+                        <h3 class="text-lg font-semibold text-white">Frontend Developer</h3>
+                        <p class="text-sm text-gray-400 mt-1">Build engaging user interfaces and web experiences.</p>
+                    </div>
+                    <div class="w-5 h-5 rounded-full border border-gray-500 peer-checked:border-blue-500 peer-checked:bg-blue-500 flex items-center justify-center">
+                        <div class="w-2 h-2 rounded-full bg-white opacity-0 peer-checked:opacity-100"></div>
+                    </div>
+                </div>
+            </label>
+
+            <!-- Option 2: Embedded Systems Engineer -->
+            <label class="block cursor-pointer">
+                <input type="radio" name="career" value="Embedded Systems Engineer" class="peer hidden">
+                <div class="p-5 bg-[#1f2937] border border-gray-700 rounded-xl peer-checked:border-blue-500 peer-checked:bg-[#1e293b] peer-checked:shadow-[0_0_15px_rgba(59,130,246,0.3)] transition-all flex items-center justify-between">
+                    <div>
+                        <h3 class="text-lg font-semibold text-white">Embedded Systems Engineer</h3>
+                        <p class="text-sm text-gray-400 mt-1">Design and code hardware, microcontrollers, and IoT systems.</p>
+                    </div>
+                </div>
+            </label>
+
+            <!-- Option 3: Data Analyst -->
+            <label class="block cursor-pointer">
+                <input type="radio" name="career" value="Data Analyst" class="peer hidden">
+                <div class="p-5 bg-[#1f2937] border border-gray-700 rounded-xl peer-checked:border-blue-500 peer-checked:bg-[#1e293b] peer-checked:shadow-[0_0_15px_rgba(59,130,246,0.3)] transition-all flex items-center justify-between">
+                    <div>
+                        <h3 class="text-lg font-semibold text-white">Data Analyst</h3>
+                        <p class="text-sm text-gray-400 mt-1">Analyze complex datasets and extract actionable insights.</p>
+                    </div>
+                </div>
+            </label>
+
+            <!-- Submit Button -->
+            <div class="pt-4">
+                <button 
+                    type="submit" 
+                    class="w-full bg-blue-600 hover:bg-blue-500 text-white font-medium py-3.5 rounded-xl shadow-[0_0_20px_rgba(37,99,235,0.4)] transition-all duration-300"
+                >
+                    Confirm Career Path
+                </button>
+            </div>
+
+        </form>
+
+    </div>
+
+    <script>
+        document.getElementById('careerForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const selectedCareer = document.querySelector('input[name="career"]:checked').value;
+            
+            // Console log or ready to send to your teammate's backend later
+            console.log("Selected Career:", selectedCareer);
+            alert(`Career selected: ${selectedCareer}! Ready for the next step.`);
+        });
+    </script>
+
+</body>
+</html>
