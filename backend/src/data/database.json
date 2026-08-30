@@ -1,0 +1,44 @@
+[
+  {
+    "id": "1788084518182",
+    "name": "Jaswin",
+    "targetRole": "Embedded Systems Engineer",
+    "currentSkills": [],
+    "matchedSkills": [],
+    "missingSkills": [
+      "C",
+      "Pointers",
+      "Embedded C",
+      "Microcontrollers",
+      "UART",
+      "SPI",
+      "I2C",
+      "RTOS"
+    ],
+    "readinessScore": 0,
+    "completedQuests": [],
+    "createdAt": "2026-08-30T10:08:38.182Z"
+  },
+  {
+    "id": "1788084536021",
+    "name": "Jaswin",
+    "targetRole": "Embedded Systems Engineer",
+    "currentSkills": [
+      "HTML"
+    ],
+    "matchedSkills": [],
+    "missingSkills": [
+      "C",
+      "Pointers",
+      "Embedded C",
+      "Microcontrollers",
+      "UART",
+      "SPI",
+      "I2C",
+      "RTOS"
+    ],
+    "readinessScore": 0,
+    "completedQuests": [],
+    "createdAt": "2026-08-30T10:08:56.021Z"
+  }
+]
