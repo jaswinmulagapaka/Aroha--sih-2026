@@ -3,70 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aroha - Career Selection</title>
+    <title>Aroha - Choose Career Track</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-[#090d16] text-white min-h-screen flex items-center justify-center font-sans px-4 py-8">
+<body class="bg-[#090d16] text-white min-h-screen flex items-center justify-center font-sans p-4">
 
-    <div class="w-full max-w-xl bg-[#111827] border border-gray-800 p-8 rounded-2xl shadow-[0_0_30px_rgba(0,0,0,0.5)]">
+    <div class="w-full max-w-2xl bg-[#111827] border border-gray-800 rounded-3xl p-8 shadow-[0_0_30px_rgba(0,0,0,0.6)]">
         
         <!-- Header -->
         <div class="text-center mb-8">
-            <h1 class="text-3xl font-bold tracking-wider bg-gradient-to-r from-blue-400 via-indigo-400 to-purple-500 bg-clip-text text-transparent">
-                Choose Your Path
-            </h1>
-            <p class="text-gray-400 text-sm mt-2">Select your target career goal to customize your roadmap</p>
+            <h2 class="text-3xl font-bold bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
+                Select Your Target Track
+            </h2>
+            <p class="text-gray-400 text-sm mt-2">Choose the role you want to master.</p>
         </div>
 
-        <!-- Career Selection Form -->
-        <form id="careerForm" class="space-y-4">
+        <form id="careerForm" class="space-y-4 mb-8">
             
-            <!-- Option 1: Frontend Developer -->
-            <label class="block cursor-pointer">
-                <input type="radio" name="career" value="Frontend Developer" class="peer hidden" required>
-                <div class="p-5 bg-[#1f2937] border border-gray-700 rounded-xl peer-checked:border-blue-500 peer-checked:bg-[#1e293b] peer-checked:shadow-[0_0_15px_rgba(59,130,246,0.3)] transition-all flex items-center justify-between">
-                    <div>
-                        <h3 class="text-lg font-semibold text-white">Frontend Developer</h3>
-                        <p class="text-sm text-gray-400 mt-1">Build engaging user interfaces and web experiences.</p>
-                    </div>
-                    <div class="w-5 h-5 rounded-full border border-gray-500 peer-checked:border-blue-500 peer-checked:bg-blue-500 flex items-center justify-center">
-                        <div class="w-2 h-2 rounded-full bg-white opacity-0 peer-checked:opacity-100"></div>
-                    </div>
+            <!-- Track 1 -->
+            <label class="flex items-center p-4 bg-[#1f2937] border border-gray-700 rounded-2xl cursor-pointer hover:border-blue-500 transition-all duration-300 group">
+                <input type="radio" name="career_track" value="Frontend Developer" checked class="w-4 h-4 text-blue-600 bg-gray-900 border-gray-600 focus:ring-blue-500">
+                <div class="ml-4">
+                    <span class="block font-semibold text-white group-hover:text-blue-400 transition-colors">Frontend Developer</span>
+                    <span class="text-xs text-gray-400">Master modern UI engineering, React, and web design.</span>
                 </div>
             </label>
 
-            <!-- Option 2: Embedded Systems Engineer -->
-            <label class="block cursor-pointer">
-                <input type="radio" name="career" value="Embedded Systems Engineer" class="peer hidden">
-                <div class="p-5 bg-[#1f2937] border border-gray-700 rounded-xl peer-checked:border-blue-500 peer-checked:bg-[#1e293b] peer-checked:shadow-[0_0_15px_rgba(59,130,246,0.3)] transition-all flex items-center justify-between">
-                    <div>
-                        <h3 class="text-lg font-semibold text-white">Embedded Systems Engineer</h3>
-                        <p class="text-sm text-gray-400 mt-1">Design and code hardware, microcontrollers, and IoT systems.</p>
-                    </div>
+            <!-- Track 2 -->
+            <label class="flex items-center p-4 bg-[#1f2937] border border-gray-700 rounded-2xl cursor-pointer hover:border-blue-500 transition-all duration-300 group">
+                <input type="radio" name="career_track" value="Embedded Systems Engineer" class="w-4 h-4 text-blue-600 bg-gray-900 border-gray-600 focus:ring-blue-500">
+                <div class="ml-4">
+                    <span class="block font-semibold text-white group-hover:text-blue-400 transition-colors">Embedded Systems Engineer</span>
+                    <span class="text-xs text-gray-400">Build deep hardware-software integrations and low-level code.</span>
                 </div>
             </label>
 
-            <!-- Option 3: Data Analyst -->
-            <label class="block cursor-pointer">
-                <input type="radio" name="career" value="Data Analyst" class="peer hidden">
-                <div class="p-5 bg-[#1f2937] border border-gray-700 rounded-xl peer-checked:border-blue-500 peer-checked:bg-[#1e293b] peer-checked:shadow-[0_0_15px_rgba(59,130,246,0.3)] transition-all flex items-center justify-between">
-                    <div>
-                        <h3 class="text-lg font-semibold text-white">Data Analyst</h3>
-                        <p class="text-sm text-gray-400 mt-1">Analyze complex datasets and extract actionable insights.</p>
-                    </div>
+            <!-- Track 3 -->
+            <label class="flex items-center p-4 bg-[#1f2937] border border-gray-700 rounded-2xl cursor-pointer hover:border-blue-500 transition-all duration-300 group">
+                <input type="radio" name="career_track" value="Data Analyst" class="w-4 h-4 text-blue-600 bg-gray-900 border-gray-600 focus:ring-blue-500">
+                <div class="ml-4">
+                    <span class="block font-semibold text-white group-hover:text-blue-400 transition-colors">Data Analyst</span>
+                    <span class="text-xs text-gray-400">Analyze patterns and build data insights.</span>
                 </div>
             </label>
 
-            <!-- Submit Button -->
-            <div class="pt-4">
-                <button 
-                    type="submit" 
-                    class="w-full bg-blue-600 hover:bg-blue-500 text-white font-medium py-3.5 rounded-xl shadow-[0_0_20px_rgba(37,99,235,0.4)] transition-all duration-300"
-                >
-                    Confirm Career Path
-                </button>
-            </div>
+            <!-- Final Launch Button -->
+            <button type="submit" class="w-full mt-6 bg-blue-600 hover:bg-blue-500 text-white font-medium py-4 rounded-xl shadow-[0_0_20px_rgba(37,99,235,0.4)] transition-all duration-300">
+                Launch My Roadmap
+            </button>
 
         </form>
 
@@ -86,6 +71,7 @@
         // 2. Handle the career selection form submission
         document.getElementById('careerForm').addEventListener('submit', function(e) {
             e.preventDefault();
+<<<<<<< HEAD
             const selectedCareer = document.querySelector('input[name="career"]:checked').value;
             
             // Combine onboarding data and the selected career into one complete profile object
@@ -99,6 +85,23 @@
 
             console.log("Complete User Profile:", completeProfile);
             alert(`Career selected: ${selectedCareer}! Ready for the next step.`);
+=======
+
+            // Retrieve data from Step 1
+            const name = localStorage.getItem('user_name') || 'Student';
+            const skills = JSON.parse(localStorage.getItem('user_skills') || '[]');
+            const targetRole = document.querySelector('input[name="career_track"]:checked').value;
+
+            // Construct exact backend JSON structure
+            const payload = {
+                name: name,
+                skills: skills,
+                targetRole: targetRole
+            };
+
+            console.log("Final Backend Payload:", payload);
+            alert(`Roadmap Initialized!\n\nPayload:\n${JSON.stringify(payload, null, 2)}`);
+>>>>>>> afc53d426432e0aef5bc0806f562a12a1c0ed475
         });
     </script>
 
