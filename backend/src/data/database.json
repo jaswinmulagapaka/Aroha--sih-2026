@@ -943,5 +943,569 @@
         "completed": false
       }
     ]
+  },
+  {
+    "id": "1788093661639",
+    "name": "Jaswin",
+    "targetRole": "Frontend Developer",
+    "currentSkills": [
+      "CSS",
+      "Embedded C",
+      "Excel"
+    ],
+    "matchedSkills": [
+      "CSS"
+    ],
+    "missingSkills": [
+      "HTML",
+      "JavaScript",
+      "Git",
+      "React",
+      "REST APIs"
+    ],
+    "readinessScore": 17,
+    "completedQuests": [],
+    "createdAt": "2026-08-30T12:41:01.639Z",
+    "analysis": {
+      "matchedSkills": [
+        "CSS"
+      ],
+      "missingSkills": [
+        "HTML",
+        "JavaScript",
+        "Git",
+        "React",
+        "REST APIs"
+      ],
+      "readinessScore": 17
+    },
+    "quests": [
+      {
+        "id": "quest-web-001",
+        "title": "Build a Responsive Portfolio Website",
+        "objective": "Create a personal portfolio using HTML, CSS, and JavaScript. Include projects section, about me, and contact form. Make it mobile-responsive.",
+        "skillsCovered": [
+          "HTML",
+          "CSS",
+          "JavaScript",
+          "Responsive Design"
+        ],
+        "microSkills": [
+          "Semantic HTML5 structure",
+          "Flexbox & CSS Grid layouts",
+          "CSS media queries",
+          "Mobile-first design",
+          "JavaScript DOM manipulation",
+          "Form validation",
+          "Accessibility (ARIA labels)",
+          "CSS animations"
+        ],
+        "difficulty": "Beginner",
+        "estimatedHours": 5,
+        "completed": false
+      },
+      {
+        "id": "quest-web-002",
+        "title": "Create an Interactive Todo App",
+        "objective": "Build a fully functional todo list with add, delete, edit, and mark-complete features using vanilla JavaScript and localStorage.",
+        "skillsCovered": [
+          "JavaScript",
+          "DOM Manipulation",
+          "Event Handling",
+          "localStorage"
+        ],
+        "microSkills": [
+          "Event listeners (click, input)",
+          "DOM element creation & manipulation",
+          "Array methods (map, filter, splice)",
+          "localStorage API",
+          "JSON stringify/parse",
+          "ES6 template literals",
+          "Function closures",
+          "Error handling",
+          "CSS class toggling"
+        ],
+        "difficulty": "Intermediate",
+        "estimatedHours": 4,
+        "completed": false
+      },
+      {
+        "id": "quest-web-003",
+        "title": "Master CSS Grid & Flexbox Layouts",
+        "objective": "Create a complex dashboard-style UI using CSS Grid and Flexbox. Build multiple responsive card layouts and navigation menus.",
+        "skillsCovered": [
+          "CSS",
+          "Flexbox",
+          "CSS Grid",
+          "Layout Design"
+        ],
+        "microSkills": [
+          "Flexbox properties (justify-content, align-items)",
+          "CSS Grid template areas",
+          "Responsive grid columns",
+          "Gap & margin handling",
+          "CSS custom properties (variables)",
+          "Responsive typography",
+          "Mobile menu toggle",
+          "Nested flexbox/grid",
+          "CSS calc() function"
+        ],
+        "difficulty": "Intermediate",
+        "estimatedHours": 3,
+        "completed": false
+      }
+    ]
+  },
+  {
+    "id": "1788093988380",
+    "name": "Jaswin",
+    "targetRole": "Frontend Developer",
+    "currentSkills": [
+      "JavaScript",
+      "CSS",
+      "Embedded C",
+      "SQL"
+    ],
+    "matchedSkills": [
+      "CSS",
+      "JavaScript"
+    ],
+    "missingSkills": [
+      "HTML",
+      "Git",
+      "React",
+      "REST APIs"
+    ],
+    "readinessScore": 33,
+    "completedQuests": [],
+    "createdAt": "2026-08-30T12:46:28.380Z",
+    "analysis": {
+      "matchedSkills": [
+        "CSS",
+        "JavaScript"
+      ],
+      "missingSkills": [
+        "HTML",
+        "Git",
+        "React",
+        "REST APIs"
+      ],
+      "readinessScore": 33
+    },
+    "quests": [
+      {
+        "id": "quest-web-001",
+        "title": "Build a Responsive Portfolio Website",
+        "objective": "Create a personal portfolio using HTML, CSS, and JavaScript. Include projects section, about me, and contact form. Make it mobile-responsive.",
+        "skillsCovered": [
+          "HTML",
+          "CSS",
+          "JavaScript",
+          "Responsive Design"
+        ],
+        "microSkills": [
+          "Semantic HTML5 structure",
+          "Flexbox & CSS Grid layouts",
+          "CSS media queries",
+          "Mobile-first design",
+          "JavaScript DOM manipulation",
+          "Form validation",
+          "Accessibility (ARIA labels)",
+          "CSS animations"
+        ],
+        "difficulty": "Beginner",
+        "estimatedHours": 5,
+        "completed": false
+      },
+      {
+        "id": "quest-web-002",
+        "title": "Create an Interactive Todo App",
+        "objective": "Build a fully functional todo list with add, delete, edit, and mark-complete features using vanilla JavaScript and localStorage.",
+        "skillsCovered": [
+          "JavaScript",
+          "DOM Manipulation",
+          "Event Handling",
+          "localStorage"
+        ],
+        "microSkills": [
+          "Event listeners (click, input)",
+          "DOM element creation & manipulation",
+          "Array methods (map, filter, splice)",
+          "localStorage API",
+          "JSON stringify/parse",
+          "ES6 template literals",
+          "Function closures",
+          "Error handling",
+          "CSS class toggling"
+        ],
+        "difficulty": "Intermediate",
+        "estimatedHours": 4,
+        "completed": false
+      },
+      {
+        "id": "quest-web-003",
+        "title": "Master CSS Grid & Flexbox Layouts",
+        "objective": "Create a complex dashboard-style UI using CSS Grid and Flexbox. Build multiple responsive card layouts and navigation menus.",
+        "skillsCovered": [
+          "CSS",
+          "Flexbox",
+          "CSS Grid",
+          "Layout Design"
+        ],
+        "microSkills": [
+          "Flexbox properties (justify-content, align-items)",
+          "CSS Grid template areas",
+          "Responsive grid columns",
+          "Gap & margin handling",
+          "CSS custom properties (variables)",
+          "Responsive typography",
+          "Mobile menu toggle",
+          "Nested flexbox/grid",
+          "CSS calc() function"
+        ],
+        "difficulty": "Intermediate",
+        "estimatedHours": 3,
+        "completed": false
+      }
+    ]
+  },
+  {
+    "id": "1788094906740",
+    "name": "Jaswin",
+    "targetRole": "Frontend Developer",
+    "currentSkills": [
+      "HTML",
+      "JavaScript",
+      "C"
+    ],
+    "matchedSkills": [
+      "HTML",
+      "JavaScript"
+    ],
+    "missingSkills": [
+      "CSS",
+      "Git",
+      "React",
+      "REST APIs"
+    ],
+    "readinessScore": 33,
+    "completedQuests": [],
+    "createdAt": "2026-08-30T13:01:46.740Z",
+    "analysis": {
+      "matchedSkills": [
+        "HTML",
+        "JavaScript"
+      ],
+      "missingSkills": [
+        "CSS",
+        "Git",
+        "React",
+        "REST APIs"
+      ],
+      "readinessScore": 33
+    },
+    "quests": [
+      {
+        "id": "quest-web-001",
+        "title": "Build a Responsive Portfolio Website",
+        "objective": "Create a personal portfolio using HTML, CSS, and JavaScript. Include projects section, about me, and contact form. Make it mobile-responsive.",
+        "skillsCovered": [
+          "HTML",
+          "CSS",
+          "JavaScript",
+          "Responsive Design"
+        ],
+        "microSkills": [
+          "Semantic HTML5 structure",
+          "Flexbox & CSS Grid layouts",
+          "CSS media queries",
+          "Mobile-first design",
+          "JavaScript DOM manipulation",
+          "Form validation",
+          "Accessibility (ARIA labels)",
+          "CSS animations"
+        ],
+        "difficulty": "Beginner",
+        "estimatedHours": 5,
+        "completed": false
+      },
+      {
+        "id": "quest-web-002",
+        "title": "Create an Interactive Todo App",
+        "objective": "Build a fully functional todo list with add, delete, edit, and mark-complete features using vanilla JavaScript and localStorage.",
+        "skillsCovered": [
+          "JavaScript",
+          "DOM Manipulation",
+          "Event Handling",
+          "localStorage"
+        ],
+        "microSkills": [
+          "Event listeners (click, input)",
+          "DOM element creation & manipulation",
+          "Array methods (map, filter, splice)",
+          "localStorage API",
+          "JSON stringify/parse",
+          "ES6 template literals",
+          "Function closures",
+          "Error handling",
+          "CSS class toggling"
+        ],
+        "difficulty": "Intermediate",
+        "estimatedHours": 4,
+        "completed": false
+      },
+      {
+        "id": "quest-web-003",
+        "title": "Master CSS Grid & Flexbox Layouts",
+        "objective": "Create a complex dashboard-style UI using CSS Grid and Flexbox. Build multiple responsive card layouts and navigation menus.",
+        "skillsCovered": [
+          "CSS",
+          "Flexbox",
+          "CSS Grid",
+          "Layout Design"
+        ],
+        "microSkills": [
+          "Flexbox properties (justify-content, align-items)",
+          "CSS Grid template areas",
+          "Responsive grid columns",
+          "Gap & margin handling",
+          "CSS custom properties (variables)",
+          "Responsive typography",
+          "Mobile menu toggle",
+          "Nested flexbox/grid",
+          "CSS calc() function"
+        ],
+        "difficulty": "Intermediate",
+        "estimatedHours": 3,
+        "completed": false
+      }
+    ]
+  },
+  {
+    "id": "1788095058501",
+    "name": "Jaswin",
+    "targetRole": "Frontend Developer",
+    "currentSkills": [
+      "HTML"
+    ],
+    "matchedSkills": [
+      "HTML"
+    ],
+    "missingSkills": [
+      "CSS",
+      "JavaScript",
+      "Git",
+      "React",
+      "REST APIs"
+    ],
+    "readinessScore": 17,
+    "completedQuests": [],
+    "createdAt": "2026-08-30T13:04:18.501Z",
+    "analysis": {
+      "matchedSkills": [
+        "HTML"
+      ],
+      "missingSkills": [
+        "CSS",
+        "JavaScript",
+        "Git",
+        "React",
+        "REST APIs"
+      ],
+      "readinessScore": 17
+    },
+    "quests": [
+      {
+        "id": "quest-web-001",
+        "title": "Build a Responsive Portfolio Website",
+        "objective": "Create a personal portfolio using HTML, CSS, and JavaScript. Include projects section, about me, and contact form. Make it mobile-responsive.",
+        "skillsCovered": [
+          "HTML",
+          "CSS",
+          "JavaScript",
+          "Responsive Design"
+        ],
+        "microSkills": [
+          "Semantic HTML5 structure",
+          "Flexbox & CSS Grid layouts",
+          "CSS media queries",
+          "Mobile-first design",
+          "JavaScript DOM manipulation",
+          "Form validation",
+          "Accessibility (ARIA labels)",
+          "CSS animations"
+        ],
+        "difficulty": "Beginner",
+        "estimatedHours": 5,
+        "completed": false
+      },
+      {
+        "id": "quest-web-002",
+        "title": "Create an Interactive Todo App",
+        "objective": "Build a fully functional todo list with add, delete, edit, and mark-complete features using vanilla JavaScript and localStorage.",
+        "skillsCovered": [
+          "JavaScript",
+          "DOM Manipulation",
+          "Event Handling",
+          "localStorage"
+        ],
+        "microSkills": [
+          "Event listeners (click, input)",
+          "DOM element creation & manipulation",
+          "Array methods (map, filter, splice)",
+          "localStorage API",
+          "JSON stringify/parse",
+          "ES6 template literals",
+          "Function closures",
+          "Error handling",
+          "CSS class toggling"
+        ],
+        "difficulty": "Intermediate",
+        "estimatedHours": 4,
+        "completed": false
+      },
+      {
+        "id": "quest-web-003",
+        "title": "Master CSS Grid & Flexbox Layouts",
+        "objective": "Create a complex dashboard-style UI using CSS Grid and Flexbox. Build multiple responsive card layouts and navigation menus.",
+        "skillsCovered": [
+          "CSS",
+          "Flexbox",
+          "CSS Grid",
+          "Layout Design"
+        ],
+        "microSkills": [
+          "Flexbox properties (justify-content, align-items)",
+          "CSS Grid template areas",
+          "Responsive grid columns",
+          "Gap & margin handling",
+          "CSS custom properties (variables)",
+          "Responsive typography",
+          "Mobile menu toggle",
+          "Nested flexbox/grid",
+          "CSS calc() function"
+        ],
+        "difficulty": "Intermediate",
+        "estimatedHours": 3,
+        "completed": false
+      }
+    ]
+  },
+  {
+    "id": "1788095658680",
+    "name": "Jaswin",
+    "targetRole": "Embedded Systems Engineer",
+    "currentSkills": [
+      "JavaScript",
+      "CSS",
+      "HTML",
+      "Embedded C",
+      "Excel"
+    ],
+    "matchedSkills": [
+      "Embedded C"
+    ],
+    "missingSkills": [
+      "C",
+      "Pointers",
+      "Microcontrollers",
+      "UART",
+      "SPI",
+      "I2C",
+      "RTOS"
+    ],
+    "readinessScore": 13,
+    "completedQuests": [],
+    "createdAt": "2026-08-30T13:14:18.680Z",
+    "analysis": {
+      "matchedSkills": [
+        "Embedded C"
+      ],
+      "missingSkills": [
+        "C",
+        "Pointers",
+        "Microcontrollers",
+        "UART",
+        "SPI",
+        "I2C",
+        "RTOS"
+      ],
+      "readinessScore": 13
+    },
+    "quests": [
+      {
+        "id": "quest-emb-001",
+        "title": "Build a LED Blink Program",
+        "objective": "Write a C program to control an LED on a microcontroller using GPIO pins. Learn basic digital output control.",
+        "skillsCovered": [
+          "C",
+          "Embedded C",
+          "Microcontrollers"
+        ],
+        "microSkills": [
+          "Register manipulation",
+          "Bit shifting operations",
+          "GPIO configuration",
+          "Output pin control",
+          "Delay functions",
+          "Preprocessor directives",
+          "Header file usage",
+          "Basic C syntax on embedded",
+          "Serial debugging setup"
+        ],
+        "difficulty": "Beginner",
+        "estimatedHours": 2,
+        "completed": false
+      },
+      {
+        "id": "quest-emb-002",
+        "title": "Implement a Timer Interrupt Handler",
+        "objective": "Create a timer-based interrupt handler on a microcontroller. Understand interrupts and real-time event handling.",
+        "skillsCovered": [
+          "Embedded C",
+          "Microcontrollers",
+          "RTOS"
+        ],
+        "microSkills": [
+          "Interrupt setup & configuration",
+          "ISR (Interrupt Service Routine)",
+          "Timer prescaler settings",
+          "Volatile keyword usage",
+          "Critical sections",
+          "Interrupt priorities",
+          "Context switching basics",
+          "Timer overflow handling",
+          "Debugging interrupts"
+        ],
+        "difficulty": "Intermediate",
+        "estimatedHours": 4,
+        "completed": false
+      },
+      {
+        "id": "quest-emb-003",
+        "title": "Master UART Communication",
+        "objective": "Implement UART protocol to enable serial communication between a microcontroller and a computer. Debug using serial output.",
+        "skillsCovered": [
+          "UART",
+          "SPI",
+          "I2C",
+          "Embedded C"
+        ],
+        "microSkills": [
+          "UART initialization",
+          "Baud rate configuration",
+          "Transmit/receive functions",
+          "Circular buffers",
+          "Serial terminal usage",
+          "Debugging with printf",
+          "Data frame format",
+          "Error checking (parity)",
+          "Interrupt-driven UART"
+        ],
+        "difficulty": "Intermediate",
+        "estimatedHours": 3,
+        "completed": false
+      }
+    ]
   }
 ]

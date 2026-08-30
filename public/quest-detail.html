@@ -177,6 +177,7 @@
 
         // Get quest (use first one as default for demo)
         const quest = questData[questId] || Object.values(questData)[0];
+        const storageKey = `quest_${questId}_progress`;
 
         // Populate quest details
         document.getElementById('questTitle').textContent = quest.title;
@@ -205,35 +206,51 @@
             `<span class="px-3 py-1.5 rounded-full border border-blue-500/50 bg-blue-900/20 text-blue-300 text-sm font-medium">${skill}</span>`
         ).join('');
 
+        // Load saved progress from localStorage
+        let savedProgress = [];
+        try {
+            const saved = localStorage.getItem(storageKey);
+            if (saved) {
+                savedProgress = JSON.parse(saved);
+            }
+        } catch (e) {
+            savedProgress = [];
+        }
+
         // Render microskills with checkboxes
         const microskillsList = document.getElementById('microskillsList');
-        let completedCount = 0;
         microskillsList.innerHTML = quest.microSkills.map((skill, idx) => {
-            const isCompleted = Math.random() > 0.7; // Random for demo
-            if (isCompleted) completedCount++;
+            const isCompleted = savedProgress.includes(idx);
             return `
                 <label class="flex items-center gap-3 p-3 rounded-lg hover:bg-[#1f2937]/50 cursor-pointer transition-all group">
-                    <input type="checkbox" ${isCompleted ? 'checked' : ''} class="microskill-check w-5 h-5 rounded border-2 border-gray-600 accent-emerald-500 cursor-pointer">
+                    <input type="checkbox" ${isCompleted ? 'checked' : ''} data-index="${idx}" class="microskill-check w-5 h-5 rounded border-2 border-gray-600 accent-emerald-500 cursor-pointer">
                     <span class="text-sm text-gray-300 group-hover:text-white transition-colors">${skill}</span>
                 </label>
             `;
         }).join('');
 
-        // Update progress
-        const progress = Math.round((completedCount / quest.microSkills.length) * 100);
-        document.getElementById('progressText').textContent = `${progress}%`;
-        document.getElementById('progressRing').style.strokeDashoffset = 100 - progress;
-        document.getElementById('microskillsCount').textContent = `${completedCount} / ${quest.microSkills.length} completed`;
+        // Update progress display
+        const updateProgress = () => {
+            const checked = document.querySelectorAll('.microskill-check:checked').length;
+            const newProgress = Math.round((checked / quest.microSkills.length) * 100);
+            document.getElementById('progressText').textContent = `${newProgress}%`;
+            document.getElementById('progressRing').style.strokeDashoffset = 100 - newProgress;
+            document.getElementById('microskillsCount').textContent = `${checked} / ${quest.microSkills.length} completed`;
+            
+            // Save to localStorage
+            const checkedIndices = [];
+            document.querySelectorAll('.microskill-check:checked').forEach(cb => {
+                checkedIndices.push(parseInt(cb.getAttribute('data-index')));
+            });
+            localStorage.setItem(storageKey, JSON.stringify(checkedIndices));
+        };
+
+        // Initial progress update
+        updateProgress();
 
         // Microskill checkbox handlers
         document.querySelectorAll('.microskill-check').forEach(checkbox => {
-            checkbox.addEventListener('change', () => {
-                const checked = document.querySelectorAll('.microskill-check:checked').length;
-                const newProgress = Math.round((checked / quest.microSkills.length) * 100);
-                document.getElementById('progressText').textContent = `${newProgress}%`;
-                document.getElementById('progressRing').style.strokeDashoffset = 100 - newProgress;
-                document.getElementById('microskillsCount').textContent = `${checked} / ${quest.microSkills.length} completed`;
-            });
+            checkbox.addEventListener('change', updateProgress);
         });
 
         // Start Quest Button

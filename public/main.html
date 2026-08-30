@@ -25,6 +25,7 @@
                 <p class="text-gray-400 text-sm mt-1">Welcome back, <span id="studentName" class="text-white font-medium">Student</span>!</p>
             </div>
             <div class="flex items-center gap-3">
+                            <div class="flex items-center gap-3">
                 <!-- 👤 Profile Icon & Portfolio Trigger Button -->
                 <button id="profileBtn" class="bg-[#1f2937] border border-gray-700 hover:border-blue-500 px-3 py-2 rounded-xl text-white flex items-center gap-2 transition-all cursor-pointer shadow-md">
                     <div class="w-7 h-7 rounded-full bg-gradient-to-tr from-blue-500 to-purple-600 flex items-center justify-center font-bold text-xs text-white" id="profileInitial">S</div>
@@ -32,12 +33,15 @@
                 </button>
 
                 <!-- 🚀 Global Quest Navigation Button -->
-                <a href="quest.html" class="px-4 py-2 bg-blue-600 hover:bg-blue-500 text-white font-semibold text-sm rounded-xl transition-all duration-200 shadow-md shadow-blue-600/20 active:scale-95 flex items-center gap-1.5">
+                <a href="quest.html" class="px-4 py-2 bg-blue-600 hover:bg-blue-500 text-white font-semibold text-sm rounded-xl transition-all duration-200 shadow-md shadow-blue-600/20 active:scale-95 flex items-center gap-1.5 no-underline">
                     <span>🎯</span> View Quests →
-                    <button id="openChatBtn" onclick="openChat()" class="px-4 py-2 bg-purple-600 hover:bg-purple-500 text-white font-semibold text-sm rounded-xl transition-all shadow-md shadow-purple-600/20 active:scale-95 flex items-center gap-1.5">
-    <span>💬</span> Chat with Aroha
-</button>
                 </a>
+
+                <!-- 💬 Chat with Aroha Button -->
+                <button id="openChatBtn" onclick="openChat()" class="px-4 py-2 bg-purple-600 hover:bg-purple-500 text-white font-semibold text-sm rounded-xl transition-all shadow-md shadow-purple-600/20 active:scale-95 flex items-center gap-1.5">
+                    <span>💬</span> Chat with Aroha
+                </button>
+            </div>
             </div>
         </header>
 
@@ -137,7 +141,7 @@
                 </div>
             </div>
 
-            <!-- 🔥 8. Personalized Roadmap -->
+                       <!-- 🔥 8. Personalized Roadmap -->
             <div class="bg-[#111827] border border-gray-800 rounded-3xl p-6 shadow-xl">
                 <div class="flex items-center justify-between mb-6">
                     <div>
@@ -145,7 +149,13 @@
                         <p class="text-xs text-gray-400">Step-by-step sequential learning path</p>
                     </div>
                 </div>
-                        </div>
+                
+                <div id="roadmapStepContainer" class="space-y-4 relative">
+                    <!-- Vertical line connector behind nodes -->
+                    <div class="absolute left-6 top-4 bottom-4 w-0.5 bg-gray-800 -z-0"></div>
+                    <!-- Dynamic Roadmap Nodes inserted here -->
+                </div>
+            </div>
 
         <!-- 🏆 BADGES & ACHIEVEMENTS SECTION -->
         <div class="bg-[#111827] border border-gray-800 rounded-3xl p-6 shadow-xl">

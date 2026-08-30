@@ -62,7 +62,10 @@ console.log("CURRENT USER ID SENT TO BACKEND:", currentUserId); // <-- Add this 
     // --- UI Renderers ---
     const renderHeader = () => `
       <div class="flex items-center justify-between border-b border-gray-800 pb-4">
-        <div>
+        <div class="w-full">
+          <a href="main.html" class="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 mb-3 transition-all font-semibold text-sm">
+            ← Back to Dashboard
+          </a>
           <h2 class="text-2xl font-bold text-white tracking-tight flex items-center gap-2">
             <span>🎯</span> Available Quests
           </h2>

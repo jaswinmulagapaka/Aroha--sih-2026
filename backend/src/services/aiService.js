@@ -1,4 +1,3 @@
-
 const { GoogleGenerativeAI } = require('@google/generative-ai');
 
 // Initialize the Gemini client
@@ -98,56 +97,51 @@ const mockQuestLibrary = {
       "microSkills": [
         "Flexbox properties (justify-content, align-items)",
         "CSS Grid template areas",
-        "Responsive grid columns",
-        "Gap & margin handling",
+        "Auto-fit and auto-fill properties",
+        "Gap and spacing control",
+        "Responsive breakpoints",
         "CSS custom properties (variables)",
-        "Responsive typography",
-        "Mobile menu toggle",
-        "Nested flexbox/grid",
-        "CSS calc() function"
+        "Gradient backgrounds",
+        "Shadow and border effects"
       ],
       "difficulty": "Intermediate",
       "estimatedHours": 3
     },
     {
       "id": "quest-web-004",
-      "title": "Build a React E-Commerce App",
-      "objective": "Create a shopping app with product listing, cart functionality, and checkout. Use React hooks and state management.",
-      "skillsCovered": ["React", "JavaScript", "Component Design", "State Management"],
+      "title": "Build a Weather App with API Integration",
+      "objective": "Create a weather application that fetches real-time data from a public API and displays it dynamically.",
+      "skillsCovered": ["JavaScript", "REST APIs", "Async/Await", "JSON"],
       "microSkills": [
-        "React functional components",
-        "useState & useEffect hooks",
-        "Props drilling",
-        "Component composition",
-        "Conditional rendering",
-        "Lists & keys",
-        "Form handling in React",
-        "Context API basics",
-        "Array/object state updates",
-        "React DevTools"
-      ],
-      "difficulty": "Advanced",
-      "estimatedHours": 8
-    },
-    {
-      "id": "quest-web-005",
-      "title": "API Integration Project",
-      "objective": "Build a weather or movie app that fetches data from a public API. Display results dynamically and handle errors gracefully.",
-      "skillsCovered": ["JavaScript", "APIs", "Fetch/Axios", "Error Handling"],
-      "microSkills": [
-        "Fetch API syntax",
-        "Async/await",
-        "Promise handling",
-        "API authentication (API keys)",
-        "JSON response parsing",
-        "Error handling (try/catch)",
-        "Loading states",
-        "HTTP status codes",
-        "CORS understanding",
-        "API documentation reading"
+        "Fetch API basics",
+        "Async/await syntax",
+        "Error handling with try-catch",
+        "JSON parsing",
+        "API key management",
+        "Dynamic DOM updates",
+        "Date formatting",
+        "User input handling"
       ],
       "difficulty": "Intermediate",
       "estimatedHours": 4
+    },
+    {
+      "id": "quest-web-005",
+      "title": "Learn React Basics & Build Components",
+      "objective": "Dive into React.js and create reusable components, manage state, and handle user interactions.",
+      "skillsCovered": ["React", "JSX", "State Management", "Props"],
+      "microSkills": [
+        "JSX syntax and rendering",
+        "Functional components",
+        "useState hook",
+        "Props drilling",
+        "Event handling in React",
+        "Conditional rendering",
+        "List rendering with map()",
+        "Component composition"
+      ],
+      "difficulty": "Intermediate",
+      "estimatedHours": 6
     }
   ],
   embedded: [
@@ -172,452 +166,266 @@ const mockQuestLibrary = {
     },
     {
       "id": "quest-emb-002",
-      "title": "Implement a Timer Interrupt Handler",
-      "objective": "Create a timer-based interrupt handler on a microcontroller. Understand interrupts and real-time event handling.",
-      "skillsCovered": ["Embedded C", "Microcontrollers", "RTOS"],
+      "title": "Read Sensor Data with Microcontroller",
+      "objective": "Program a microcontroller to read analog sensor input (temperature, light) and display results.",
+      "skillsCovered": ["Embedded C", "ADC", "Microcontrollers", "Sensors"],
       "microSkills": [
-        "Interrupt setup & configuration",
-        "ISR (Interrupt Service Routine)",
-        "Timer prescaler settings",
-        "Volatile keyword usage",
-        "Critical sections",
-        "Interrupt priorities",
-        "Context switching basics",
-        "Timer overflow handling",
-        "Debugging interrupts"
-      ],
-      "difficulty": "Intermediate",
-      "estimatedHours": 4
-    },
-    {
-      "id": "quest-emb-003",
-      "title": "Master UART Communication",
-      "objective": "Implement UART protocol to enable serial communication between a microcontroller and a computer. Debug using serial output.",
-      "skillsCovered": ["UART", "SPI", "I2C", "Embedded C"],
-      "microSkills": [
-        "UART initialization",
-        "Baud rate configuration",
-        "Transmit/receive functions",
-        "Circular buffers",
-        "Serial terminal usage",
-        "Debugging with printf",
-        "Data frame format",
-        "Error checking (parity)",
-        "Interrupt-driven UART"
+        "ADC (Analog-to-Digital Converter) setup",
+        "Voltage reference configuration",
+        "Reading analog pins",
+        "Data conversion and scaling",
+        "Serial communication output",
+        "Timing and sampling rates",
+        "Calibration techniques",
+        "Error checking"
       ],
       "difficulty": "Intermediate",
       "estimatedHours": 3
     },
     {
-      "id": "quest-emb-004",
-      "title": "Build a Digital Thermometer",
-      "objective": "Interface a temperature sensor with a microcontroller. Read analog values, convert to temperature, and display on LCD.",
-      "skillsCovered": ["Embedded C", "ADC", "I2C", "Sensor Integration"],
+      "id": "quest-emb-003",
+      "title": "Master UART Serial Communication",
+      "objective": "Implement UART protocol to communicate between a microcontroller and a computer.",
+      "skillsCovered": ["UART", "Embedded C", "Serial Communication"],
       "microSkills": [
-        "ADC (Analog-to-Digital Converter)",
-        "Voltage-to-temperature conversion",
-        "I2C communication protocol",
-        "Sensor calibration",
-        "Data smoothing (averaging)",
-        "LCD interfacing",
-        "Sensor datasheets reading",
-        "Pull-up resistor configuration",
-        "Multi-byte data handling"
-      ],
-      "difficulty": "Intermediate",
-      "estimatedHours": 5
-    },
-    {
-      "id": "quest-emb-005",
-      "title": "Create a Motor Control System",
-      "objective": "Control a DC motor using PWM. Implement speed control and direction reversal.",
-      "skillsCovered": ["PWM", "Microcontrollers", "Embedded C"],
-      "microSkills": [
-        "PWM (Pulse Width Modulation)",
-        "Duty cycle calculation",
-        "Frequency selection",
-        "Motor driver interfacing",
-        "H-bridge basics",
-        "Speed regulation",
-        "Direction control (GPIO)",
-        "Power supply considerations",
-        "Protection circuits"
+        "UART register configuration",
+        "Baud rate setup",
+        "Transmit and receive functions",
+        "Interrupt handling",
+        "Buffer management",
+        "Parity and stop bits",
+        "String transmission",
+        "Debug logging over UART"
       ],
       "difficulty": "Intermediate",
       "estimatedHours": 4
+    },
+    {
+      "id": "quest-emb-004",
+      "title": "Implement PWM for LED Brightness Control",
+      "objective": "Use PWM (Pulse Width Modulation) to control LED brightness dynamically.",
+      "skillsCovered": ["PWM", "Embedded C", "Microcontrollers"],
+      "microSkills": [
+        "PWM register configuration",
+        "Duty cycle control",
+        "Frequency settings",
+        "Timer setup",
+        "Interrupt-driven PWM",
+        "Real-time adjustments",
+        "Testing and debugging",
+        "Power consumption optimization"
+      ],
+      "difficulty": "Intermediate",
+      "estimatedHours": 3
+    },
+    {
+      "id": "quest-emb-005",
+      "title": "Build an I2C Communication System",
+      "objective": "Master I2C protocol to communicate with sensors and peripherals.",
+      "skillsCovered": ["I2C", "Embedded C", "Communication Protocols"],
+      "microSkills": [
+        "I2C protocol fundamentals",
+        "Master/Slave configuration",
+        "SCL/SDA pin control",
+        "Address assignment",
+        "Start and stop conditions",
+        "Data transmission sequences",
+        "Error handling and ACK/NACK",
+        "Multi-device systems"
+      ],
+      "difficulty": "Advanced",
+      "estimatedHours": 5
     }
   ],
   python: [
     {
       "id": "quest-py-001",
-      "title": "Build a Data Analysis Project",
-      "objective": "Analyze a dataset using Pandas. Create visualizations with Matplotlib and generate insights from data.",
-      "skillsCovered": ["Python", "Pandas", "Data Analysis", "Visualization"],
+      "title": "Python Fundamentals & Data Types",
+      "objective": "Master Python syntax, variables, data types, and basic operations.",
+      "skillsCovered": ["Python", "Variables", "Data Types", "Control Flow"],
       "microSkills": [
-        "DataFrames & Series",
-        "CSV file reading",
-        "Data filtering & sorting",
-        "Groupby operations",
-        "Statistical calculations",
-        "Matplotlib plotting",
-        "Chart types (line, bar, scatter)",
-        "Data cleaning",
-        "Missing data handling"
+        "Variables and naming conventions",
+        "Strings, integers, floats, booleans",
+        "Type conversion",
+        "Operators (arithmetic, logical, comparison)",
+        "Control flow (if/else, loops)",
+        "String manipulation",
+        "List and dictionary basics",
+        "Functions definition and calling"
       ],
       "difficulty": "Beginner",
-      "estimatedHours": 4
+      "estimatedHours": 3
     },
     {
       "id": "quest-py-002",
-      "title": "Create a REST API with Flask",
-      "objective": "Build a REST API with Flask. Implement CRUD operations, error handling, and test with Postman.",
-      "skillsCovered": ["Python", "Flask", "REST API", "Backend Development"],
+      "title": "Object-Oriented Programming in Python",
+      "objective": "Learn OOP concepts: classes, inheritance, polymorphism, and encapsulation.",
+      "skillsCovered": ["Python", "OOP", "Classes", "Inheritance"],
       "microSkills": [
-        "Flask app initialization",
-        "HTTP methods (GET, POST, PUT, DELETE)",
-        "Route decorators",
-        "Request/response handling",
-        "JSON serialization",
-        "Error handling & status codes",
-        "CORS handling",
-        "Environment variables",
-        "API testing with Postman",
-        "Documentation (docstrings)"
-      ],
-      "difficulty": "Intermediate",
-      "estimatedHours": 5
-    },
-    {
-      "id": "quest-py-003",
-      "title": "Web Scraping & Automation",
-      "objective": "Build a web scraper using Beautiful Soup. Extract data from a website and automate periodic scraping tasks.",
-      "skillsCovered": ["Python", "Web Scraping", "Automation"],
-      "microSkills": [
-        "HTML parsing with Beautiful Soup",
-        "CSS selectors",
-        "Requests library usage",
-        "Data extraction patterns",
-        "CSV file writing",
-        "Scheduling with APScheduler",
-        "User-agent headers",
-        "Rate limiting",
-        "Error handling & retries"
-      ],
-      "difficulty": "Intermediate",
-      "estimatedHours": 3
-    },
-    {
-      "id": "quest-py-004",
-      "title": "Machine Learning Basics",
-      "objective": "Build a simple ML model using scikit-learn. Train, test, and evaluate a classification or regression model.",
-      "skillsCovered": ["Python", "Machine Learning", "scikit-learn"],
-      "microSkills": [
-        "Dataset splitting (train/test)",
-        "Feature scaling & normalization",
-        "Scikit-learn algorithms",
-        "Model training",
-        "Prediction making",
-        "Accuracy metrics",
-        "Confusion matrix",
-        "Cross-validation",
-        "Hyperparameter tuning"
-      ],
-      "difficulty": "Intermediate",
-      "estimatedHours": 6
-    },
-    {
-      "id": "quest-py-005",
-      "title": "Build a Chatbot",
-      "objective": "Create a chatbot using Natural Language Processing. Process user input and generate intelligent responses.",
-      "skillsCovered": ["Python", "NLP", "NLTK"],
-      "microSkills": [
-        "NLTK library basics",
-        "Tokenization",
-        "Stemming & lemmatization",
-        "Intent classification",
-        "Pattern matching",
-        "Response generation",
-        "Chat state management",
-        "Training data preparation",
-        "Evaluation metrics"
-      ],
-      "difficulty": "Advanced",
-      "estimatedHours": 7
-    }
-  ],
-  mobile: [
-    {
-      "id": "quest-mob-001",
-      "title": "Build Your First App",
-      "objective": "Create a simple mobile app with multiple screens, navigation, and basic data storage.",
-      "skillsCovered": ["React Native", "JavaScript", "Mobile Development"],
-      "microSkills": [
-        "React Native setup",
-        "Components & styles",
-        "Navigation stack",
-        "Props & state",
-        "Touch handlers",
-        "AsyncStorage",
-        "Platform-specific code",
-        "Debugging tools",
-        "Build & run on device"
-      ],
-      "difficulty": "Beginner",
-      "estimatedHours": 5
-    },
-    {
-      "id": "quest-mob-002",
-      "title": "Implement Authentication",
-      "objective": "Add user login, signup, and session management to a mobile app.",
-      "skillsCovered": ["Authentication", "JWT", "Firebase"],
-      "microSkills": [
-        "Firebase setup",
-        "User registration",
-        "Email verification",
-        "JWT tokens",
-        "Session management",
-        "Password hashing",
-        "Secure storage",
-        "Auth state persistence",
-        "Error handling"
+        "Class definition and instantiation",
+        "Instance and class variables",
+        "Methods and self parameter",
+        "Constructors and destructors",
+        "Inheritance hierarchies",
+        "Method overriding",
+        "Polymorphism concepts",
+        "Encapsulation and access modifiers"
       ],
       "difficulty": "Intermediate",
       "estimatedHours": 4
     },
     {
-      "id": "quest-mob-003",
-      "title": "Location-Based Features",
-      "objective": "Integrate GPS and maps into your app. Build a location-tracking feature.",
-      "skillsCovered": ["Geolocation", "Maps API", "Mobile Development"],
+      "id": "quest-py-003",
+      "title": "Data Analysis with Pandas & NumPy",
+      "objective": "Learn data manipulation, cleaning, and analysis using Python libraries.",
+      "skillsCovered": ["Pandas", "NumPy", "Data Analysis", "Python"],
       "microSkills": [
-        "Permissions handling",
-        "Geolocation API",
-        "GPS coordinates",
-        "Google Maps integration",
-        "Map markers & clustering",
-        "Distance calculations",
-        "Background location tracking",
-        "Location accuracy",
-        "Battery optimization"
+        "NumPy arrays and operations",
+        "Pandas DataFrames",
+        "CSV file reading/writing",
+        "Data filtering and selection",
+        "Grouping and aggregation",
+        "Missing data handling",
+        "Statistical calculations",
+        "Data visualization basics"
       ],
       "difficulty": "Intermediate",
-      "estimatedHours": 3
+      "estimatedHours": 5
+    },
+    {
+      "id": "quest-py-004",
+      "title": "Build a REST API with Flask",
+      "objective": "Create a complete REST API using Flask framework with proper routing and error handling.",
+      "skillsCovered": ["Flask", "REST APIs", "Backend", "Python"],
+      "microSkills": [
+        "Flask app setup and routing",
+        "HTTP methods (GET, POST, PUT, DELETE)",
+        "Request and response handling",
+        "JSON serialization",
+        "Error handling and status codes",
+        "Database integration basics",
+        "CORS and middleware",
+        "Testing and debugging APIs"
+      ],
+      "difficulty": "Intermediate",
+      "estimatedHours": 6
     }
   ],
   generic: [
     {
       "id": "quest-gen-001",
-      "title": "Complete a Foundational Tutorial",
-      "objective": "Work through an official tutorial or course for your target skill. Build the example project from scratch.",
-      "skillsCovered": ["Fundamentals", "Practice"],
+      "title": "Master Version Control with Git",
+      "objective": "Learn Git fundamentals: commits, branches, merging, and collaboration.",
+      "skillsCovered": ["Git", "Version Control", "Collaboration"],
       "microSkills": [
-        "Following documentation",
-        "Hands-on coding",
-        "Debugging",
-        "Testing",
-        "Best practices",
-        "Code organization",
-        "Version control basics",
-        "Environment setup"
+        "Git initialization and configuration",
+        "Staging and committing changes",
+        "Branching strategies",
+        "Merging and conflict resolution",
+        "Remote repositories",
+        "Pull requests workflow",
+        "Git history and rebasing",
+        "Collaboration best practices"
       ],
       "difficulty": "Beginner",
-      "estimatedHours": 3
+      "estimatedHours": 2
     },
     {
       "id": "quest-gen-002",
-      "title": "Build a Small Project",
-      "objective": "Create a small but complete project combining all the skills you're learning.",
-      "skillsCovered": ["Integration", "Problem Solving"],
+      "title": "Command Line Mastery",
+      "objective": "Become proficient with terminal/command line for your development workflow.",
+      "skillsCovered": ["Terminal", "CLI", "Bash", "Command Line"],
       "microSkills": [
-        "Planning & design",
-        "Requirements gathering",
-        "Implementation",
-        "Testing & debugging",
-        "Code review",
-        "Documentation",
-        "Performance optimization",
-        "User feedback incorporation"
+        "File and directory navigation",
+        "File operations (create, copy, move, delete)",
+        "File permissions and ownership",
+        "Environment variables",
+        "Piping and redirection",
+        "Package managers (npm, pip, apt)",
+        "Scripting basics",
+        "Debugging command errors"
       ],
-      "difficulty": "Intermediate",
-      "estimatedHours": 4
-    },
-    {
-      "id": "quest-gen-003",
-      "title": "Contribute to Open Source",
-      "objective": "Find an open-source project and make your first meaningful contribution.",
-      "skillsCovered": ["Collaboration", "Git", "Open Source"],
-      "microSkills": [
-        "Repository forking",
-        "Git workflow",
-        "Code conventions",
-        "Pull requests",
-        "Code review process",
-        "Community communication",
-        "Issue resolution",
-        "License understanding"
-      ],
-      "difficulty": "Intermediate",
-      "estimatedHours": 5
+      "difficulty": "Beginner",
+      "estimatedHours": 3
     }
   ]
 };
 
-// Helper: Detect skill category from skills array (SMART VERSION)
-function detectSkillCategory(missingSkills) {
-  if (!missingSkills || missingSkills.length === 0) return 'generic';
-  
-  const skillsLower = missingSkills.map(s => s.toLowerCase());
-  const skillsText = skillsLower.join(' ');
-  
-  // Score each category
-  let scores = { web: 0, embedded: 0, python: 0, mobile: 0, generic: 0 };
-  
-  // Web development keywords
-  const webKeywords = ['html', 'css', 'javascript', 'react', 'vue', 'angular', 'typescript', 'webpack', 'npm', 'nodejs', 'express', 'bootstrap', 'tailwind', 'frontend', 'web design', 'ajax', 'dom'];
-  webKeywords.forEach(kw => {
-    if (skillsText.includes(kw)) scores.web += 2;
-  });
-  
-  // Embedded systems keywords
-  const embeddedKeywords = ['embedded', 'microcontroller', 'uart', 'gpio', 'rtos', 'i2c', 'spi', 'pwm', 'adc', 'arm', 'avr', 'stm32', 'arduino', 'firmware', 'bare metal', 'hardware'];
-  embeddedKeywords.forEach(kw => {
-    if (skillsText.includes(kw)) scores.embedded += 3;
-  });
-  
-  // Python keywords
-  const pythonKeywords = ['python', 'flask', 'django', 'pandas', 'numpy', 'matplotlib', 'sklearn', 'tensorflow', 'keras', 'data science', 'machine learning', 'ml', 'ai', 'nltk'];
-  pythonKeywords.forEach(kw => {
-    if (skillsText.includes(kw)) scores.python += 2;
-  });
-  
-  // Mobile keywords
-  const mobileKeywords = ['react native', 'swift', 'kotlin', 'flutter', 'android', 'ios', 'mobile', 'app development', 'expo'];
-  mobileKeywords.forEach(kw => {
-    if (skillsText.includes(kw)) scores.mobile += 3;
-  });
-  
-  // Generic C/C++ that could be embedded
-  if ((skillsText.includes('c') || skillsText.includes('c++') || skillsText.includes('c programming')) && scores.embedded === 0) {
-    scores.embedded += 1;
-  }
-  
-  // Find the highest score
-  const highestScore = Math.max(scores.web, scores.embedded, scores.python, scores.mobile);
-  
-  if (highestScore === 0) return 'generic';
-  
-  // Return category with highest score
-  for (const [category, score] of Object.entries(scores)) {
-    if (score === highestScore) return category;
-  }
-  
-  return 'generic';
-}
-
-// ===== API FUNCTIONS WITH SMART FALLBACK =====
-
 // Function 1: Generate Roadmap
 const generateRoadmap = async (missingSkills) => {
   try {
-    const model = genAI.getGenerativeModel({
-      model: "gemini-1.5-flash",
-      generationConfig: { responseMimeType: "application/json" }
-    });
-
-    const prompt = `
-      Act as a senior engineering mentor. Your student needs to learn these specific skills: ${missingSkills.join(', ')}.
-      
-      Create a sequential learning roadmap.
-      
-      You must return ONLY a raw JSON array containing exactly 5 objects. Do not include markdown formatting, backticks, or conversational text.
-      Each object must strictly adhere to this schema:
-      {
-        "stepNumber": 1,
-        "title": "A concise step title",
-        "description": "Exactly one sentence explaining what to focus on in this step."
-      }
-    `;
-
-    const result = await model.generateContent(prompt);
-    const rawText = result.response.text();
-    const cleanText = cleanJsonResponse(rawText);
-    
-    return JSON.parse(cleanText);
+    const roadmapType = detectSkillCategory(missingSkills);
+    return mockRoadmaps[roadmapType] || mockRoadmaps.generic;
   } catch (error) {
-    console.warn("⚠️ Gemini API unavailable, using smart mock roadmap:", error.message);
-    const category = detectSkillCategory(missingSkills);
-    return mockRoadmaps[category];
+    console.error("Error generating roadmap:", error);
+    return mockRoadmaps.generic;
   }
 };
 
-// Function 2: Generate Quests (NOW WITH MICROSKILLS!)
+// Function 2: Generate Quests
 const generateQuests = async (missingSkills) => {
   try {
-    const model = genAI.getGenerativeModel({
-      model: "gemini-1.5-flash",
-      generationConfig: { responseMimeType: "application/json" }
-    });
-
-    const prompt = `
-      Act as an expert engineering mentor. Your student needs to learn these missing skills: ${missingSkills.join(', ')}.
-      
-      Generate exactly 3 project-based quests to help them master these specific skills.
-      
-      You must return ONLY a raw JSON array containing exactly 3 objects. Do not include markdown formatting, backticks, or conversational text.
-      Each object must strictly adhere to this schema:
-      {
-        "id": "A unique string (e.g., quest-123)",
-        "title": "A concise, action-oriented title",
-        "objective": "1-2 sentences describing exactly what the student will build.",
-        "skillsCovered": ["Skill A", "Skill B"],
-        "microSkills": ["Micro skill 1", "Micro skill 2", "Micro skill 3"],
-        "difficulty": "Beginner or Intermediate",
-        "estimatedHours": 5
-      }
-    `;
-
-    const result = await model.generateContent(prompt);
-    const rawText = result.response.text();
-    const cleanText = cleanJsonResponse(rawText);
-    
-    return JSON.parse(cleanText);
+    const skillCategory = detectSkillCategory(missingSkills);
+    const quests = mockQuestLibrary[skillCategory] || mockQuestLibrary.web;
+    return quests;
   } catch (error) {
-    console.warn("⚠️ Gemini API unavailable, using smart mock quests with microskills:", error.message);
-    const category = detectSkillCategory(missingSkills);
-    return mockQuestLibrary[category].slice(0, 3);
+    console.error("Error generating quests:", error);
+    return mockQuestLibrary.web;
   }
+};
+
+// Helper function: Detect skill category based on scoring algorithm
+const detectSkillCategory = (missingSkills = []) => {
+  if (!Array.isArray(missingSkills)) return 'generic';
+
+  const skillsLower = missingSkills.map(s => s.toLowerCase());
+
+  // Web Development
+  const webSkills = ['html', 'css', 'javascript', 'react', 'vue', 'angular', 'rest api', 'apis', 'git'];
+  // Embedded Systems
+  const embeddedSkills = ['c', 'embedded c', 'microcontroller', 'uart', 'spi', 'i2c', 'rtos', 'pointer'];
+  // Python / Data Science
+  const pythonSkills = ['python', 'sql', 'pandas', 'numpy', 'data', 'analytics', 'excel', 'visualization'];
+  // Mobile
+  const mobileSkills = ['android', 'ios', 'swift', 'kotlin', 'flutter', 'react native'];
+
+  const webMatches = skillsLower.filter(s => webSkills.some(w => s.includes(w))).length;
+  const embeddedMatches = skillsLower.filter(s => embeddedSkills.some(e => s.includes(e))).length;
+  const pythonMatches = skillsLower.filter(s => pythonSkills.some(p => s.includes(p))).length;
+  const mobileMatches = skillsLower.filter(s => mobileSkills.some(m => s.includes(m))).length;
+
+  if (embeddedMatches >= webMatches && embeddedMatches >= pythonMatches && embeddedMatches >= mobileMatches && embeddedMatches > 0) return 'embedded';
+  if (pythonMatches >= webMatches && pythonMatches >= embeddedMatches && pythonMatches >= mobileMatches && pythonMatches > 0) return 'python';
+  if (mobileMatches >= webMatches && mobileMatches > 0) return 'web'; // Use web for mobile fallback
+  return 'web';
 };
 
 // Function 3: Extract Skills from Resume
 const extractSkillsFromResume = async (pdfText) => {
   try {
-    const model = genAI.getGenerativeModel({
-      model: "gemini-1.5-flash",
-      generationConfig: { responseMimeType: "application/json" }
-    });
+    const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 
     const prompt = `
-      Extract the technical skills (e.g., C, Python, React, Git, Data Analysis) from the following resume text.
-      
-      You must return ONLY a raw JSON array containing strings of the extracted skills. Do not include markdown formatting, backticks, or conversational text.
-      Example format: ["C", "Python", "React", "Git"]
-      
-      Resume Text:
+      Extract all technical skills mentioned in this resume text. Return as a JSON array of strings.
+      Return only the JSON array, no markdown or extra text.
+      Example: ["JavaScript", "React", "Node.js", "SQL"]
+
+      Resume text:
       ${pdfText}
     `;
 
     const result = await model.generateContent(prompt);
-    const rawText = result.response.text();
-    const cleanText = cleanJsonResponse(rawText);
-    
-    return JSON.parse(cleanText);
+    const text = result.response.text().trim();
+    const cleaned = cleanJsonResponse(text);
+    const skills = JSON.parse(cleaned);
+    return Array.isArray(skills) ? skills : [];
   } catch (error) {
-    console.warn("⚠️ Gemini API unavailable, using generic skills fallback:", error.message);
-    return ["C", "Python", "JavaScript", "Git", "Problem Solving"];
+    console.warn("Error extracting skills from resume:", error.message);
+    return [];
   }
 };
 
-// Function 4: Chat with Aroha
+// Function 4: Chat with Aroha - IMPROVED WITH SMART RESPONSES
 const askAroha = async (question, user) => {
   try {
     const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
@@ -635,16 +443,111 @@ const askAroha = async (question, user) => {
       The student asked:
       "${question}"
 
-      Answer clearly and concisely (a few sentences, plain text — no markdown formatting, no code fences), tailoring your advice to their target role and skill gaps.
+      Answer clearly and concisely (2-3 sentences max, plain text — no markdown, no lists, no code fences), tailoring your advice specifically to their target role and current skill gaps. Be conversational and encouraging.
     `;
 
     const result = await model.generateContent(prompt);
-    return result.response.text().trim();
+    const response = result.response.text().trim();
+    
+    if (response && response.length > 10) {
+      return response;
+    } else {
+      throw new Error('Empty response from API');
+    }
   } catch (error) {
-    console.warn("⚠️ Gemini API unavailable, using mock response:", error.message);
-    const nextSkill = user.missingSkills && user.missingSkills.length > 0 ? user.missingSkills[0] : 'your chosen skills';
-    return `Hi ${user.name}! I'm Aroha, your personal career mentor. I see you're aiming for a ${user.targetRole} role—that's awesome! You've made great progress so far. Keep focused on mastering ${nextSkill}, and you'll be well on your way. What would you like to learn next?`;
+    console.warn("⚠️ Gemini API unavailable, using smart mock response:", error.message);
+    return generateSmartMockResponse(question, user);
   }
+};
+
+// IMPROVED Smart Mock Response Generator with 15+ question patterns
+const generateSmartMockResponse = (question, user) => {
+  const questionLower = question.toLowerCase().trim();
+  const nextSkill = user.missingSkills && user.missingSkills.length > 0 ? user.missingSkills[0] : 'your chosen skills';
+  const targetRole = user.targetRole || 'your target role';
+  const currentSkillsList = user.currentSkills && user.currentSkills.length > 0 ? user.currentSkills.slice(0, 3).join(', ') : 'your current skills';
+  const readiness = user.readinessScore || 0;
+  const userName = user.name || 'there';
+
+  // Priority-based pattern matching (most specific first)
+  
+  // Time-based learning questions
+  if (questionLower.match(/how long|how much time|time to learn|learning curve/i)) {
+    const skillName = nextSkill.toLowerCase();
+    const hours = skillName.includes('c') || skillName.includes('embedded') ? '40-60 hours' : '20-30 hours';
+    return `To master ${nextSkill}, expect around ${hours} of focused practice. However, with Aroha's structured quests and microskills breakdown, you'll see progress much faster! Most learners start seeing results within the first week.`;
+  }
+
+  // Difficulty and feasibility
+  if (questionLower.match(/difficult|hard|challenging|tough|easy|doable/i)) {
+    return `${nextSkill} might seem intimidating at first, but it's totally learnable! We break it down into bite-sized microskills so you can master each piece gradually. You already know ${currentSkillsList}, so you have a solid foundation. Trust the process! 💪`;
+  }
+
+  // Motivation and encouragement
+  if (questionLower.match(/motivation|encourage|inspire|believe|confidence|doubt/i)) {
+    const motivationMsg = readiness >= 60 ? `You're ${readiness}% ready already—that's incredible progress!` : `Every expert started exactly where you are now.`;
+    return `${motivationMsg} The fact that you're here learning shows real commitment. Complete each quest step by step, and before you know it, you'll be ready for your ${targetRole} role. You've got this! 🚀`;
+  }
+
+  // Job and career prospects
+  if (questionLower.match(/job|hiring|company|salary|career|opportunity|employment|interview/i)) {
+    return `Companies are actively hiring ${targetRole}s who know ${currentSkillsList}. Once you master ${nextSkill}, your readiness will jump from ${readiness}% to ${Math.min(readiness + 20, 100)}%+. Build a portfolio through our quests, and you'll be interview-ready soon!`;
+  }
+
+  // Learning path and roadmap
+  if (questionLower.match(/roadmap|path|journey|what's next|next step|learning order|sequence/i)) {
+    return `Your ${targetRole} learning path is structured perfectly! You've mastered ${currentSkillsList}—great foundation! Next, tackle ${nextSkill} through our quests, then gradually build up to advanced skills. Follow the roadmap step by step, and you'll reach 100% readiness.`;
+  }
+
+  // Microskills and quest details
+  if (questionLower.match(/microskill|micro-skill|breakdown|detailed|what will i learn|quest detail/i)) {
+    return `Each quest breaks down into microskills—tiny, focused lessons that teach one concept at a time. For ${nextSkill}, you'll learn things like fundamentals, best practices, and real-world applications. This structure makes complex topics super manageable!`;
+  }
+
+  // Badges and gamification
+  if (questionLower.match(/badge|achievement|reward|gamification|unlock|reward system/i)) {
+    return `Badges are awesome! You earn them by completing quests and mastering microskills. They're not just fun—they prove your skills to employers and keep you motivated. Your first badge is just around the corner at ${readiness}% readiness!`;
+  }
+
+  // Portfolio and resume
+  if (questionLower.match(/portfolio|resume|project|showcase|build|proof/i)) {
+    return `Every quest you complete adds a real project to your portfolio! Document what you built, the challenges you overcame, and what you learned. Combined with your ${readiness}% readiness score, a solid portfolio makes you irresistible to recruiters.`;
+  }
+
+  // Resources and learning materials
+  if (questionLower.match(/resource|material|reference|documentation|book|course|tutorial|guide/i)) {
+    return `Aroha provides everything you need right here! Each quest includes step-by-step guidance, links to documentation, and community tips. We curate the best free resources so you're not lost in information overload. Focus on completing quests—that's the fastest path to mastery!`;
+  }
+
+  // Specific skill questions (HTML, React, C, Python, etc.)
+  if (questionLower.includes('html') || questionLower.includes('css') || questionLower.includes('react')) {
+    return `Web development is an amazing choice! Start with HTML fundamentals, master CSS layouts, then dive into JavaScript and React. Our quests guide you through each step with hands-on projects. You'll go from beginner to ${targetRole}-ready in no time!`;
+  }
+
+  if (questionLower.includes('c') || questionLower.includes('embedded') || questionLower.includes('microcontroller')) {
+    return `Embedded systems is powerful stuff! C fundamentals are crucial, then move to pointers, microcontrollers, and communication protocols. Each quest teaches real hardware concepts. You're building skills for high-demand jobs—keep grinding! 🔧`;
+  }
+
+  if (questionLower.includes('python') || questionLower.includes('data') || questionLower.includes('sql')) {
+    return `Python is perfect for data science and backend work! Start with basics, then move to libraries like Pandas and NumPy. Our quests include real-world datasets so you build actual data analysis skills. Perfect for becoming a ${targetRole}!`;
+  }
+
+  // Readiness score questions
+  if (questionLower.match(/readiness|score|progress|percentage|how ready/i)) {
+    const scoreMsg = readiness >= 80 ? `You're nearly job-ready! Just finish the last few skills.`
+                   : readiness >= 60 ? `You're past the halfway point! Keep pushing through the remaining quests.`
+                   : readiness >= 40 ? `You've got solid momentum. Stay consistent and your score will climb fast!`
+                   : `You're building a strong foundation. Complete more quests to see big score jumps!`;
+    return `Your readiness score is ${readiness}%. ${scoreMsg} Remember, each completed quest boosts your readiness—you're on the right track, ${userName}!`;
+  }
+
+  // Stuck or having problems
+  if (questionLower.match(/stuck|problem|help|error|not working|confused|understand/i)) {
+    return `When you get stuck, break the problem into smaller pieces! Review the microskill again, try searching for specific error messages, and experiment. Remember, debugging is a skill too. If you're really stuck, move to another microskill and come back later.`;
+  }
+
+  // Default response - encouraging and personalized
+  return `Great question, ${userName}! Based on your ${targetRole} goal and your current readiness of ${readiness}%, I'd recommend focusing on ${nextSkill} next. It's one of the most important skills for your role. Start a quest, and you'll gain hands-on experience. Keep going—you're building an amazing career! 💡`;
 };
 
 // Export all functions
