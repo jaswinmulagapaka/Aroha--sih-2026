@@ -1,17 +1,24 @@
 // src/controllers/portfolioController.js
 //
-// Portfolio Controller — exposes a user's completed quests as their
-// "proof" of demonstrated skills. No AI involved, purely reads from
-// the in-memory users array.
+// UPDATED — required alongside the users.js change. This wasn't explicitly
+// asked for, but users.js no longer exports a plain array (it now exports
+// getUsers/saveUsers functions), so this file would crash on the old code
+// (`users.find is not a function`) without this update.
 
-const users = require('../data/users');
+const { getUsers } = require('../data/users');
 
 /**
  * GET /api/portfolio/:userId
- * Returns a user's completedQuests as their portfolio/proof-of-skills.
  */
-function getPortfolio(req, res) {
+async function getPortfolio(req, res) {
   const { userId } = req.params;
+
+  let users;
+  try {
+    users = await getUsers();
+  } catch (err) {
+    return res.status(500).json({ error: `Failed to read users: ${err.message}` });
+  }
 
   const user = users.find((u) => u.id === userId);
   if (!user) {
