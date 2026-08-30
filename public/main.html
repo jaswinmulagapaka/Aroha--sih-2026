@@ -144,114 +144,124 @@
 
     <!-- Script Handling calculations, gauge animation, and rendering -->
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
+    document.addEventListener('DOMContentLoaded', () => {
 
-            // 1. Fetch data passed from onboarding & career pages
-            const storedProfile = localStorage.getItem('aroha_complete_profile');
-            const profile = storedProfile ? JSON.parse(storedProfile) : {
-                name: localStorage.getItem('user_name') || 'Jaswin',
-                skills: JSON.parse(localStorage.getItem('user_skills') || '["C", "HTML", "CSS"]'),
-                targetRole: "Frontend Developer"
-            };
+        // 1. Fetch data passed from onboarding & career pages
+        const storedProfile = localStorage.getItem('aroha_complete_profile');
+        const profile = storedProfile ? JSON.parse(storedProfile) : {
+            name: localStorage.getItem('user_name') || 'Jaswin',
+            skills: JSON.parse(localStorage.getItem('user_skills') || '["C", "HTML", "CSS"]'),
+            targetRole: "Frontend Developer"
+        };
 
-            // Update Header Text
-            document.getElementById('studentName').textContent = profile.name;
-            document.getElementById('targetRoleDisplay').textContent = profile.targetRole;
+        // Update Header Text
+        document.getElementById('studentName').textContent = profile.name;
+        document.getElementById('targetRoleDisplay').textContent = profile.targetRole;
 
-            // 2. Target Role Skill Requirements Database (Simulating Gemini Response)
-            const roleRequirements = {
-                "Frontend Developer": ["HTML", "CSS", "JavaScript", "React", "Git", "REST APIs"],
-                "Embedded Systems Engineer": ["C", "Pointers", "Embedded C", "Microcontrollers", "RTOS", "Git"],
-                "Data Analyst": ["Python", "SQL", "Pandas", "Tableau", "Git", "Statistics"]
-            };
+        // 2. Target Role Skill Requirements Database
+        const roleRequirements = {
+            "Frontend Developer": ["HTML", "CSS", "JavaScript", "React", "Git", "REST APIs"],
+            "Embedded Systems Engineer": ["C", "Pointers", "Embedded C", "Microcontrollers", "RTOS", "Git"],
+            "Data Analyst": ["Python", "SQL", "Pandas", "Tableau", "Git", "Statistics"]
+        };
 
-            const requiredSkills = roleRequirements[profile.targetRole] || roleRequirements["Frontend Developer"];
-            const currentSkills = profile.skills || [];
+        const requiredSkills = roleRequirements[profile.targetRole] || roleRequirements["Frontend Developer"];
+        const currentSkills = profile.skills || [];
 
-            // 3. Match Calculation Logic
-            const matchedSkills = requiredSkills.filter(skill => 
-                currentSkills.some(userSkill => userSkill.toLowerCase() === skill.toLowerCase())
-            );
-            const missingSkills = requiredSkills.filter(skill => !matchedSkills.includes(skill));
+        // 3. Match Calculation Logic
+        const matchedSkills = requiredSkills.filter(skill => 
+            currentSkills.some(userSkill => userSkill.toLowerCase() === skill.toLowerCase())
+        );
+        const missingSkills = requiredSkills.filter(skill => !matchedSkills.includes(skill));
 
-            // 4. Calculate Readiness Score (Matched / Required * 100)
-            const scorePercentage = Math.round((matchedSkills.length / requiredSkills.length) * 100);
+        // 4. Calculate Readiness Score (Matched / Required * 100)
+        const scorePercentage = Math.round((matchedSkills.length / requiredSkills.length) * 100);
 
-            // 5. Render AI Analysis (Step 5)
-            document.getElementById('gapExplanation').textContent = 
-                `Based on your target role as a ${profile.targetRole}, you currently match ${matchedSkills.length} out of ${requiredSkills.length} core competencies. Focus on mastering the ${missingSkills.length} missing skill areas below to achieve full job readiness.`;
+        // 5. Render AI Analysis (Step 5)
+        document.getElementById('gapExplanation').textContent = 
+            `Based on your target role as a ${profile.targetRole}, you currently match ${matchedSkills.length} out of ${requiredSkills.length} core competencies. Focus on mastering the ${missingSkills.length} missing skill areas below to achieve full job readiness.`;
 
-            document.getElementById('matchedSkillsList').innerHTML = matchedSkills.length > 0 
-                ? matchedSkills.map(s => `<li class="flex items-center gap-2 text-emerald-300"><span class="text-emerald-500 font-bold">✓</span> ${s}</li>`).join('')
-                : '<li class="text-gray-500 italic">No direct skill matches found yet.</li>';
+        document.getElementById('matchedSkillsList').innerHTML = matchedSkills.length > 0 
+            ? matchedSkills.map(s => `<li class="flex items-center gap-2 text-emerald-300"><span class="text-emerald-500 font-bold">✓</span> ${s}</li>`).join('')
+            : '<li class="text-gray-500 italic">No direct skill matches found yet.</li>';
 
-            document.getElementById('missingSkillsList').innerHTML = missingSkills.length > 0
-                ? missingSkills.map(s => `<li class="flex items-center gap-2 text-amber-300"><span class="text-amber-500 font-bold">⚠️</span> ${s}</li>`).join('')
-                : '<li class="text-emerald-400 font-medium">No skill gaps! You meet all core requirements.</li>';
+        document.getElementById('missingSkillsList').innerHTML = missingSkills.length > 0
+            ? missingSkills.map(s => `<li class="flex items-center gap-2 text-amber-300"><span class="text-amber-500 font-bold">⚠️</span> ${s}</li>`).join('')
+            : '<li class="text-emerald-400 font-medium">No skill gaps! You meet all core requirements.</li>';
 
-            // 6. Animate Gauge Dial (Step 6)
-            setTimeout(() => {
-                const gaugeRing = document.getElementById('gaugeRing');
-                const offset = 100 - scorePercentage;
-                gaugeRing.style.strokeDashoffset = offset;
-                
-                document.getElementById('readinessScoreText').textContent = `${scorePercentage}%`;
-                document.getElementById('scoreRatioText').textContent = `${matchedSkills.length} / ${requiredSkills.length} Skills`;
-                
-                const statusBadge = document.getElementById('readinessStatus');
-                if (scorePercentage >= 75) {
-                    statusBadge.textContent = '🚀 High Readiness';
-                    statusBadge.className = 'mt-4 text-xs font-semibold px-3 py-1.5 rounded-xl bg-emerald-900/40 text-emerald-300 border border-emerald-800/40';
-                } else if (scorePercentage >= 40) {
-                    statusBadge.textContent = '⚡ Moderate Gap';
-                    statusBadge.className = 'mt-4 text-xs font-semibold px-3 py-1.5 rounded-xl bg-amber-900/40 text-amber-300 border border-amber-800/40';
-                } else {
-                    statusBadge.textContent = '📚 Learning Required';
-                    statusBadge.className = 'mt-4 text-xs font-semibold px-3 py-1.5 rounded-xl bg-blue-900/40 text-blue-300 border border-blue-800/40';
-                }
-            }, 200);
+        // 6. Dynamic Readiness Gauge & Color Thresholds
+        setTimeout(() => {
+            const gaugeRing = document.getElementById('gaugeRing');
+            const offset = 100 - scorePercentage;
+            gaugeRing.style.strokeDashoffset = offset;
+            
+            document.getElementById('readinessScoreText').textContent = `${scorePercentage}%`;
+            document.getElementById('scoreRatioText').textContent = `${matchedSkills.length} / ${requiredSkills.length} Skills`;
+            
+            const statusBadge = document.getElementById('readinessStatus');
+            
+            // Remove previous stroke color classes
+            gaugeRing.classList.remove('text-blue-500', 'text-red-500', 'text-amber-500', 'text-emerald-500');
 
-            // 7. Render Skill Map Progress Bars (Step 7)
-            const skillBarsContainer = document.getElementById('skillBarsContainer');
-            skillBarsContainer.innerHTML = requiredSkills.map(skill => {
-                const isMatched = matchedSkills.includes(skill);
-                const fillPercentage = isMatched ? 100 : Math.floor(Math.random() * 25) + 15; // 100% if owned, 15-40% if missing baseline
+            if (scorePercentage >= 85) {
+                // 🟢 GREEN — Ready (85%+)
+                gaugeRing.classList.add('text-emerald-500');
+                statusBadge.textContent = '🟢 Ready';
+                statusBadge.className = 'mt-4 text-xs font-semibold px-3 py-1.5 rounded-xl bg-emerald-950/60 text-emerald-400 border border-emerald-800/50';
+            } else if (scorePercentage >= 41) {
+                // 🟠 AMBER — Developing (41% - 84%)
+                gaugeRing.classList.add('text-amber-500');
+                statusBadge.textContent = '🟠 Developing';
+                statusBadge.className = 'mt-4 text-xs font-semibold px-3 py-1.5 rounded-xl bg-amber-950/60 text-amber-400 border border-amber-800/50';
+            } else {
+                // 🔴 RED — Skill Gap (0% - 40%)
+                gaugeRing.classList.add('text-red-500');
+                statusBadge.textContent = '🔴 Skill Gap';
+                statusBadge.className = 'mt-4 text-xs font-semibold px-3 py-1.5 rounded-xl bg-red-950/60 text-red-400 border border-red-800/50';
+            }
+        }, 200);
 
-                return `
-                    <div>
-                        <div class="flex justify-between items-center text-sm mb-1">
-                            <span class="font-medium ${isMatched ? 'text-white' : 'text-gray-400'}">${skill}</span>
-                            <span class="text-xs ${isMatched ? 'text-emerald-400 font-bold' : 'text-amber-400'}">${isMatched ? '✓ 100%' : `${fillPercentage}%`}</span>
-                        </div>
-                        <div class="w-full h-3 bg-gray-800 rounded-full overflow-hidden">
-                            <div class="h-full ${isMatched ? 'bg-gradient-to-r from-blue-500 to-emerald-400' : 'bg-gradient-to-r from-amber-600/70 to-amber-500/40'} transition-all duration-1000" style="width: ${fillPercentage}%"></div>
-                        </div>
+        // 7. Render Skill Map Progress Bars
+        const skillBarsContainer = document.getElementById('skillBarsContainer');
+        skillBarsContainer.innerHTML = requiredSkills.map(skill => {
+            const isMatched = matchedSkills.includes(skill);
+            const fillPercentage = isMatched ? 100 : Math.floor(Math.random() * 25) + 15;
+
+            return `
+                <div>
+                    <div class="flex justify-between items-center text-sm mb-1">
+                        <span class="font-medium ${isMatched ? 'text-white' : 'text-gray-400'}">${skill}</span>
+                        <span class="text-xs ${isMatched ? 'text-emerald-400 font-bold' : 'text-amber-400'}">${isMatched ? '✓ 100%' : `${fillPercentage}%`}</span>
                     </div>
-                `;
-            }).join('');
-
-            // 8. Render Personalized Sequential Roadmap (Step 8)
-            const roadmapSteps = missingSkills.length > 0 
-                ? [...missingSkills, "Build Comprehensive Full Project"]
-                : ["Advanced Mastery & Architecture", "Build Full Project", "Interview Preparation"];
-
-            const roadmapStepContainer = document.getElementById('roadmapStepContainer');
-            roadmapStepContainer.innerHTML = roadmapSteps.map((stepTitle, idx) => {
-                const stepNum = String(idx + 1).padStart(2, '0');
-                return `
-                    <div class="flex items-start gap-4 relative z-10">
-                        <div class="w-12 h-12 rounded-2xl bg-[#1f2937] border border-blue-500/50 flex items-center justify-center font-bold text-blue-400 shrink-0 shadow-lg">
-                            ${stepNum}
-                        </div>
-                        <div class="bg-[#1f2937]/70 border border-gray-700/60 rounded-2xl p-4 flex-1">
-                            <h4 class="font-semibold text-white text-base">${stepTitle}</h4>
-                            <p class="text-xs text-gray-400 mt-1">Focus module to bridge your target career skill gap.</p>
-                        </div>
+                    <div class="w-full h-3 bg-gray-800 rounded-full overflow-hidden">
+                        <div class="h-full ${isMatched ? 'bg-gradient-to-r from-blue-500 to-emerald-400' : 'bg-gradient-to-r from-amber-600/70 to-amber-500/40'} transition-all duration-1000" style="width: ${fillPercentage}%"></div>
                     </div>
-                `;
-            }).join('');
+                </div>
+            `;
+        }).join('');
 
-        });
-    </script>
+        // 8. Render Personalized Sequential Roadmap
+        const roadmapSteps = missingSkills.length > 0 
+            ? [...missingSkills, "Build Comprehensive Full Project"]
+            : ["Advanced Mastery & Architecture", "Build Full Project", "Interview Preparation"];
+
+        const roadmapStepContainer = document.getElementById('roadmapStepContainer');
+        roadmapStepContainer.innerHTML = roadmapSteps.map((stepTitle, idx) => {
+            const stepNum = String(idx + 1).padStart(2, '0');
+            return `
+                <div class="flex items-start gap-4 relative z-10">
+                    <div class="w-12 h-12 rounded-2xl bg-[#1f2937] border border-blue-500/50 flex items-center justify-center font-bold text-blue-400 shrink-0 shadow-lg">
+                        ${stepNum}
+                    </div>
+                    <div class="bg-[#1f2937]/70 border border-gray-700/60 rounded-2xl p-4 flex-1">
+                        <h4 class="font-semibold text-white text-base">${stepTitle}</h4>
+                        <p class="text-xs text-gray-400 mt-1">Focus module to bridge your target career skill gap.</p>
+                    </div>
+                </div>
+            `;
+        }).join('');
+
+    });
+</script>
 </body>
 </html>
