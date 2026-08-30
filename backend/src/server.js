@@ -24,6 +24,7 @@ app.use('/api/careers', careerRoutes);
 app.use('/api/users', userRoutes);
 app.use('/api/portfolio', portfolioRoutes);
 app.use('/api/chat', chatRoutes);
+app.use('/api/quests', questRoutes); // Mount path
 
 // Health Check Endpoint
 app.get('/api/health', (req, res) => {
