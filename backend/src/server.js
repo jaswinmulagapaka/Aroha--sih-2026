@@ -5,12 +5,14 @@ require('dotenv').config();
 // 1. IMPORT THE NEW CAREER ROUTES HERE
 const careerRoutes = require('./routes/careerRoutes');
 const userRoutes = require('./routes/userRoutes');
+const questRoutes = require('./routes/questRoutes');
 
 const app = express();
 const PORT = process.env.PORT || 5000;
 
 app.use(cors());
 app.use(express.json());
+app.use('/api/quests', questRoutes);
 
 // Health Check Endpoint
 app.get('/api/health', (req, res) => {
