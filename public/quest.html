@@ -9,14 +9,22 @@
 </head>
 <body class="bg-gray-900 text-white min-h-screen">
   
-  <!-- The container where our JavaScript will render the app -->
+  <!-- Container where JavaScript renders the app -->
   <div id="quest-board-root"></div>
 
   <script>
     // --- Configuration ---
-    // Change this to test the "no user" state
-    const currentUserId = 'user_123'; 
+    const currentUserId = localStorage.getItem('user_id') || 'user_123'; 
     
+    // Global state track
+    let appState = {
+      loading: false,
+      error: null,
+      quests: [],
+      userId: currentUserId,
+      completingQuestIds: new Set() // Tracks quests currently calling POST /complete
+    };
+
     // --- DOM Elements ---
     const rootElement = document.getElementById('quest-board-root');
 
@@ -77,43 +85,70 @@
         return `<div class="col-span-3 text-center text-gray-400 py-10">No quests found for this user.</div>`;
       }
 
-      return quests.map((quest) => `
-        <div class="bg-[#1f2937]/70 border border-gray-800 hover:border-blue-500/50 rounded-2xl p-6 flex flex-col justify-between transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/10 group">
-          <div>
-            <div class="flex items-center justify-between mb-4">
-              <span class="text-xs font-semibold px-3 py-1 rounded-full border ${getDifficultyBadge(quest.difficulty)}">
-                ${quest.difficulty || 'Medium'}
-              </span>
-              <span class="text-xs text-gray-400 flex items-center gap-1 font-medium">
-                ⏱️ ${quest.estimatedHours || 2} hrs
-              </span>
+      return quests.map((quest) => {
+        const isCompleting = appState.completingQuestIds.has(quest.id);
+        const isCompleted = quest.completed === true;
+
+        // Card styling based on completion state
+        const cardStyle = isCompleted 
+          ? 'bg-gray-800/30 border-gray-800/50 opacity-60 grayscale pointer-events-none'
+          : 'bg-[#1f2937]/70 border-gray-800 hover:border-blue-500/50 hover:shadow-lg hover:shadow-blue-500/10';
+
+        return `
+          <div class="${cardStyle} border rounded-2xl p-6 flex flex-col justify-between transition-all duration-300 group">
+            <div>
+              <div class="flex items-center justify-between mb-4">
+                <span class="text-xs font-semibold px-3 py-1 rounded-full border ${getDifficultyBadge(quest.difficulty)}">
+                  ${quest.difficulty || 'Medium'}
+                </span>
+                <span class="text-xs text-gray-400 flex items-center gap-1 font-medium">
+                  ⏱️ ${quest.estimatedHours || 2} hrs
+                </span>
+              </div>
+
+              <h3 class="text-lg font-bold text-white group-hover:text-blue-400 transition-colors line-clamp-2 mb-4">
+                ${quest.title}
+              </h3>
+
+              <div class="flex flex-wrap gap-1.5 mb-6">
+                ${(quest.skillsCovered || []).map(skill => `
+                  <span class="text-xs px-2.5 py-1 rounded-md bg-gray-800 text-gray-300 border border-gray-700/60 font-medium">
+                    ${skill}
+                  </span>
+                `).join('')}
+              </div>
             </div>
 
-            <h3 class="text-lg font-bold text-white group-hover:text-blue-400 transition-colors line-clamp-2 mb-4">
-              ${quest.title}
-            </h3>
-
-            <div class="flex flex-wrap gap-1.5 mb-6">
-              ${(quest.skillsCovered || []).map(skill => `
-                <span class="text-xs px-2.5 py-1 rounded-md bg-gray-800 text-gray-300 border border-gray-700/60 font-medium">
-                  ${skill}
-                </span>
-              `).join('')}
+            <div class="space-y-2">
+              ${isCompleted ? `
+                <button disabled class="w-full py-2.5 rounded-xl bg-emerald-950/60 border border-emerald-800/50 text-emerald-400 font-semibold text-sm cursor-not-allowed">
+                  ✓ Completed
+                </button>
+              ` : `
+                <button 
+                  type="button" 
+                  onclick="completeQuest('${quest.id}')"
+                  ${isCompleting ? 'disabled' : ''}
+                  class="w-full py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 disabled:bg-emerald-800 disabled:cursor-not-allowed text-white font-semibold text-sm transition-all duration-200 shadow-md shadow-emerald-600/20 active:scale-[0.98] flex items-center justify-center gap-2"
+                >
+                  ${isCompleting ? `
+                    <svg class="animate-spin h-4 w-4 text-white" xmlns="http://www.w3.org/2000/center" fill="none" viewBox="0 0 24 24">
+                      <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                      <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                    </svg>
+                    Completing...
+                  ` : 'Complete Quest'}
+                </button>
+              `}
             </div>
           </div>
-
-          <button 
-            type="button" 
-            onclick="console.log('Starting Quest: ${quest.title.replace(/'/g, "\\'")}')" 
-            class="w-full py-2.5 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-semibold text-sm transition-all duration-200 shadow-md shadow-blue-600/20 active:scale-[0.98]"
-          >
-            Start Mission
-          </button>
-        </div>
-      `).join('');
+        `;
+      }).join('');
     };
 
-    const updateUI = ({ loading, error, quests, userId }) => {
+    const updateUI = () => {
+      const { loading, error, quests, userId } = appState;
+
       if (!userId) {
         rootElement.innerHTML = `
           <div class="w-full max-w-6xl mx-auto p-6 text-center text-gray-400">
@@ -125,7 +160,7 @@
 
       const errorHtml = error 
         ? `<div class="p-4 rounded-xl bg-red-950/40 border border-red-800/50 text-red-400 text-sm mb-6">
-            ⚠️ Failed to load quests: ${error}
+            ⚠️ ${error}
            </div>` 
         : '';
 
@@ -140,22 +175,21 @@
       `;
     };
 
-    // --- Data Fetching (Main Logic) ---
+    // --- API Handlers ---
     let currentAbortController = null;
 
     const fetchQuests = async (userId) => {
       if (!userId) {
-        updateUI({ loading: false, error: null, quests: [], userId: null });
+        appState = { ...appState, loading: false, error: null, quests: [], userId: null };
+        updateUI();
         return;
       }
 
-      // Initial loading state
-      updateUI({ loading: true, error: null, quests: [], userId });
+      appState.loading = true;
+      appState.error = null;
+      updateUI();
 
-      // Cancel previous request if a new one is fired
-      if (currentAbortController) {
-        currentAbortController.abort();
-      }
+      if (currentAbortController) currentAbortController.abort();
       currentAbortController = new AbortController();
 
       try {
@@ -163,23 +197,69 @@
           signal: currentAbortController.signal
         });
 
-        if (!response.ok) {
-          throw new Error(`Server error: ${response.status}`);
-        }
+        if (!response.ok) throw new Error(`Server error: ${response.status}`);
 
         const data = await response.json();
-        updateUI({ loading: false, error: null, quests: data, userId });
-
+        appState.quests = data;
+        appState.loading = false;
       } catch (err) {
         if (err.name !== 'AbortError') {
-          updateUI({ loading: false, error: err.message, quests: [], userId });
+          appState.error = err.message;
+          appState.loading = false;
         }
+      } finally {
+        updateUI();
       }
     };
 
-    // Initialize the app
-    fetchQuests(currentUserId);
+    // Handles the 'Complete Quest' POST request & Dashboard update
+    const completeQuest = async (questId) => {
+      appState.completingQuestIds.add(questId);
+      updateUI();
 
+      try {
+        const response = await fetch('http://localhost:5000/api/quests/complete', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            userId: appState.userId,
+            questId: questId
+          })
+        });
+
+        if (!response.ok) {
+          throw new Error(`Failed to complete quest: ${response.statusText}`);
+        }
+
+        const data = await response.json(); // Expected payload: { updatedScore: 85, success: true }
+
+        // 1. Mark quest completed in local state & update UI to gray out card
+        appState.quests = appState.quests.map(q => 
+          q.id === questId ? { ...q, completed: true } : q
+        );
+
+        // 2. Refresh local/session readiness score state
+        if (data.updatedScore !== undefined) {
+          localStorage.setItem('readiness_score', data.updatedScore);
+          
+          // Dispatch custom browser event if another part of your app/dashboard is listening
+          window.dispatchEvent(new CustomEvent('readinessScoreUpdated', { 
+            detail: { updatedScore: data.updatedScore } 
+          }));
+        }
+
+      } catch (err) {
+        alert(`Error completing quest: ${err.message}`);
+      } finally {
+        appState.completingQuestIds.delete(questId);
+        updateUI();
+      }
+    };
+
+    // Initialize the page
+    fetchQuests(currentUserId);
   </script>
 </body>
 </html>
