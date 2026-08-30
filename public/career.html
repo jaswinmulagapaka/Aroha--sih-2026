@@ -72,13 +72,32 @@
 
     </div>
 
-    <script>
+  <script>
+        // 1. Read the user data passed from the onboarding page
+        const userData = JSON.parse(localStorage.getItem('aroha_user_profile'));
+        if (userData) {
+            console.log("Welcome back, " + userData.fullname);
+            console.log("Current Skills: " + userData.skills);
+            console.log("Experience Level: " + userData.experience);
+        } else {
+            console.warn("No onboarding profile found. User might have skipped steps.");
+        }
+
+        // 2. Handle the career selection form submission
         document.getElementById('careerForm').addEventListener('submit', function(e) {
             e.preventDefault();
             const selectedCareer = document.querySelector('input[name="career"]:checked').value;
             
-            // Console log or ready to send to your teammate's backend later
-            console.log("Selected Career:", selectedCareer);
+            // Combine onboarding data and the selected career into one complete profile object
+            const completeProfile = {
+                ...(userData || {}),
+                careerGoal: selectedCareer
+            };
+            
+            // Save the combined data back to localStorage for the next page or backend
+            localStorage.setItem('aroha_complete_profile', JSON.stringify(completeProfile));
+
+            console.log("Complete User Profile:", completeProfile);
             alert(`Career selected: ${selectedCareer}! Ready for the next step.`);
         });
     </script>
